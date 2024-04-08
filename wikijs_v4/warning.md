@@ -1,0 +1,471 @@
+## DS00
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1000002](/DIQs/DS00/1000002) | CPP Status Date Is After CD-4 | Is the CPP Status Date after CD-4? | DS00.CPP_Status_Date > min DS04.ES_date or EF_date where milestone_level = 190. |
+
+## DS01
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1010003](/DIQs/DS01/1010003) | CA with CA Child | Does the CA have a CA as a child in the WBS hierarchy? | CA found with child of type CA in the WBS hierarchy. |
+| [1010005](/DIQs/DS01/1010005) | Single CAM Across WBS Hierarchy | Was only one unique CAM used across the WBS? | Only a single CAM found for all WBS Elements; more than one CAM is required across the WBS hierarchy |
+| [1010006](/DIQs/DS01/1010006) | Single OBS Across WBS Hierarchy | Was more than one unique OBS_ID used across the WBS? | Only a single OBS_ID found for all WBS Elements; more than one OBS ID is required across the WBS hierarchy |
+| [1010007](/DIQs/DS01/1010007) | SLPP with Child | Does the SLPP have a child in the WBS hierarchy? | SLPP found with child in the WBS hierarchy. |
+| [1010011](/DIQs/DS01/1010011) | WP or PP with Child | Does the WP or PP have a child in the WBS hierarchy? | WP or PP found with child in the WBS hierarchy. |
+| [1010014](/DIQs/DS01/1010014) | CAM Not Consistent in CA Branch | Does the CA have a different CAM from its descendants? | CA and its descendents do not share the same CAM. |
+| [1010015](/DIQs/DS01/1010015) | CA, WP, or PP Missing CAM | Is the CA, WP, or PP missing a CAM? | CA, WP, or PP is missing a CAM name |
+| [1010018](/DIQs/DS01/1010018) | Exit Criteria Missing | Is the Exit Criteria missing? | Exit Criteria is missing |
+| [1010019](/DIQs/DS01/1010019) | Exteranl WBS Without Subproject ID | Is the external WBS missing a subproject ID? | External = Y & subproject_ID is missing or blank. |
+| [1010020](/DIQs/DS01/1010020) | Title Equal to Narrative | Are the Title and Narrative the same? | Narrative is not distinct from the Title (Narrative should be your scope paragraph from your WBS Dictionary) |
+| [1010021](/DIQs/DS01/1010021) | Insufficient WBS Narrative | Is the narrative only one word? | Narrative is only one word. |
+| [1010022](/DIQs/DS01/1010022) | OBS ID Missing | Is the OBS_ID null or blank? | OBS ID is missing |
+| [1010028](/DIQs/DS01/1010028) | PM Name Inconsistent | Is the PM name inconsistent for SLPPs and high-level WBSs? | The CAM name for SLPPs and high-level WBSs is not consistent. (Note: At high levels, the value in the CAM field should represent the PM.) |
+| [1010030](/DIQs/DS01/1010030) | Title Not Unique | Does the Title appear more than once across the WBS hierarchy? | WBS Title is not unique across the WBS hierarchy. |
+| [1010031](/DIQs/DS01/1010031) | WBS ID Missing Delimiters | Is the WBS ID missing delimiters? | WBS ID is missing delimiters (periods recommended). |
+| [1010035](/DIQs/DS01/1010035) | WPM Name Found on WBS, CA, or SLPP | Is the WPM name attached to a WBS, CA, or SLPP? | WPM name found for WBS, CA, or SLPP (WP or PP only) |
+| [9010002](/DIQs/DS01/9010002) | WP / PP Missing WAD | Is this WP / PP missing a WAD? | WBS_ID not in DS08.WBS_ID_WP list. |
+| [9010004](/DIQs/DS01/9010004) | Different CAM Name from DS04 | Does the CAM name for this WBS differ from what is in DS04? | CAM name differs between DS01 and DS04. |
+| [9010013](/DIQs/DS01/9010013) | WP or PP Missing from Cost | Is this WP or PP WBS ID missing in cost? | WBS_ID where type = WP or PP missing in DS03.WBS_ID_WP list (where BCWSi_Dollars, Hours, or FTEs > 0). |
+| [9010014](/DIQs/DS01/9010014) | CA or SLPP Missing from Cost | Is this CA or SLPP WBS ID missing in cost? | WBS_ID where type = CA or SLPP missing in DS03.WBS_ID_CA list (where BCWSi_Dollars, Hours, or FTEs > 0). |
+| [9010015](/DIQs/DS01/9010015) | WP or PP Missing from Schedule (FC) | Is this WP or PP WBS ID missing in your forecast schedule? | WBS_ID where type = WP or PP missing in DS04.WBS_ID list where schedule_type = FC. |
+| [9010016](/DIQs/DS01/9010016) | WP or PP Missing from Schedule (BL) | Is this WP or PP WBS ID missing in your baseline schedule? | WBS_ID where type = WP or PP missing in DS04.WBS_ID list where schedule_type = BL. |
+| [9010023](/DIQs/DS01/9010023) | OBS ID Missing in DS02 OBS List | Is the OBS ID missing in DS02 OBS? | OBS ID missing in the DS02 OBS ID list |
+| [9010024](/DIQs/DS01/9010024) | Overhead Missing From Project | Is Overhead missing from this project? | No rows found in DS03 where BCWSi > 0 (Dollars, Hours, or FTEs) and EOC = Overhead. |
+| [9010030](/DIQs/DS01/9010030) | CA WBS ID Missing in WAD List | Is this CA missing in the WAD list? | WBS_ID where DS01.type = CA not in DS08.WBS_ID list. |
+
+## DS02
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1020040](/DIQs/DS02/1020040) | Title Contains OBS ID | Does the Title contain the OBS ID? | OBS ID found within OBS Title. |
+| [1020042](/DIQs/DS02/1020042) | Title Equal to Narrative | Are the Title and Narrative the same? | Narrative is not distinct from the Title |
+| [1020049](/DIQs/DS02/1020049) | Parent OBS ID Missing | Is the Parent OBS ID missing? | Parent OBS ID is missing. |
+| [1020052](/DIQs/DS02/1020052) | Title Not Unique | Does the Title appear more than once across the OBS hierarchy? | OBS Title is not unique across the OBS hierarchy. |
+
+## DS03
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1030059](/DIQs/DS03/1030059) | Future Actuals | Were actuals collected in the future? | ACWPi <> 0 (Dollars, Hours, or FTEs) and period_date > cpp_status_date. |
+| [1030060](/DIQs/DS03/1030060) | Future Performance | For this WP, was performance collected in the future? | WP found with BCWPi <> 0 (Dollars, Hours, or FTEs) and period_date > cpp_status_date. |
+| [1030064](/DIQs/DS03/1030064) | Estimates in the Past | Are there estimates still showing in previous periods? | ETCi <> 0 (Dollars, Hours, or FTEs) where period_date <= CPP_Status_Date. |
+| [1030067](/DIQs/DS03/1030067) | BCWSi <> BCWPi for LOE | Is there a delta between BCWS and BCWP for this LOE work? | BCWSi <> BCWPi for LOE work (Dollar, Hours, or FTEs). |
+| [1030074](/DIQs/DS03/1030074) | 0-100 Budget Spread Improperly | Is the budget for this 0-100 work spread across more than a one period? | 0-100 work found with BCWSi > 0 (Dollar, Hours, or FTEs) in more than one period. |
+| [1030075](/DIQs/DS03/1030075) | 50-50 Budget Spread Improperly | Is the budget for this 50-50 work spread improperly? (Must be across two consecutive periods and with the same value.) | 50-50 work (EVT = E) where BCWSi (Dollar, Hours, or FTEs) was found in either one period only or more than two, non-consecutive periods more than 45 days apart, or spread unevenly. |
+| [1030079](/DIQs/DS03/1030079) | Negative Performance | Does this WP or PP have negative performance? | WP or PP found with BCWPi < 0 (Dollars, Hours, or FTEs). |
+| [1030080](/DIQs/DS03/1030080) | Negative Budget | Does this WP or PP have negative budget? | WP or PP found with BCWSi < 0 (Dollars, Hours, or FTEs). |
+| [1030084](/DIQs/DS03/1030084) | Negative Estimates | Does this CA, WP, or PP have negative estimates? | CA, WP, or PP found with ETCi < 0 (Dollars, Hours, or FTEs). |
+| [1030086](/DIQs/DS03/1030086) | EVT Justification Missing | Is this WP or PP missing an EVT Justification? | EVT Justification is missing for EVT = B,G, H, J, L, M, N, O, or P. |
+| [1030087](/DIQs/DS03/1030087) | EVT Missing | Is this WP or PP missing an EVT? | EVT is missing. |
+| [1030093](/DIQs/DS03/1030093) | Insufficient Overhead | Is this SLPP, WP, or PP lacking sufficient Overhead? (Minimally 10% of the total Budget by period) | Overhead BCWSi for this SLPP, WP, or PP makes up less than 10% of total budget for this period (on Dollars, Hours, or FTEs). |
+| [1030099](/DIQs/DS03/1030099) | Estimates On Completed Work | Are there estimates on this WP even though it is complete? | ETCi <> 0 (Dollars, Hours, or FTEs) on completed work (BCWPc / BCWSc > 99%). |
+| [1030109](/DIQs/DS03/1030109) | Invalid Use of NA EVT | Has EVT of type NA been selected for non-Control Account data? | EVT = NA on WP row or CA row not marked as type 'CA' in DS01 (WBS). |
+| [1030110](/DIQs/DS03/1030110) | Subcontract Comingled with Non-Overhead EOCs | Does this SLPP, PP, or WP mingle Subcontract with other EOC types (excluding Overhead)? | EOC = Subcontract & Material, ODC, or Labor by WBS_ID_WP or WBS_ID_CA. |
+| [9030057](/DIQs/DS03/9030057) | Cost Periods Not One Month Apart | Is this period date less than 20 or more than 36 days apart from either the previous or next period? | Period_date is not within 20-36 days from previous or next period. |
+| [9030065](/DIQs/DS03/9030065) | Estimates on PP or CA | Are there estimates on this CA or PP? | CA or PP with ETCi <> 0 (Dollars, Hours, or FTEs). |
+| [9030071](/DIQs/DS03/9030071) | SLPP or PP with Actuals | Does this SLPP or PP have actuals? | SLPP or PP found with ACWPi <> 0 (Dollars, Hours, or FTEs). |
+| [9030072](/DIQs/DS03/9030072) | WP or PP Missing In FC Schedule | Is this WP or PP missing in the FC Schedule? | WBS_ID_WP missing from DS04.WBS_ID list (where schedule_type = FC). |
+| [9030074](/DIQs/DS03/9030074) | VAC without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the VAC is tripping the unfavorable dollar threshold? | |BCWSi_dollars - ACWPi_dollars - ETCi_dollars|) > |DS07.threshold_cost_VAC_dollar_unfav| & DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030082](/DIQs/DS03/9030082) | CA Missing In WBS | Is this CA missing in the WBS (DS01)? | The CA WBS ID was not found in the WBS (DS01). |
+| [9030083](/DIQs/DS03/9030083) | CA Type Mismatched With WBS Dictionary | Is this Control Account WBS ID typed as something other than CA in the WBS Dictionary? | WBS_ID_CA not in DS01.WBS_ID list where DS01.type = CA. |
+| [9030092](/DIQs/DS03/9030092) | Material Comingled with Non-Overhead EOCs | Does this SLPP, PP, or WP comingle Material with other EOC types (excluding Overhead)? | EOC = Material & Subcontract, ODC, or Labor by WBS_ID_WP or WBS_ID_CA. |
+| [9030094](/DIQs/DS03/9030094) | Overhead Not Mingled With Other EOCs | Does this SLPP, PP, or WP have only Overhead EOCs? | SLPP, PP, or WP with only Overhead. |
+| [9030096](/DIQs/DS03/9030096) | SLPP or PP Type Mismatch with DS01 (WBS) | Is this SLPP or PP mistyped in DS01 (WBS)? | EVT = K but DS01 (WBS) type is not SLPP or PP. (Note: This flag also appears if DS01 type = PP but no WP ID is missing and if type = SLPP but a WP ID was found.) |
+| [9030100](/DIQs/DS03/9030100) | Cost Missing Resources | Is this WP or PP missing accompanying Resources (DS06) by EOC? | WP or PP with BCWSi <> 0 (Dollars, Hours, or FTEs) is missing Resources (DS06) by EOC. |
+| [9030101](/DIQs/DS03/9030101) | WP / PP Missing in WBS Dictionary | Is this WP WBS / PP ID missing in the WBS Dictionary? | WBS_ID_WP missing from DS01.WBS_ID list. |
+| [9030102](/DIQs/DS03/9030102) | WP or PP Missing In BL Schedule | Is this WP or PP missing in the BL Schedule? | WBS_ID_WP missing from DS04.WBS_ID list (where schedule_type = BL). |
+| [9030104](/DIQs/DS03/9030104) | WP or PP Type Mismatch with Type in WBS Dictionary | Is this Work Package or Package typed as something other than WP or PP in the WBS Dictionary? | WBS_ID_WP found DS01.WBS_ID where type <> PP or WP. |
+| [9030105](/DIQs/DS03/9030105) | WP or PP Parent Mismatched with DS01 (WBS) Parent | Is the parent ID of this WP or PP misaligned with what is in DS01 (WBS)? | The parent ID for this WP or PP does not align with the parent ID found in DS01 (WBS). |
+| [9030311](/DIQs/DS03/9030311) | Incremental CV without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the incremental CV is tripping the favorable dollar threshold? | DS03.CVi (|BCWPi - ACWPi|) > |DS07.threshold_cost_inc_dollar_fav| & DS11.narrative_RC_CVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030312](/DIQs/DS03/9030312) | CV without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the CV is tripping the favorable dollar threshold? | DS03.CVc (|BCWP - ACWP|) > |DS07.threshold_cost_cum_dollar_fav| & DS11.narrative_RC_CVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030313](/DIQs/DS03/9030313) | CV without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the CV is tripping the unfavorable dollar threshold? | DS03.CVc (|BCWP - ACWP|) > |DS07.threshold_cost_cum_dollar_unfav| & DS11.narrative_RC_CVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030314](/DIQs/DS03/9030314) | CV Percent without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the CV percent is tripping the favorable percent threshold? | DS03.CVc % (|(BCWP - ACWP) / BCWP|) > |DS07.threshold_cost_cum_dollar_fav| & DS11.narrative_RC_CVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030315](/DIQs/DS03/9030315) | CV Percent without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the CV percent is tripping the unfavorable percent threshold? | DS03.CVc % (|(BCWP - ACWP) / BCWP|) > |DS07.threshold_cost_cum_dollar_unfav| & DS11.narrative_RC_CVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030316](/DIQs/DS03/9030316) | SV without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the SV is tripping the favorable dollar threshold? | DS03.SVc (|BCWP - BCWS|) > |DS07.threshold_schedule_cum_dollar_fav| & DS11.narrative_RC_SVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030317](/DIQs/DS03/9030317) | SV without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the SV is tripping the unfavorable dollar threshold? | DS03.SVc (|BCWP - BCWS|) > |DS07.threshold_schedule_cum_dollar_unfav| & DS11.narrative_RC_SVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030318](/DIQs/DS03/9030318) | SV Percent without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the SV percent is tripping the favorable percent threshold? | DS03.SVc % (|(BCWP - BCWS) / BCWS|) > |DS07.threshold_schedule_cum_pct_fav| & DS11.narrative_RC_SVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030319](/DIQs/DS03/9030319) | SV Percent without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the SV percent is tripping the unfavorable percent threshold? | DS03.SVc % (|(BCWP - BCWS) / BCWS|) > |DS07.threshold_schedule_cum_pct_unfav| & DS11.narrative_RC_SVc is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030320](/DIQs/DS03/9030320) | VAC without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the VAC is tripping the favorable dollar threshold? | |BCWSi_dollars - ACWPi_dollars - ETCi_dollars|) > |DS07.threshold_cost_VAC_dollar_fav| & DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030321](/DIQs/DS03/9030321) | Incremental CV without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the incremental CV is tripping the unfavorable dollar threshold? | DS03.CVi (|BCWPi - ACWPi|) > |DS07.threshold_cost_inc_dollar_unfav| & DS11.narrative_RC_CVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030322](/DIQs/DS03/9030322) | Incremental CV Percent without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the incremental CV percent is tripping the favorable percent threshold? | DS03.CVi (|(BCWPi - ACWPi) / BCWPi|) > |DS07.threshold_cost_inc_pct_fav| & DS11.narrative_RC_CVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030323](/DIQs/DS03/9030323) | Incremental CV Percent without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the incremental CV percent is tripping the unfavorable percent threshold? | DS03.CVi (|(BCWPi - ACWPi) / BCWPi|) > |DS07.threshold_cost_inc_pct_unfav| & DS11.narrative_RC_CVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030324](/DIQs/DS03/9030324) | WP / PP EVT Misaligned with WAD | Is the EVT for this WP or PP misaligned with the EVT in the WAD? | DS03.EVT <> DS08.EVT (by WBS_ID_WP). |
+| [9030325](/DIQs/DS03/9030325) | Incremental SV without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the incremental SV is tripping the favorable dollar threshold? | DS03.SVi (|BCWPi - BCWSi|) > |DS07.threshold_schedule_inc_dollar_fav| & DS11.narrative_RC_SVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030326](/DIQs/DS03/9030326) | Incremental SV without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the incremental SV is tripping the unfavorable dollar threshold? | DS03.SVi (|BCWPi - BCWSi|) > |DS07.threshold_schedule_inc_dollar_unfav| & DS11.narrative_RC_SVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030327](/DIQs/DS03/9030327) | Incremental SV Percent without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the incremental SV percent is tripping the favorable percent threshold? | DS03.SVi (|(BCWPi - BCWSi) / BCWSi|) > |DS07.threshold_schedule_inc_pct_fav| & DS11.narrative_RC_SVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030328](/DIQs/DS03/9030328) | Incremental SV Percent without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the incremental SV percent is tripping the unfavorable percent threshold? | DS03.SVi (|(BCWPi - BCWSi) / BCWSi|) > |DS07.threshold_schedule_inc_pct_unfav| & DS11.narrative_RC_SVi is missing or blank (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030329](/DIQs/DS03/9030329) | VAC Percent without Root Cause Narrative (Favorable) | Is a root cause narrative missing for this CA where the VAC % is tripping the favorable percent threshold? | |(BCWSi_dollars - ACWPi_dollars - ETCi_dollars) / BCWSi_dollars| > |DS07.threshold_cost_VAC_pct_fav| & DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+| [9030330](/DIQs/DS03/9030330) | VAC Percent without Root Cause Narrative (Unfavorable) | Is a root cause narrative missing for this CA where the VAC % is tripping the unfavorable percent threshold? | |(BCWSi_dollars - ACWPi_dollars - ETCi_dollars) / BCWSi_dollars| > |DS07.threshold_cost_VAC_pct_unfav| & DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA & DS11.WBS_ID). |
+
+## DS04
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1040107](/DIQs/DS04/1040107) | CD / BCP Milestones Out of Sequence | Is this CD or BCP out of sequence chronologically in the milestone list? | CD or BCP milestone (milestone_level = 1xx) occurs out of sequence with successive milestone (ES_date > ES_date of the successive milestone). |
+| [1040114](/DIQs/DS04/1040114) | Comingling of SVT & Non-SVT | Does this WBS comingle SVT & Non-SVT tasks? | WBS has SVT tasks & Non-SVT tasks (subtype = SVT & subtype >< SVT by WBS_ID). |
+| [1040115](/DIQs/DS04/1040115) | Activity with Original Duration of Zero | Does this activity have an original duration of zero? | Activity duration_original_days = 0. |
+| [1040119](/DIQs/DS04/1040119) | Completed Activity with Zero Actual Duration | Does this completed activity have an actual duration of zero? | Activity with AS_date and AF_date with duration_actual_days = 0. |
+| [1040121](/DIQs/DS04/1040121) | Completed Task with Remaining Duration | Does this completed task have remaining duration? | Task has an AF_Date and duration_remaining_days > 0. |
+| [1040123](/DIQs/DS04/1040123) | Discrete Task Without Non-Physical % Complete Type | Does this discrete task have a % Complete type that is not Physical? | Discrete Task (EVT = B, C, D, E, F, G, H, L, N, O, P) with % Complete type <> Physical (PC_type <> Physical). |
+| [1040124](/DIQs/DS04/1040124) | WBS Summary Task or Milestone with EVT | Does this WBS Summary task or Start/Finish Milestone have an EVT? | EVT found (EVT <> null or blank) on WBS Summary task or Start/Finish Milestone (type = SM, FM, or WS). |
+| [1040125](/DIQs/DS04/1040125) | Hard Constraint Found | Is there a hard constraint on this task? | Hard constraint found (constraint_type = CS_MANDSTART, CS_MSO, CS_MSOB, CS_MANDFIN, CS_MEO, or CS_MEOB). |
+| [1040126](/DIQs/DS04/1040126) | LOE Task without Duration % Complete | Does this LOE task have a % Complete type other than Duration? | LOE Task (EVT = A or type = LOE) with % Complete type <> Duration (PC_type <> Duration). |
+| [1040127](/DIQs/DS04/1040127) | Milestone with Non-Zero Duration | Does this milestone have a non-zero duration? | Milestone with original, actual, or remaining duration > 0 (duration_original_days, duration_actual_days, or duration_remaining_days), or where Start and Finish dates are not aligned (ES_date/EF_date, LS_date/LF_date, AS_date/AF_date). |
+| [1040128](/DIQs/DS04/1040128) | Milestone % Complete Not Equal To 0 Or 100% | Does this milestone have a % Complete other than 0 or 100%? | Milestone (type = SM or FM) with a % complete other than 0 or 100% (pc_duration, pc_units, pc_physical). |
+| [1040130](/DIQs/DS04/1040130) | RPG Without Approve Repgrogramming Milestone | Does RPG exist without an an approve repgrogramming milestone? | Task designated as RPG (RPG = Y) is either marked as the approve RPG MS (miletone_level = 138) or no such milestone found. |
+| [1040132](/DIQs/DS04/1040132) | SVT with EVT | Does this SVT have an EVT? | SVT found with EVT. |
+| [1040133](/DIQs/DS04/1040133) | SVT Not Of Allowed Milestone Type | Is this non-milestone task marked as an SVT? | Task marked as SVT (subtype = SVT), but is not of the appropriate milestone level (milestone_level = 100-135, 140-175, 190-199, 3xx, or 7xx). |
+| [1040135](/DIQs/DS04/1040135) | WBS With Only ZBA Tasks | Does this WBS have only ZBA tasks? | WBS has no other task subtype other than ZBA (subtype = ZBA). |
+| [1040143](/DIQs/DS04/1040143) | Actual Start Later Than Actual Finish | Does this task have an Actual Start later than the Actual Finish? (FC) | AS_date > AF_date (FC). |
+| [1040145](/DIQs/DS04/1040145) | Baseline Task Missing In Forecast | Is this task missing in the forecast schedule? | Task found in baseline schedule (schedule_type = BL) but not in forecast (schedule_type = FC). |
+| [1040150](/DIQs/DS04/1040150) | CD-0 Milestone Missing in Baseline | Is your baseline schedule missing the CD-0 milestone? | No row found for CD-0 milestone (milestone_level = 110) in baseline schedule (schedule_type = BL). |
+| [1040151](/DIQs/DS04/1040151) | CD-0 Milestone Missing in Forecast | Is your forecast schedule missing the CD-0 milestone? | No row found for CD-0 milestone (milestone_level = 110) in forecast schedule (schedule_type = FC). |
+| [1040152](/DIQs/DS04/1040152) | CD-1 Milestone Missing in Baseline | Is your baseline schedule missing the CD-1 milestone? | No row found for CD-1 milestone (milestone_level = 120) in baseline schedule (schedule_type = BL). |
+| [1040153](/DIQs/DS04/1040153) | CD-1 Milestone Missing in Forecast | Is your forecast schedule missing the CD-1 milestone? | No row found for CD-1 milestone (milestone_level = 120) in forecast schedule (schedule_type = FC). |
+| [1040154](/DIQs/DS04/1040154) | CD-2 Milestone Missing in Baseline | Is your baseline schedule missing the CD-2 milestone? | No row found for CD-2 milestone (milestone_level = 130) in baseline schedule (schedule_type = BL). |
+| [1040155](/DIQs/DS04/1040155) | CD-2 Milestone Missing in Forecast | Is your forecast schedule missing the CD-2 milestone? | No row found for CD-2 milestone (milestone_level = 130) in forecast schedule (schedule_type = FC). |
+| [1040156](/DIQs/DS04/1040156) | CD-3 Milestone Missing in Baseline | Is your baseline schedule missing the CD-3 milestone? | No row found for CD-3 milestone (milestone_level = 150) in baseline schedule (schedule_type = BL). |
+| [1040157](/DIQs/DS04/1040157) | CD-3 Milestone Missing in Forecast | Is your forecast schedule missing the CD-3 milestone? | No row found for CD-3 milestone (milestone_level = 150) in forecast schedule (schedule_type = FC). |
+| [1040158](/DIQs/DS04/1040158) | CD-4 Milestone Missing in Baseline | Is your baseline schedule missing the CD-4 milestone? | No row found for CD-4 milestone (milestone_level = 190) in baseline schedule (schedule_type = BL). |
+| [1040159](/DIQs/DS04/1040159) | CD-4 Milestone Missing in Forecast | Is your forecast schedule missing the CD-4 milestone? | No row found for CD-4 milestone (milestone_level = 190) in forecast schedule (schedule_type = FC). |
+| [1040162](/DIQs/DS04/1040162) | Contract Completion Milestone Missing in Baseline | Is your baseline schedule missing the Contract Completion milestone? | No row found for Contract Completion milestone (milestone_level = 180) in baseline schedule (schedule_type = BL). |
+| [1040163](/DIQs/DS04/1040163) | Contract Completion Milestone Missing in Forecast | Is your forecast schedule missing the Contract Completion milestone? | No row found for Contract Completion milestone (milestone_level = 180) in forecast schedule (schedule_type = FC). |
+| [1040166](/DIQs/DS04/1040166) | Actual Finish Prior to Early Finish Along the Driving Path | Does this FC task along the Driving Path have an Actual Finish earlier than the BL Early Finish? | FC AF_date < BL EF_date where driving_path = Y (compare by task_ID). |
+| [1040167](/DIQs/DS04/1040167) | Actual Start Prior to Early Start Along the Driving Path | Does this task along the Driving Path have an Actual Start earlier than the Early Start? (BL) | AS_date < ES_date along the driving path (driving_path = Y). (BL) |
+| [1040168](/DIQs/DS04/1040168) | Duration % Complete Type On Non-LOE Task | Is this non-LOE task using a Duration % Complete type? | Duration % Complete type (PC_type = Duration) on non-LOE task (EVT = A and type = LOE). |
+| [1040169](/DIQs/DS04/1040169) | Early Finish Later Than Late Finish | Is the early finish after the late finish? | EF_date > LF_date. |
+| [1040171](/DIQs/DS04/1040171) | End of PMB Milestone Missing in Baseline | Is your baseline schedule missing the End of PMB milestone? | No row found for End of PMB milestone (milestone_level = 175) in baseline schedule (schedule_type = BL). |
+| [1040172](/DIQs/DS04/1040172) | End of PMB Milestone Missing in Forecast | Is your forecast schedule missing the End of PMB milestone? | No row found for End of PMB milestone (milestone_level = 175) in forecast schedule (schedule_type = FC). |
+| [1040173](/DIQs/DS04/1040173) | Early Start Later Than Early Finish | Is the early start later than the early finish? | ES_date > EF_date. |
+| [1040174](/DIQs/DS04/1040174) | Early Start Later Than Late Start | Is the early start later than the late start? | ES_date > LS_date. |
+| [1040176](/DIQs/DS04/1040176) | EVT Missing Justification | Is this task missing a required justification for the selected EVT? | Task found with EVT = B, G, H, J, L, M, N, O, or P but no justification (justification_EVT = null or blank). |
+| [1040177](/DIQs/DS04/1040177) | EVT Misaligned Between BL & FC | Is the EVT for this task misaligned between BL & FC schedules? | Task EVT is misaligned between BL & FC schedules. |
+| [1040179](/DIQs/DS04/1040179) | Actual Start Missing on Finished Task | Is this task missing an Actual Start even though it has an Actual Finish? (FC) | AS_date missing on task with AF_date (FC). |
+| [1040180](/DIQs/DS04/1040180) | Hard Constraint Missing Date | Is this hard constraint missing a constraint date? | Hard constraint found (constraint_type = CS_MANDSTART, CS_MSO, CS_MSOB, CS_MANDFIN, CS_MEO, or CS_MEOB) missing a constraint_date. |
+| [1040181](/DIQs/DS04/1040181) | Hard Constraint Missing Justification | Does this task have a hard constraint without a justification? | Task found with a hard constraint (constraint_type = CS_MANDSTART,CS_MSO, CS_MSOB, CS_MANDFIN, CS_MEO, or CS_MEOB) but no justification (justification_constraint_hard is null or empty). |
+| [1040186](/DIQs/DS04/1040186) | LOE Mingled With Other EVT Types | Is LOE mingled with other EVT types for this WBS? | LOE (EVT = LOE) is mingled with other EVT types (EVT <> LOE) for this WBS_ID. |
+| [1040188](/DIQs/DS04/1040188) | LOE or WBS Summary Task On Driving Path | Is this LOE or WBS summary task on the driving path? | LOE task (EVT = A or type = LOE) or WBS summary task (type = WS) found on the driving path (driving_path = Y). |
+| [1040190](/DIQs/DS04/1040190) | Late Start Later Than Late Finish (FC) | Is the late start date later than the late finish? (FC) | LS_date > LF_date in Forecast Schedule (schedule_type = FC). |
+| [1040191](/DIQs/DS04/1040191) | Major Milestone Not Coded As SVT | Is this major milestone not coded as an SVT? | Major milestone not coded as an SVT (subtype = SVT) (Required on milestone_level = 100-135, 140-170, 190-199, 3xx, and 7xx). |
+| [1040192](/DIQs/DS04/1040192) | Milestone Prior To Approve Start Project | Is this milestone earlier than the approve start project milestone? | Milestone has an early start date (ES_Date) prior to the approve start project milestone (milestone_level = 100). |
+| [1040193](/DIQs/DS04/1040193) | Milestone After Approve Finish Project | Is this milestone after the approve finish project milestone? | Milestone has an early finish date (EF_Date) later than the approve finish project milestone (milestone_level = 199). |
+| [1040195](/DIQs/DS04/1040195) | Milestone Typed Improperly | Is this milestone not typed as a start or finish milestone? | Milestone level has been provided but tasks type is not either SM or FM. |
+| [1040199](/DIQs/DS04/1040199) | Completed Task Missing Actual Finish | Is this completed task (physical, units, or duration % complete = 100%) missing an Actual Finish? | Task with a physical, units, or duration % complete = 1 (pc_physical, pc_units, pc_duration) missing Actual Finish (AF_Date). |
+| [1040200](/DIQs/DS04/1040200) | Started Task Missing Actual Start | Is this task with a non-zero % Complete missing an Actual Start? | Task with a non-zero % Complete (pc_units, pc_duration, or pc_physical > 0) missing Actual Start (AS_Date). |
+| [1040226](/DIQs/DS04/1040226) | ZBA Not Coded As Subcontract Alignment Milestone | Should this ZBA be coded as a subcontract alignment milestone? | ZBA subtype (subtype = ZBA) found on non-subcontract alignment milestone (milestone_level <> 8xx). |
+| [9040140](/DIQs/DS04/9040140) | Actual Finish Misaligned With Cost (WP) | Is the actual finish for this WP misaligned with last recorded ACWP or BCWP in cost? | Max AF_Date <> max period_date where DS03.ACWPi or DS03.BCWPi > 0 (dollars, hours, or FTEs) by DS04.WBS_ID & DS03.WBS_ID_WP. |
+| [9040144](/DIQs/DS04/9040144) | Actual Start Misaligned With Cost (WP) | Is the actual start for this WP misaligned with last recorded ACWP or BCWP in cost? | Min AS_Date <> min period_date where DS03.ACWPi or DS03.BCWPi > 0 (dollars, hours, or FTEs) by DS04.WBS_ID & DS03.WBS_ID_WP. |
+| [9040149](/DIQs/DS04/9040149) | Actual Finish Misaligned With Cost (CA) | Is the actual finish for this WBS misaligned with what is in cost? (Note: Comparison is at the CA WBS level, where ACWP has been collected) | Max AF_Date <> max period_date where DS03.ACWPi or DS03.BCWPi > 0 (dollars, hours, or FTEs) by DS04.WBS_ID, DS01.WBS_ID, DS01.parent_WBS_ID, & DS03.WBS_ID_CA. |
+| [9040150](/DIQs/DS04/9040150) | Actual Start Misaligned With Cost (CA) | Is the actual finish for this WBS misaligned with what is in cost? (Note: Comparison is at the CA WBS level, where ACWP has been collected) | Min AS_Date <> min period_date where DS03.ACWPi or DS03.BCWPi > 0 (dollars, hours, or FTEs) by DS04.WBS_ID, DS01.WBS_ID, DS01.parent_WBS_ID, & DS03.WBS_ID_CA. |
+| [9040151](/DIQs/DS04/9040151) | BCP Missing in Change Control | Is this BCP missing an entry in the Change Control log? | task with milestone_level = 131 - 135 found without DS09 entry where type = BCP. |
+| [9040170](/DIQs/DS04/9040170) | Finish Date Misaligned With Cost | Is the early finish date for this WBS misaligned with what is in cost (DS03)? | EF_date for this WBS_ID does not align with the last period where BCWSi > 0 in DS03 cost (dollars/hours/FTEs). |
+| [9040175](/DIQs/DS04/9040175) | Start Date Misaligned With Cost | Is the early start date for this WBS misaligned with what is in cost (DS03)? | ES_date for this WBS_ID does not align with the first period where BCWSi > 0 (dollars/hours/FTEs). |
+| [9040182](/DIQs/DS04/9040182) | HDV CI ID Missing in HDV CI List | Is this HDV CI ID missing in the HDV CI list (DS14)? | HDV CI ID missing in the HDV CI list (DS14). |
+| [9040196](/DIQs/DS04/9040196) | Milestone With Resources | Is this milestone resource-loaded? | Milestone task_ID (task_ID where type = SM/FM) was found in the resources dataset (DS06.task_ID). |
+| [9040198](/DIQs/DS04/9040198) | WBS Justification Missing | Is non-WP, PP, or SLPP WBS type missing a justification? | Non-WP/PP/SLPP type (DS01.type <> WP, PP, or SLPP) is missing a value in justification_WBS. |
+| [9040200](/DIQs/DS04/9040200) | WBS Summary Task with Logic | Does this WBS Summary task have logic? | task_ID where type = WS in DS05.task_ID list. |
+| [9040212](/DIQs/DS04/9040212) | Subproject Mismatch with WBS Dictionary | Is this subproject ID mismatched with what is in DS01 (WBS)? | Subproject_ID does not match with subproject_ID in DS01 (WBS) by WBS. |
+| [9040214](/DIQs/DS04/9040214) | Resource Loaded SVT or ZBA | Is this SVT or ZBA resource loaded? | SVT or ZBA (subtype = SVT or ZBA) task_id found in DS06 task_ID list. |
+| [9040216](/DIQs/DS04/9040216) | Missing Logic | Is this task missing logic? | Task_ID missing from DS05.task_ID. |
+| [9040217](/DIQs/DS04/9040217) | Missing Resources | Is this task missing resources (DS06)? | Task_ID is missing in resources (DS06). |
+| [9040219](/DIQs/DS04/9040219) | Task With Units % Complete Not Materially Resource Loaded | Does this task with units % complete have resources with an EOC other than material? | Task with units % complete type (PC_type = units) has non-material EOC resources (DS06.EOC <> material). |
+| [9040222](/DIQs/DS04/9040222) | WBS Missing in WBS Dictionary | Is this WBS ID missing in the WBS Dictionary? | WBS_ID is missing in DS01.WBS_ID. |
+| [9040223](/DIQs/DS04/9040223) | WBS Missing in Cost | Is this WBS ID missing in Cost? | WBS_ID is not in cost (DS03.WBS_ID). |
+| [9040224](/DIQs/DS04/9040224) | WBS Summary With Resources | Is this WBS Summary resource-loaded? | WBS Summary task (task_ID where type = WS) was found in the resources dataset (DS06.task_ID). |
+| [9040278](/DIQs/DS04/9040278) | EVT Mismatch | Is this task's EVT mismatched with what is in cost? | Task EVT does not match what is in DS03 cost (by WBS ID). |
+| [9040280](/DIQs/DS04/9040280) | Reprogramming Missing in CC Log Detail (WP) | Is this Work or Planning Planning with reprogramming missing in the CC Log detail? | WBS_ID where RPG = Y not found in DS10.WBS_ID list. |
+
+## DS05
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1050232](/DIQs/DS05/1050232) | Lead | Is the lag for this task less than zero, i.e. a lead? | Lag_days < 0. |
+| [1050234](/DIQs/DS05/1050234) | SS or FF Improperly Linked With Other Relationship Types | Does this SS or FF relationship exist alongside an FS or SF relationship? | Predecessor has at least one SS or FF relationship (type = SS or FF) and one non-SS or non-FF relationship tied to it (type = SF or FS). |
+| [1050235](/DIQs/DS05/1050235) | Start-Finish Relationship | Is this a start-finish relationship? | Relationship type is start-finish (type = SF). |
+
+## DS06
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1060236](/DIQs/DS06/1060236) | Resources with Negative Performance | Does this resource have negative performance dollars and/or units? | Resource found with negative performance (actual_dollars < 0 and/or actual_units < 0). |
+| [1060238](/DIQs/DS06/1060238) | Resources with Negative Budget | Does this resource have negative budget dollars and/or units? | Resource found with negative budget (budget_dollars < 0 and/or budget_units < 0). |
+| [1060240](/DIQs/DS06/1060240) | Uneven Use of Overhead | Is Overhead EOC used for some tasks but not all? | Task lacking overhead EOC despite overhead use elsewhere (if overhead is used on tasks, it must be used for all tasks). |
+| [1060241](/DIQs/DS06/1060241) | Task with Overhead EOC Only | Is this task resource-loaded with only Overhead EOC resources? | Task lacking EOC other than Overhead (task_ID where EOC = Overhead only). |
+| [1060242](/DIQs/DS06/1060242) | Non-Zero Resource Lag Planned | Has this resource been scheduled with non-zero lag? | Resource planned lag (lag_planned_date) <> 0. |
+| [1060243](/DIQs/DS06/1060243) | Resource with Non-Zero Remaining Lag | Does this resource have a non-zero remaining lag? | Resource remaining lag (lag_remaining_date) <> 0. |
+| [1060244](/DIQs/DS06/1060244) | Resources with Negative Remaining Budget | Does this resource have negative remaining budget (dollars and/or units)? | Resource found with negative remaining budget (remaining_dollars < 0 and/or remaining_units < 0). |
+| [1060249](/DIQs/DS06/1060249) | Resource Role with Non-Labor EOC | Does this role have a non-labor EOC type? | Role found where EOC is not labor (role_ID is not blank and EOC <> labor). |
+| [1060255](/DIQs/DS06/1060255) | Resource Start Date Later Than Finish Date | Is the start date later than the finish date for this resource? | Resource start_date > finish_date. |
+| [1060256](/DIQs/DS06/1060256) | Labor Resource Lacking Appropriate EOC | Is the EOC for this labor type resource something other than Labor or Overhead? | type = labor where EOC <> Labor or Overhead. |
+| [1060257](/DIQs/DS06/1060257) | Labor Resource with Non-Hour UOM Type | Does this labor-type resource have a non-hour UOM type? | type = labor where UOM <> h. |
+| [1060258](/DIQs/DS06/1060258) | Material Resource with Missing or Numeric UOM | Does this material-type resource have missing or numeric UOM? | type = material where UOM is blank or numeric. |
+| [1060260](/DIQs/DS06/1060260) | BL Resource Missing Among FC Resoures | Is this BL resource missing among the FC resources? | Combo of task_ID, resource_ID, role_ID, & EOC (where schedule_type = BL) not found in DS06 (where schedule_type = FC). |
+| [1060261](/DIQs/DS06/1060261) | FC Resource Missing Among BL Resoures | Is this FC resource missing among the BL resources? | Combo of task_ID, resource_ID, role_ID, & EOC (where schedule_type = BL) not found in DS06 (where schedule_type = BL). |
+| [9060283](/DIQs/DS06/9060283) | Resource Loaded CA or WBS | Is this WBS of type CA or WBS resource loaded? | WBS ID of type CA or WBS (DS01.type = CA or WBS) found with resources (task_ID found in DS06.task_ID list). |
+| [9060287](/DIQs/DS06/9060287) | Resource Labor Performance Misaligned with Cost | Are the resource labor performance units misaligned with the cost labor performance hours? | Resource labor performance units (actual_units where EOC or type = Labor) <> cost labor performance hours (SUM of DS03.BCWPi_dollars where EOC = Labor). |
+| [9060288](/DIQs/DS06/9060288) | Resource Labor Performance without Cost Labor Actuals | Are there resource labor performance units recorded without labor actual hours in cost? | Resource labor performance units > 0 (actual_units where EOC or type = Labor) while cost labor actuals hours = 0 (SUM of DS03.ACWPi_hours where EOC = Labor). |
+| [9060289](/DIQs/DS06/9060289) | Cost Labor Actuals without Resource Labor Performance | Are there labor actual hours in cost without labor performance units in resources? | Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor). |
+| [9060291](/DIQs/DS06/9060291) | Resource Labor Units Misaligned with Cost | Are the labor budget units in resources misaligned with the labor budget hours in cost? | Resource labor budget units (budget_units where EOC or type = Labor) <> cost labor DB (SUM of DS03.BCWSi_dollars where EOC = Labor) by WBS_ID. |
+| [9060292](/DIQs/DS06/9060292) | Resource Non-Labor Hours Recorded Alongside Cost Labor Hours | Are there non-labor budget hours in resources recorded in the same WBS as labor budget hours in cost? | Resource labor budget hours > 0 (Sum of budget_units where type <> Labor and UOM = h) and cost labor DB hours > 0 (Sum of DS03.BCWSi_dollars where EOC = Labor) by WBS_ID. |
+| [9060294](/DIQs/DS06/9060294) | EOC Combo Misaligned with Cost | Is the combo of resource EOCs for this task/WBS misaligned with what is in cost? | Combo of resource EOCs for this DS04.task's WBS ID do not align with combo of DS03 EOCs. |
+| [9060295](/DIQs/DS06/9060295) | Subcontract Resource Missing in SubK List | Is this subcontract resource missing in the subcontract list? | Subcontract EOC task_id (EOC = subcontract) missing in DS13.task_ID list. |
+| [9060296](/DIQs/DS06/9060296) | Resource Finishing Later Than Task | Is this resource scheduled to finish after its parent task? | Resource finish (finish_date) > DS04.EF_date (by task_ID). |
+| [9060300](/DIQs/DS06/9060300) | Resource Starting Earlier Than Task | Is this resource scheduled to start before its parent task? | Start_date < DS04.ES_date (by task_ID; BL schedule only). |
+
+## DS07
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1070259](/DIQs/DS07/1070259) | Negative MR Reprogramming | Is the MR reprogramming less than zero? | MR_rpg_dollars < 0. |
+| [1070260](/DIQs/DS07/1070260) | OTB/OTS Date without MR | Is there an OTB/OTS date without MR? | MR_bgt_dollars = 0 when OTB_OTS_date exists. |
+| [1070262](/DIQs/DS07/1070262) | Negative CBB | Is CBB negative? | CBB_dollars < 0. |
+| [1070263](/DIQs/DS07/1070263) | CBB Not Equal to NCC Plus AUW | Is CBB not equal to NCC plus AUW? | CBB_dollars <> NCC_dollars + AUW_dollars. |
+| [1070264](/DIQs/DS07/1070264) | PM EAC Best Date Earlier Than CPP SD | Is the PM EAC Best date earlier than the CPP Status Date? | EAC_PM_best_date < DS00.CPP_Status_Date. |
+| [1070265](/DIQs/DS07/1070265) | Negative or Zero PM EAC Best Dollars | Is the PM EAC Best dollars value zero or negative? | EAC_PM_Best_dollars <= 0. |
+| [1070266](/DIQs/DS07/1070266) | PM EAC Likely Date Earlier Than CPP SD | Is the PM EAC likely date earlier than the CPP Status Date? | EAC_PM_likely_date < DS00.CPP_Status_Date. |
+| [1070267](/DIQs/DS07/1070267) | PM EAC Dates Chronology Issue | Are the PM EAC dates chronologically ordered as best, likely, worst? | EAC_PM_best_date >= EAC_PM_likely_date OR EAC_PM_likely_date >= EAC_PM_worst_date. |
+| [1070268](/DIQs/DS07/1070268) | Negative or Zero PM EAC Likely Dollars | Is the PM EAC Likely dollars value zero or negative? | EAC_PM_Likely_dollars <= 0. |
+| [1070269](/DIQs/DS07/1070269) | PM EAC Dollars Out of Order | Are the PM EAC dollars increasing in an order other than best, likely, worst? | EAC_PM_best_dollars >= EAC_PM_likely_dollars OR EAC_PM_likely_dollars >= EAC_PM_worst_dollars. |
+| [1070270](/DIQs/DS07/1070270) | PM EAC Likely Dollars & CBB Issue | Are the PM EAC likely dollars greater than the CBB without an OTB/OTS? | EAC_PM_likely_dollars > CBB_dollars where OTB_OTS_date is missing. |
+| [1070271](/DIQs/DS07/1070271) | PM EAC Worst Date Earlier Than CPP SD | Is the PM EAC Worst date earlier than the CPP Status Date? | EAC_PM_worst_date < DS00.CPP_Status_Date. |
+| [1070272](/DIQs/DS07/1070272) | Negative or Zero PM EAC Worst Dollars | Is the PM EAC Worst dollars value zero or negative? | EAC_PM_worst_dollars <= 0. |
+| [1070274](/DIQs/DS07/1070274) | Negative MR Budget | Is the MR budget less than zero? | MR_bgt_dollars < 0. |
+| [1070275](/DIQs/DS07/1070275) | MR Reprogramming without OTB/OTS Date | Is there MR reprogramming without an OTB/OTS date? | MR_rpg_dollars > 0 & OTB_OTS_date missing. |
+| [1070276](/DIQs/DS07/1070276) | Negative NCC | Is NCC negative? | NCC_dollars < 0. |
+| [1070355](/DIQs/DS07/1070355) | Negative Profit Fee | Is profit fee negative? | profit_fee_dollars < 0. |
+| [1070357](/DIQs/DS07/1070357) | Low Cost QRA | Is the quantitative risk analysis confidence level for cost less than 70%? | QRA_CL_cost_pct < .7. |
+| [1070359](/DIQs/DS07/1070359) | Low Schedule QRA | Is the quantitative risk analysis confidence level for schedule less than 70%? | QRA_CL_schedule_pct < .7. |
+| [1070360](/DIQs/DS07/1070360) | Negative TAB | Is the TAB negative? | TAB_dollars < 0. |
+| [1070381](/DIQs/DS07/1070381) | Contract Type Missing | Is the contract type missing? | type = blank or missing. |
+| [1070382](/DIQs/DS07/1070382) | Negative UB (Days) | Are the UB days negative? | UB_bgt_days < 0. |
+| [1070383](/DIQs/DS07/1070383) | Negative UB (Dollars) | Are the UB dollars negative? | UB_bgt_dollars < 0. |
+| [1070384](/DIQs/DS07/1070384) | Negative UB Estimated (Days) | Are the UB estimated days negative? | UB_est_days < 0. |
+| [1070385](/DIQs/DS07/1070385) | Negative UB Estimated (Dollars) | Are the UB estimated dollars negative? | UB_est_dollars < 0. |
+| [9070308](/DIQs/DS07/9070308) | PM EAC Likely Date After CD-4 | Is the PM EAC Likely date later than the CD-4 milestone? | EAC_PM_Likely_date > minimum DS04.EF_date where milestone_level = 190 (FC only). |
+| [9070338](/DIQs/DS07/9070338) | OTB / OTS Without BAC Reprogramming | Is there an OTB/OTS date without BAC reprogramming? | OTB_OTS_date is not null/blank & SUM(DS03.BAC_rpg) = 0. |
+| [9070339](/DIQs/DS07/9070339) | OTB / OTS Without CV Reprogramming | Is there an OTB/OTS date without CV reprogramming? | OTB_OTS_date is not null/blank & SUM(DS03.CV_rpg) = 0. |
+| [9070340](/DIQs/DS07/9070340) | OTB / OTS Without Schedule Reprogramming | Is there an OTB/OTS date without schedule reprogramming? | OTB_OTS_date is not null/blank & COUNT(DS04.RPG = Y) = 0. |
+| [9070341](/DIQs/DS07/9070341) | OTB / OTS Without SV Reprogramming | Is there an OTB/OTS date without SV reprogramming? | OTB_OTS_date is not null/blank & SUM(DS03.SV_rpg) = 0. |
+| [9070351](/DIQs/DS07/9070351) | CBB Misaligned with PMB, MR, & Overrun | Is the stated CBB value in the IPMR header plus the cost Overrun equal to the PMB plus MR? | CBB_dollars <> PMB (DS03.DB + DS07.UB_bgt) + MR_bgt + MR_rpg - Overrun (Sum of DS03.BAC_rpg). |
+| [9070361](/DIQs/DS07/9070361) | TAB Misaligned with BAC Repgrogramming & CBB | Does TAB equal something other than CBB plus BAC Reprogramming? | TAB_dollars <> CBB_dollars + SUM(DS03.BAC_rpg). |
+| [9070363](/DIQs/DS07/9070363) | UB Without UB Change Control | Are there UB dollars without UB transactions in the change control log? | UB_bgt_dollars <> 0 & no rows found in DS10 where category = UB. |
+| [9070365](/DIQs/DS07/9070365) | 12 Months Since OTB-OTS Without BCP | Has it been twelve months since an OTB-OTS date without a BCP? | Minimum 12 month delta between CPP status date & OTB_OTS_date without DS09.type = BCP or DS04.milestone_level between 131 & 135. |
+| [9070367](/DIQs/DS07/9070367) | QRA Confidence Level Low for Cost Following BCP | Is the QRA Confidence Level below 90% for cost following a BCP? | QRA_CL_cost_pct < .9 & count where DS09.type = BCP or where DS04.milestone_level between 131 & 135 > 0. |
+| [9070368](/DIQs/DS07/9070368) | QRA Confidence Level Low for Schedule Following BCP | Is the QRA Confidence Level below 90% for schedule following a BCP? | QRA_CL_schedule_pct < .9 count where DS09.type = BCP or where DS04.milestone_level between 131 & 135 > 0. |
+| [9070369](/DIQs/DS07/9070369) | PMB + MR <> CBB + Overrun | Are the PM and MR equal to something other than CBB plus overrun? | CBB_dollars != sum of DS08.budget_dollars + UB_bgt + MR_bgt + MR_rpg - sum DS03.BAC_rpg. |
+
+## DS08
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1080404](/DIQs/DS08/1080404) | Negative or Missing Budget Dollars | Does this WAD have only negative or zero budget dollar values? | budget_labor_dollars <= 0 & budget_labor_hours <= 0 & budget_material_dollars <= 0 & budget_ODC_dollars <= 0 & budget_subcontract_dollars <= 0. |
+| [1080413](/DIQs/DS08/1080413) | Initial Authorization Date Missing | Is the initial authorization date missing? | initial_auth_date is blank. |
+| [1080427](/DIQs/DS08/1080427) | PM Authorization Missing | Is this WAD missing a PM authorization date? | auth_PM_date is blank. |
+| [1080433](/DIQs/DS08/1080433) | POP Start After Initial Auth Date | Is the POP start later than the initial auth date for the latest WAD revision? | pop_start_date > initial_auth_date. |
+| [1080434](/DIQs/DS08/1080434) | POP Start Earlier Than Previous Revision | Is the POP start of this WAD revision earlier than the POP start of the prior revision? | pop_start_date < pop_start_date of prior auth_PM_date. |
+| [1080439](/DIQs/DS08/1080439) | CA & WP WBS Match | Do the CA & WP WBS IDs match? | WBS_ID = WBS_ID_WP. |
+| [9080386](/DIQs/DS08/9080386) | CA Labor Dollars Misaligned With Cost | Are the labor budget dollars for this CA WAD misaligned with what is in cost? | budget_labor_dollars <> SUM(DS03.BCWSi_dollars) where EOC = labor (by WBS_ID_CA). |
+| [9080387](/DIQs/DS08/9080387) | WP Labor Dollars Misaligned With Cost | Are the labor budget dollars for this WP/PP WAD misaligned with what is in cost? | budget_labor_dollars <> SUM(DS03.BCWSi_dollars) where EOC = labor (by WBS_ID_WP). |
+| [9080388](/DIQs/DS08/9080388) | CA Labor Hours Misaligned With Cost | Are the labor budget hours for this CA WAD misaligned with what is in cost? | budget_labor_hours <> SUM(DS03.BCWSi_hours) where EOC = labor (by WBS_ID_CA). |
+| [9080389](/DIQs/DS08/9080389) | WP Labor Hours Misaligned With Cost | Are the labor budget hours for this WP/PP WAD misaligned with what is in cost? | budget_labor_hours <> SUM(DS03.BCWSi_hours) where EOC = labor (by WBS_ID_WP). |
+| [9080390](/DIQs/DS08/9080390) | CA Material Dollars Misaligned With Cost | Are the material budget dollars for this CA WAD misaligned with what is in cost? | budget_material_dollars <> SUM(DS03.BCWSi_dollars) where EOC = material (by WBS_ID_CA). |
+| [9080391](/DIQs/DS08/9080391) | WP Material Dollars Misaligned With Cost | Are the material budget dollars for this WP WAD misaligned with what is in cost? | budget_material_dollars <> SUM(DS03.BCWSi_dollars) where EOC = material (by WBS_ID_WP). |
+| [9080392](/DIQs/DS08/9080392) | CA ODC Dollars Misaligned With Cost | Are the ODC budget dollars for this CA WAD misaligned with what is in cost? | budget_ODC_dollars <> SUM(DS03.BCWSi_dollars) where EOC = ODC (by WBS_ID_CA). |
+| [9080393](/DIQs/DS08/9080393) | WP ODC Dollars Misaligned With Cost | Are the ODC budget dollars for this WP/PP WAD misaligned with what is in cost? | budget_ODC_dollars <> SUM(DS03.BCWSi_dollars) where EOC = ODC (by WBS_ID_WP). |
+| [9080394](/DIQs/DS08/9080394) | CA Overhead Dollars Misaligned With Cost | Are the overhead budget dollars for this CA WAD misaligned with what is in cost? | budget_overhead_dollars <> SUM(DS03.BCWSi_dollars) where EOC = overhead (by WBS_ID_CA). |
+| [9080395](/DIQs/DS08/9080395) | WP Overhead Dollars Misaligned With Cost | Are the overhead budget dollars for this WP/PP WAD misaligned with what is in cost? | budget_overhead_dollars <> SUM(DS03.BCWSi_dollars) where EOC = overhead (by WBS_ID_WP). |
+| [9080396](/DIQs/DS08/9080396) | CA Subcontract Dollars Misaligned With Cost | Are the subcontract budget dollars for this CA WAD misaligned with what is in cost? | budget_subcontract_dollars <> SUM(DS03.BCWSi_dollars) where EOC = subcontract (by WBS_ID_CA). |
+| [9080397](/DIQs/DS08/9080397) | WP Subcontract Dollars Misaligned With Cost | Are the subcontract budget dollars for this WP/PP WAD misaligned with what is in cost? | budget_subcontract_dollars <> SUM(DS03.BCWSi_dollars) where EOC = subcontract (by WBS_ID_WP). |
+| [9080400](/DIQs/DS08/9080400) | SLPP with CAM Authorization | Does this SLPP WAD have a CAM authorization date? | auth_CAM_date found where DS01.type = SLPP (by WBS_ID). |
+| [9080401](/DIQs/DS08/9080401) | SLPP or PP WAD with Inappropriate EVT | Is EVT for this SLPP or WP-level WAD something other than K? | EVT <> K for SLPP or PP WAD (by DS01.WBS_ID). |
+| [9080406](/DIQs/DS08/9080406) | CAM Authorization Missing | Is a CAM authorization date missing for this non-SLPP WAD? | auth_CAM_date is null / blank where DS01.type <> SLPP (by WBS_ID or WBS_ID_WP). |
+| [9080407](/DIQs/DS08/9080407) | CAM Misaligned with WBS Hierarchy (CA) | Is the CAM on this CA WAD misaligned with what is in the WBS hierarchy? | DS08.CAM <> DS01.CAM (by WBS_ID). |
+| [9080408](/DIQs/DS08/9080408) | CAM Misaligned with WBS Hierarchy (WP) | Is the CAM on this WP/PP WAD misaligned with what is in the WBS hierarchy? | DS08.CAM <> DS01.CAM (by WBS_ID_WP). |
+| [9080409](/DIQs/DS08/9080409) | EVT Misaligned with Cost | Is the EVT for this WP/PP-level WAD misaligned with what is in cost? | EVT <> DS03.EVT (by WBS_ID_WP). |
+| [9080414](/DIQs/DS08/9080414) | CA Labor Dollars Missing In Cost | Are the labor budget dollars for this CA WAD missing in cost? | budget_labor_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = labor (by WBS_ID_CA). |
+| [9080415](/DIQs/DS08/9080415) | WP Labor Dollars Missing In Cost | Are the labor budget dollars for this WP/PP WAD missing in cost? | budget_labor_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = labor (by WBS_ID_WP). |
+| [9080416](/DIQs/DS08/9080416) | CA Material Dollars Missing In Cost | Are the material budget dollars for this CA WAD missing in cost? | budget_material_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = material (by WBS_ID_CA). |
+| [9080417](/DIQs/DS08/9080417) | WP Material Dollars Missing In Cost | Are the material budget dollars for this WP/PP WAD missing in cost? | budget_material_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = material (by WBS_ID_WP). |
+| [9080419](/DIQs/DS08/9080419) | CA ODC Dollars Missing In Cost | Are the ODC budget dollars for this CA WAD missing in cost? | budget_ODC_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = ODC (by WBS_ID_CA). |
+| [9080420](/DIQs/DS08/9080420) | WP ODC Dollars Missing In Cost | Are the ODC budget dollars for this WP/PP WAD missing in cost? | budget_ODC_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = ODC (by WBS_ID_WP). |
+| [9080421](/DIQs/DS08/9080421) | CA Overhead Dollars Missing In Cost | Are the overhead budget dollars for this CA WAD missing in cost? | budget_overhead_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = overhead (by WBS_ID_CA). |
+| [9080422](/DIQs/DS08/9080422) | WP Overhead Dollars Missing In Cost | Are the overhead budget dollars for this WP/PP WAD missing in cost? | budget_overhead_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = overhead (by WBS_ID_WP). |
+| [9080423](/DIQs/DS08/9080423) | PM Authorization After Earliest Recorded CA Performance or Actuals | Is the PM authorization date for this Control Account later than the CA' first recorded instance of either actuals or performance? | auth_PM_date > minimum DS03.period_date where ACWPi or BCWPi > 0 (by WBS_ID). |
+| [9080424](/DIQs/DS08/9080424) | PM Authorization After Earliest Recorded WP Performance or Actuals | Is the PM authorization date for this Work Package later than the WP' first recorded instance of either actuals or performance? | auth_PM_date > minimum DS03.period_date where ACWPi or BCWPi > 0 (by WBS_ID_WP). |
+| [9080425](/DIQs/DS08/9080425) | PM Authorization After CA Actual Start | Is the PM authorization date for this Control Account WAD later than the CA's Actual Start date? | auth_PM_date > DS04.AS_date (by WBS_ID). |
+| [9080426](/DIQs/DS08/9080426) | PM Authorization After WP Actual Start | Is the PM authorization date for this Work Package WAD later than the WP's Actual Start date? | auth_PM_date > DS04.AS_date (by WBS_ID_WP). |
+| [9080430](/DIQs/DS08/9080430) | POP Finish Before Cost Finish (CA) | Is the POP finish for this Control Account WAD before the last recorded SPAE value in cost? | pop_finish_date < max DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by CA WBS ID). |
+| [9080431](/DIQs/DS08/9080431) | POP Finish Before Baseline Early Finish (CA) | Is the POP finish for this Control Account WAD before the baseline early finish? | pop_finish < DS04.EF_date where schedule_type = BL (by DS08.WBS_ID & DS04.WBS_ID via DS01.WBS_ID & DS01.parent_WBS_ID). |
+| [9080432](/DIQs/DS08/9080432) | POP Finish Before Baseline Early Finish (WP) | Is the POP finish for this Work Package WAD before the baseline early finish date? | pop_finish < DS04.EF_date where schedule_type = BL (by DS08.WBS_ID_WP & DS04.WBS_ID_WP). |
+| [9080436](/DIQs/DS08/9080436) | CA Subcontract Dollars Missing In Cost | Are the subcontract budget dollars for this CA WAD missing in cost? | budget_subcontract_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = subcontract (by WBS_ID_CA). |
+| [9080437](/DIQs/DS08/9080437) | WP Subcontract Dollars Missing In Cost | Are the subcontract budget dollars for this WP/PP WAD missing in cost? | budget_subcontract_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = subcontract (by WBS_ID_WP). |
+| [9080604](/DIQs/DS08/9080604) | POP Finish After Project Planned Completion Milestone | Is the POP finish later than the planned completion milestone? | pop_finish > DS04.ES_date/EF_date where milestone_level = 170 & schedule_type = BL. |
+| [9080607](/DIQs/DS08/9080607) | CA & WP Parent-Child Relationship Differs from WBS Hierarchy | Does the parent-child relationship for these CA & WP WBS IDs differ from what's in the WBS hierarchy? | WBS_ID / WBS_ID_WP combo <> DS01.WBS_ID / parent_WBS_ID combo. |
+| [9080608](/DIQs/DS08/9080608) | CA WBS ID Missing in WBS Dictionary | Is this CA WBS ID missing in the WBS dictionary? | WBS_ID not in DS01.WBS_ID list. |
+| [9080609](/DIQs/DS08/9080609) | CA / SLPP WAD Mistyped In WBS Dictionary | Is this CA / SLPP WAD type as something other than CA or SLPP in the WBS dictionary? | DS01.type <> CA or SLPP for this WBS_ID. |
+| [9080610](/DIQs/DS08/9080610) | WAD Missing In WBS Dictionary | Is this PM-authorized WAD missing in the WBS Dictionary (by either WP WBS ID if it exists, or the CA WBS ID)? | WBS_ID_CA or WBS_ID_WP missing from DS01.WBS_ID list (where DS08.auth_PM_date is populated). |
+| [9080611](/DIQs/DS08/9080611) | POP Finish Before Cost Finish (CA) | Is the POP finish for this Control Account before the last recorded SPAE value in cost? | pop_finish_date < max DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by DS08.WBS_ID & DS03.WBS_ID_CA). |
+| [9080612](/DIQs/DS08/9080612) | POP Finish Before Cost Finish (WP) | Is the POP finish for this Work Package WAD before the last recorded SPAE value in cost? | pop_finish_date < max DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by WP WBS ID). |
+| [9080613](/DIQs/DS08/9080613) | POP Start After Cost Start (CA) | Is the POP start for this Control Account WAD after the first recorded SPAE value in cost? | pop_start_date > min DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by CA WBS ID). |
+| [9080614](/DIQs/DS08/9080614) | POP Start After Cost Start (CA) | Is the POP start for this Control Account after the first recorded SPAE value in cost? | pop_start_date > max DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by DS08.WBS_ID & DS03.WBS_ID_CA). |
+| [9080615](/DIQs/DS08/9080615) | POP Start After Cost Start (WP) | Is the POP start for this Work Package WAD after the first recorded SPAE value in cost? | pop_start_date > min DS03.period_date where BCWS, BCWP, ACWP, or ETC <> 0 (by DS08.WBS_ID_WP & DS03.WBS_ID_WP). |
+| [9080616](/DIQs/DS08/9080616) | POP Start After Schedule Actual Start (CA) | Is the POP Start for this CA WAD after the schedule actual start? | POP_start_date > DS04.AS_date where schedule_type = FC (compare by DS08.WBS_ID, DS01.WBS_ID, DS01.parent_WBS_ID, & DS04.WBS_ID). |
+| [9080618](/DIQs/DS08/9080618) | POP Start After Schedule Forecast Start (CA) | Is the POP Start for this Control Account WAD after the forecast start? | POP_start_date > DS04.ES_date where schedule_type = BL (compare by DS08.WBS_ID, DS01.WBS_ID, DS01.parent_WBS_ID, & DS04.WBS_ID). |
+| [9080619](/DIQs/DS08/9080619) | POP Start After Schedule Forecast Start (WP) | Is the POP Start for this Work Package WAD after the schedule forecast start? | POP_start_date > DS04.ES_date where schedule_type = BL (compare by DS08.WBS_ID_WP & DS04.WBS_ID). |
+| [9080620](/DIQs/DS08/9080620) | WBS Type WAD | Is this WAD a WBS type WBS element in the WBS dictionary? | WBS_ID or WBS_ID_WP in DS01.WBS_ID list where DS01.type = WBS. |
+| [9080622](/DIQs/DS08/9080622) | WP WBS ID Missing in WBS Dictionary | Is this WP WBS ID missing in the WBS dictionary? | WBS_ID_WP not in DS01.WBS_ID list. |
+| [9080623](/DIQs/DS08/9080623) | WP WAD Mistyped In WBS Dictionary | Is this WP WAD type as something other than WP or PP in the WBS dictionary? | DS01.type <> WP or PP for this WBS_ID. |
+
+## DS09
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1090439](/DIQs/DS09/1090439) | Approved Date After Implementation Date | Is the approved date later than the implementation date? | approved_date > implementation_date. |
+| [1090441](/DIQs/DS09/1090441) | Original UB CC Log ID Missing in CC Log ID List | Is this Original UB CC Log ID missing in the CC Log ID list? | CC_log_ID_original_UB missing in CC_log_ID list. |
+| [1090447](/DIQs/DS09/1090447) | Missing PM | Is the PM name missing on this CC log entry? | PM null or blank. |
+| [9090442](/DIQs/DS09/9090442) | CC Log ID Missing in CC Log Detail | Is this CC Log ID missing in the log detail? | CC_log_ID missing in DS10.CC_log_ID list. |
+| [9090443](/DIQs/DS09/9090443) | Log Dollars Delta Misaligned With Log Detail Delta | Is the dollars delta for this CC Log entry misaligned with what is in the CC Log detail table? | dollars_delta <> SUM(DS10.dollars_delta) (by CC_log_ID). |
+| [9090444](/DIQs/DS09/9090444) | Log Hours Delta Misaligned With Log Detail Delta | Is the hours delta for this CC Log entry misaligned with what is in the CC Log detail table? | hours_delta <> SUM(DS10.hours_delta) (by CC_log_ID). |
+| [9090446](/DIQs/DS09/9090446) | PM Misaligned with WADs | Is the PM name misaligned with what is in the WADs? | PM <> DS08.PM where approved_date > CPP_SD_Date - 1. |
+| [9090449](/DIQs/DS09/9090449) | BCP Change Control Without BCP | Does this BCP change control log entry exist without a BCP in the schedule? | type = BCP & count = 0 where DS04.milestone_level between 131 & 135. |
+
+## DS10
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1100451](/DIQs/DS10/1100451) | AUW Dollar Change Exceeds NTE | Does this AUW dollar change above the NTE? | AUW = Y & dollars_delta > NTE_dollars_delta. |
+| [1100452](/DIQs/DS10/1100452) | Negative AUW Dollar Delta with Non-Zero NTE | Does this negative AUW dollar change also have an NTE? | AUW = Y & dollars_delta < 0 & NTE_dollars_delta <> 0. |
+| [1100458](/DIQs/DS10/1100458) | Negative NTE Delta Dollars | Is the NTE delta dollars value negative on this transaction? | NTE_dollars_delta < 0. |
+| [1100461](/DIQs/DS10/1100461) | AUW Change Missing Dollars Delta | Is this change to AUW missing a dollar amount? | AUW = Y & dollars_delta = null or zero. |
+| [1100464](/DIQs/DS10/1100464) | DB Transaction Missing WBS ID | Is this DB transaction missing a WBS ID? | category = DB & WBS_ID is missing or blank. |
+| [1100465](/DIQs/DS10/1100465) | Description Missing | Is the description missing? | description is null or blank. |
+| [1100467](/DIQs/DS10/1100467) | Hours Delta without Dollars | Are there hours on this transaction but no dollars? | hours_delta <> 0 & dollars_delta = 0. |
+| [1100474](/DIQs/DS10/1100474) | POP Start After POP Finish | Is the POP start on this transaction later than the POP finish? | POP_start_date > POP_finish_date. |
+| [1100479](/DIQs/DS10/1100479) | MR Entry Missing in CC Log Detail | Are there no MR entries in the CC Log detail? | Count where category = MR is 0. |
+| [9100450](/DIQs/DS10/9100450) | AUW Transaction Dollars Misaligned With Project Level AUW | Are the dollars delta for AUW-related transactions misaligned with the AUW dollar value in the IPMR header? | Sum of dollars_delta where AUW = Y <> DS07.AUW_dollars. |
+| [9100453](/DIQs/DS10/9100453) | DB Dollar Transactions Misaligned with Cost (CA) | Do the DB transaction dollars for this Control Account sum to something other than the DB in cost? | Sum of dollars_delta where category = DB <> Sum of DS03.BCWSi_dollars (by WBS_ID_CA). |
+| [9100454](/DIQs/DS10/9100454) | DB Dollar Transactions Misaligned with Cost (WP) | Do the DB transaction dollars for this Work Package sum to something other than the DB in cost? | Sum of dollars_delta where category = DB <> Sum of DS03.BCWSi_dollars (by WBS_ID_WP). |
+| [9100455](/DIQs/DS10/9100455) | DB Hour Transactions Misaligned with Cost (CA) | Do the DB transaction hours for this Control Account sum to something other than the DB in cost? | Sum of hours_delta where category = DB <> Sum of DS03.BCWSi_hours (by WBS_ID_CA). |
+| [9100456](/DIQs/DS10/9100456) | DB Hour Transactions Misaligned with Cost (WP) | Do the DB transaction hours for this Work Package sum to something other than the DB in cost? | Sum of hours_delta where category = DB <> Sum of DS03.BCWSi_hours (by WBS_ID_WP). |
+| [9100457](/DIQs/DS10/9100457) | MR Transaction Dollars Misaligned With Project Level MR | Are the dollars delta for MR-related transactions misaligned with the MR dollar value in the IPMR header? | Sum of dollars_delta where category = MR <> DS07.MR_dollars. |
+| [9100459](/DIQs/DS10/9100459) | UB Transaction Dollars Misaligned With Project Level UB | Are the dollars delta for UB-related transactions misaligned with the UB dollar value in the IPMR header? | Sum of dollars_delta where category = UB <> DS07.UB_bgt_dollars. |
+| [9100460](/DIQs/DS10/9100460) | OTB or OTS Transaction Dollars Without OTB-OTS Date | Are there OTB/OTS transactions when no OTB/OTS date exists? | Sum of dollars_delta where category = OTB, OTS, or OTB-OTS <> 0 & DS07.OTB_OTS_date is missing. |
+| [9100462](/DIQs/DS10/9100462) | CC Log ID Missing in CC Log | Is the CC Log Id for this transaction missing in the CC Log table? | CC_log_ID not in DS09.CC_log_ID list. |
+| [9100463](/DIQs/DS10/9100463) | DB Transaction On Non-CA, SLPP, PP, or WP | Is this DB transaction being applied to something other than a CA, SLPP, PP, or WP? | category = DB & DS01.type <> CA, SLPP, PP, or WP. |
+| [9100468](/DIQs/DS10/9100468) | UB, MR, or CNT Transaction Below Project Level | Is this UB, MR, or CNT transaction being applied below the project level? | category = UB, MR, or CNT & DS01.level <> 1 (by WBS_ID). |
+| [9100471](/DIQs/DS10/9100471) | POP Finish Misaligned with WAD (CA) | Is the POP finish for this Control Account misaligned with what is in the WAD? | POP_finish_date <> DS08.POP_finish_date (select latest revision; check is on CA level). |
+| [9100472](/DIQs/DS10/9100472) | POP Finish Misaligned with WAD (WP) | Is the POP finish for this Work Package misaligned with what is in the WAD? | POP_finish_date <> DS08.POP_finish_date (select latest revision; check is on WP/PP level). |
+| [9100473](/DIQs/DS10/9100473) | POP Finish Misaligned with WAD (CA) | Is the POP finish for this Control Account misaligned with what is in the WAD? | POP_finish_date <> DS08.POP_finish_date (select latest revision; check is on CA level). |
+| [9100475](/DIQs/DS10/9100475) | POP Start Misaligned with WAD (CA) | Is the POP start for this Control Account misaligned with what is in the WAD? | POP_start_date <> DS08.POP_start_date (select latest revision; check is on CA level). |
+| [9100476](/DIQs/DS10/9100476) | POP Start Misaligned with WAD (WP) | Is the POP start for this Work Package misaligned with what is in the WAD? | POP_start_date <> DS08.POP_start_date (select latest revision; check is on WP/PP level). |
+| [9100477](/DIQs/DS10/9100477) | POP Start Misaligned with WAD (CA) | Is the POP start for this Control Account misaligned with what is in the WAD? | POP_start_date <> DS08.POP_start_date (select latest revision; check is on CA level). |
+| [9100479](/DIQs/DS10/9100479) | WBS Missing In WBS Dictionary | Is this WBS ID missing in the WBS Dictionary? | WBS_ID missing in DS01.WBS_ID list. |
+
+## DS11
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1110480](/DIQs/DS11/1110480) | Project-Level VAR With Root Cause Narrative | Does this project-level VAR have a root cause narrative? | narrative_type < 200 & narrative_RC_SVi, narrative_RC_SVc, narrative_RC_CVi, or narrative_RC_CVc. |
+| [1110488](/DIQs/DS11/1110488) | Narrative Type Missing | Is the narrative type missing? | narrative_type missing or blank. |
+| [1110491](/DIQs/DS11/1110491) | Project-Level VAR Without Overall Narrative | Is this project-level VAR missing an overall narrative? | narrative_type < 200 & narrative_overall is missing or blank. |
+| [1110494](/DIQs/DS11/1110494) | Root Cause And/Or Impact Narrative Missing | Is this VAR missing either a root cause or an impact narrative (or both)? | VAR is missing either a RC SV or CV narrative or an impact narrative (or both). |
+| [9110482](/DIQs/DS11/9110482) | Approved Date After CAL Dates | Is the approved date for this variance later than the dates for the corrective action date? | approved_date > DS12.initial_date, DS12.original_due_date, DS12.forecast_due_date, or DS12.closed_date (by CAL_ID). |
+| [9110485](/DIQs/DS11/9110485) | CAL ID Missing in Corrective Action Log | Is the CAL ID missing in the Corrective Action Log? | CAL_ID missing in DS12.CAL_ID list. |
+| [9110486](/DIQs/DS11/9110486) | CA-Level VAR Mistype In WBS Dictionary | Is this CA-level VAR type as something other than CA in the WBS Dictionary? | narrative_type = 300 & DS01.type <> CA (by WBS_ID). |
+| [9110489](/DIQs/DS11/9110489) | PP-Level VAR Mistype In WBS Dictionary | Is this PP-level VAR type as something other than PP in the WBS Dictionary? | narrative_type = 400 & DS01.type <> PP (by WBS_ID). |
+| [9110490](/DIQs/DS11/9110490) | Project-Level VAR Misaligned With Project-Level WBS | Is this project-level VAR not at Level 1 in the WBS Hierarchy? | narrative_type < 200 & DS01.level > 1 (by WBS_ID). |
+| [9110492](/DIQs/DS11/9110492) | SLPP-Level VAR Mistype In WBS Dictionary | Is this SLPP-level VAR type as something other than SLPP in the WBS Dictionary? | narrative_type = 200 & DS01.type <> SLPP (by WBS_ID). |
+| [9110494](/DIQs/DS11/9110494) | WBS ID Missing In WBS Hierarchy | Is the WBS ID for this VAR missing in the WBS Hierarchy? | WBS_ID not in DS01.WBS_ID list. |
+| [9110495](/DIQs/DS11/9110495) | WP-Level VAR Mistype In WBS Dictionary | Is this WP-level VAR type as something other than WP in the WBS Dictionary? | narrative_type = 500 & DS01.type <> WP (by WBS_ID). |
+
+## DS12
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1120497](/DIQs/DS12/1120497) | Closed Date Before Original Due Date | Is the closed date for this corrective action before the original due date? | closed_date < original_due_date. |
+| [1120498](/DIQs/DS12/1120498) | Initial Date After Original Due Date | Is the initial date for this corrective action after the original due date? | initial_date > original_due_date. |
+| [1120499](/DIQs/DS12/1120499) | Original Due Date After Forecast Due Date | Is the original due date for this corrective action after the forecast due date? | original_due_date > forecast_due_date. |
+| [1120500](/DIQs/DS12/1120500) | Duplicate Transaction ID | Is the transaction ID on this corrective action duplicated? | Count of transaction_ID > 1. |
+| [1120501](/DIQs/DS12/1120501) | Transaction ID Missing | Is the transaction ID missing? | transaction_ID blank or missing. |
+| [9120496](/DIQs/DS12/9120496) | CAL ID Missing in Variance CAL ID List | Is this CAL missing in the variance CAL list? | CAL_ID not in DS11.CAL_ID list. |
+
+## DS13
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1130502](/DIQs/DS13/1130502) | ACWP Dollars Missing | Is ACWP missing on this subcontract? | ACWPc_dollars missing or 0. |
+| [1130503](/DIQs/DS13/1130503) | BAC Dollars Missing | Is BAC missing on this subcontract? | BAC_dollars missing or 0. |
+| [1130504](/DIQs/DS13/1130504) | BAC Initial Dollars Missing | Are BAC initial dollars missing on this subcontract? | BAC_initial_dollars missing or 0. |
+| [1130505](/DIQs/DS13/1130505) | BCWP Dollars Missing | Is BCWP missing on this subcontract? | BCWPc_dollars missing or 0. |
+| [1130506](/DIQs/DS13/1130506) | BCWS Dollars Missing | Is BCWS missing on this subcontract? | BCWSc_dollars missing or 0. |
+| [1130507](/DIQs/DS13/1130507) | EAC Dollars Missing | Is EAC missing on this subcontract? | EAC_dollars missing or 0. |
+| [1130508](/DIQs/DS13/1130508) | MR Dollars Missing | Is MR missing on this subcontract? | MR_dollars missing or 0. |
+| [1130509](/DIQs/DS13/1130509) | MR Initial Dollars Missing | Is MR Initial missing on this subcontract? | MR_initial_dollars missing or 0. |
+| [1130510](/DIQs/DS13/1130510) | Profit Fee Dollars Missing | Are profit fee dollars missing on this subcontract? | profit_fee_dollars missing or 0. |
+| [1130511](/DIQs/DS13/1130511) | Profit Fee Earned Dollars Missing | Are profit fee earned dollars missing on this subcontract? | profit_fee_earned_dollars missing or 0. |
+| [1130512](/DIQs/DS13/1130512) | Profit Fee Initial Dollars Missing | Are profit fee initial dollars missing on this subcontract? | profit_fee_initial_dollars missing or 0. |
+| [1130513](/DIQs/DS13/1130513) | Actual Finish Without Actual Start | Is this subcontract with actual finish date missing an actual start? | AF_date found without AS_date. |
+| [1130517](/DIQs/DS13/1130517) | Actual Finish After Actual Start | Is the actual start after the actual finish? | AS_date > AS_date. |
+| [1130523](/DIQs/DS13/1130523) | Missing BL Finish | Is the baseline finish date missing? | BL_finish_date is missing. |
+| [1130524](/DIQs/DS13/1130524) | BL Start After BL Finish | Is the baseline start date after the baseline finish? | BL_start_date > BL_finish_date. |
+| [1130526](/DIQs/DS13/1130526) | Missing BL Start | Is the baseline start date missing? | BL_start_date is missing. |
+| [1130527](/DIQs/DS13/1130527) | Complete Subcontract Missing Actual Finish | Is this 100% complete subcontract missing an actual finish date? | BCWPc_dollars / BAC_dollars = 1 & AF_date missing. |
+| [1130531](/DIQs/DS13/1130531) | Missing FC Finish | Is the forecast finish missing? | FC_finish_date missing. |
+| [1130532](/DIQs/DS13/1130532) | FC Start After FC Finish | Is the forecast start date after the forecast finish? | FC_start_date > FC_finish_date. |
+| [1130534](/DIQs/DS13/1130534) | Missing FC Start | Is the forecast start missing? | FC_start_date missing. |
+| [1130535](/DIQs/DS13/1130535) | Missing Flow Down | Is the flow down missing? | flow_down is missing or blank. |
+| [1130536](/DIQs/DS13/1130536) | Actuals Without Actual Start | Is this subcontract with ACWP missing an actual start date? | ACWPc_dollars > 0 & AS_date missing. |
+| [9130514](/DIQs/DS13/9130514) | ACWP Misaligned With Cost (CA) | Are the actuals for this subcontract misaligned with what is in cost? | ACWPc_dollars <> sum of DS03.ACWPi_dollars where EOC = Subcontract (by DS01.WBS_ID, DS01.parent_WBS_ID, FC DS04.WBS_ID, & DS03.WBS_ID_CA). |
+| [9130515](/DIQs/DS13/9130515) | ACWP Misaligned With Cost (WP) | Are the actuals for this subcontract misaligned with what is in cost? | ACWPc_dollars <> sum of DS03.ACWPi_dollars where EOC = Subcontract (by FC DS04.WBS_ID & DS03.WBS_ID_WP). |
+| [9130519](/DIQs/DS13/9130519) | BAC Misaligned With Cost (WP) | Is the budget for this subcontract misaligned with what is in cost? | BAC_dollars <> sum of DS03.BCWSi_dollars where EOC = Subcontract (by FC DS04.WBS_ID & DS03.WBS_ID_WP). |
+| [9130520](/DIQs/DS13/9130520) | BCWP Misaligned With Cost (WP) | Is the performance for this subcontract misaligned with what is in cost? | BCWPc_dollars <> sum of DS03.BCWPi_dollars where EOC = Subcontract (by FC DS04.WBS_ID & DS03.WBS_ID_WP). |
+| [9130521](/DIQs/DS13/9130521) | BCWS Misaligned With Cost (WP) | Is the cumulative budget for this subcontract misaligned with what is in cost? | BCWSc_dollars <> sum of DS03.BCWSi_dollars where EOC = Subcontract & period_date <= CPP_Status_Date (by FC DS04.WBS_ID & DS03.WBS_ID_WP). |
+| [9130528](/DIQs/DS13/9130528) | EAC Misaligned With Cost (CA) | Is the estimate at completion for this subcontract misaligned with what is in cost? | EAC_dollars <> sum of DS03.ACWPi_dollars + DS03.ETCi_dollars where EOC = Subcontract (by DS01.WBS_ID, DS01.parent_WBS_ID, FC DS04.WBS_ID, & DS03.WBS_ID_CA). |
+| [9130529](/DIQs/DS13/9130529) | EAC Misaligned With Cost (WP) | Is the estimate at completion for this subcontract misaligned with what is in cost? | EAC_dollars <> sum of DS03.ACWPi_dollars + DS03.ETCi_dollars where EOC = Subcontract (by FC DS04.WBS_ID & DS03.WBS_ID_WP). |
+| [9130537](/DIQs/DS13/9130537) | Task ID Missing in Forecast Schedule | Is this task id missing in the forecast schedule? | task_ID not in DS04.task_ID where schedule_type = FC. |
+| [9130538](/DIQs/DS13/9130538) | Task ID Missing in Labor Resources | Is this task id missing in the forecast labor resources? | task_ID not in DS06.task_ID where EOC = Labor & schedule_type = FC. |
+
+## DS14
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1140540](/DIQs/DS14/1140540) | Equipment ID Without SubK ID | Is there an equipment ID without a subcontract ID? | equipment_ID found while subK_ID is missing or blank. |
+| [1140547](/DIQs/DS14/1140547) | Subcontract PO ID Missing Subcontract ID | Is there a subcontract PO ID without a subcontract ID? | subK_PO_ID found but subK_ID is missing or blank. |
+| [9140539](/DIQs/DS14/9140539) | Subcontract PO & Subcontract ID Combo Misaligned with Subcontract Work Data | Is this combo subcontract PO & subcontract ID misaligned with what is in the subcontract data? | Combo of subK_PO_ID & subK_ID <> combo of DS13.subK_PO_ID & DS13.subK_ID. |
+| [9140541](/DIQs/DS14/9140541) | Equipment Without Subcontract or Material Resources (BL) | Is the equipment for this HDV-CI missing accompanying baseline subcontract or material resources? | equipment_ID found where subK_ID not in DS13.subK_ID list with DS06 BL resources of EOC = material or subcontract (by DS14.subK_ID & DS13.subK_ID, and DS13.task_ID & DS06.task_ID). |
+| [9140542](/DIQs/DS14/9140542) | Equipment Without Subcontract or Material Resources (FC) | Is the equipment for this HDV-CI missing accompanying forecast subcontract or material resources? | equipment_ID found where subK_ID not in DS13.subK_ID list with DS06 FC resources of EOC = material or subcontract (by DS14.subK_ID & DS13.subK_ID, and DS13.task_ID & DS06.task_ID). |
+| [9140544](/DIQs/DS14/9140544) | HDV-CI Missing in Schedule (FC) | Is the HDV-CI missing in the forecast schedule? | HDV_CI_ID not in DS04.HDV_CI_ID list where schedule_type = FC. |
+| [9140545](/DIQs/DS14/9140545) | HDV-CI Missing in Schedule (FC) | Is the HDV-CI missing in the forecast schedule? | HDV_CI_ID not in DS04.HDV_CI_ID list where schedule_type = FC. |
+| [9140546](/DIQs/DS14/9140546) | Subcontract ID Missing in Subcontract Work Records | Is the subcontract ID missing in the subcontract dataset? | subK_ID not in DS14.subK_ID list. |
+
+## DS15
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1150556](/DIQs/DS15/1150556) | Probability Schedule Min Equal To Or Above 98% | Is the minimum probability schedule percent equal to or above 98%? | probability_schedule_min_pct >= .98. |
+| [1150561](/DIQs/DS15/1150561) | Probability Cost Min Equal To Or Above 98% | Is the minimum probability cost percent equal to or above 98%? | probability_cost_min_pct >= .98. |
+| [9150560](/DIQs/DS15/9150560) | Risk Missing Impact Task | Is this risk missing an impact task in the risk log? | risk_ID not in DS16.task_ID list where risk_task_type = Impact. |
+
+## DS16
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1160565](/DIQs/DS16/1160565) | Impact Cost Dollar Spread Missing | Are the minimum, likely, and max impact cost dollars all equivalent? | impact_cost_minimum_dollars = impact_cost_likely_dollars = impact_cost_max_dollars. |
+| [1160568](/DIQs/DS16/1160568) | Impact Schedule Day Spread Missing | Are the minimum, likely, and max impact schedule days all equivalent? | impact_schedule_minimum_days = impact_schedule_likely_days = impact_schedule_max_days. |
+| [9160570](/DIQs/DS16/9160570) | Risk ID Missing In Risk Log | Is this risk ID missing in the risk log? | Risk_ID not in DS15.risk_ID list. |
+| [9160571](/DIQs/DS16/9160571) | Task ID Missing in Baseline Schedule | Is this task ID missing in the baseline schedule? | task_ID not in DS04.task_ID list where schedule_type = BL. |
+| [9160572](/DIQs/DS16/9160572) | Task ID Missing in Forecast Schedule | Is this task ID missing in the forecast schedule? | task_ID not in DS04.task_ID list where schedule_type = FC. |
+
+## DS19
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1190592](/DIQs/DS19/1190592) | Hours Per Day Less Than Zero Or Greater Than 24 | Are the hours per day negative or greater than 24? | hours_per_day < 0 or hours_per_day > 24. |
+
+## DS21
+
+| UID | Title | Summary | Error Message |
+|-----|-------|---------|---------------|
+| [1210600](/DIQs/DS21/1210600) | Indirect Rate Missing Burden | Is there a burden ID missing for this indirect rate? | type = I & burden_ID is missing or blank. |
+

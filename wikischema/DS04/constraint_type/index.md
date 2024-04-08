@@ -1,0 +1,6 @@
+# constraint_type
+| Detail | Value |
+| ------ | ----- |
+| type | string |
+| description | Start primary constraint type selection:<br/> • CS_ASAP = as soon as possible (not considered a soft or hard constraint)<br/> • CS_MANDSTART = mandatory start (considered hard constraint)<br/> • CS_MSO = must start on (considered hard constraint)<br/> • CS_MSOA = must start on or after (considered soft constraint) <br/> • CS_MSOB = must start on or before (considered hard constraint) <br/> Finish primary constraint type selection:<br/> • CS_ALAP = as late as possible (not considered a soft or hard constraint)<br/> • CS_MANDFIN = mandatory finish (considered hard constraint) <br/> • CS_MEO = must finish on (considered hard constraint)<br/> • CS_MEOA = must finish on or after (considered soft constraint)<br/> • CS_MEOB = must finish on or before (considered hard constraint)<br/> Provide hard constraint justification in DS04.justification_constraint_hard. <br/> Provide soft constraint justification in DS04.justification_constraint_soft. <br/> Identify secondary constraint in DS04.justification_constraint_secondary. |
+| enum | * CS_ASAP<br/>* CS_MANDSTART<br/>* CS_MSO<br/>* CS_MSOA<br/>* CS_MSOB<br/>* CS_ALAP<br/>* CS_MANDFIN<br/>* CS_MEO<br/>* CS_MEOA<br/>* CS_MEOB |
