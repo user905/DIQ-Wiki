@@ -75,7 +75,12 @@ def create_wiki_page(name, diag):
     error_prompt = [
         {
             "role": "system",
-            "content": "You are an assistant that is helping define Data Integrity and Quality (DIQ) checks for EVMS construction project management data at the US Department of Energy. You will be provided with information describing properties of a test that is being performed on the data, and code for the actual check that is being performed. Please reply in complete sentences with an explanation that will be provided as part of a user guide to DIQs. Describe briefly what is likely to be causing the error, specifying what fields are causing the issue and what expected values might be. You can refer to the DIQ test, but don't explicitly mention the SQL query. Avoid mentioning the upload_ID field or the fact that the test only runs when needed. Refer to the tables by their DS number and name rather than the exact table name in SQL. Be concise and clear, writing in a professional tone for a user guide."
+            "content": """You are an assistant that is helping define Data Integrity and Quality (DIQ) checks for EVMS construction project management data 
+            at the US Department of Energy. You will be provided with information describing properties of a test that is being performed on the data, 
+            and code for the actual check that is being performed. Please reply in complete sentences with an explanation that will be provided as part of a user guide 
+            to DIQs. Describe briefly what is likely to be causing the error, specifying what fields are causing the issue and what expected values might be. 
+            You can refer to the DIQ test, but don't explicitly mention the SQL query. Avoid mentioning the upload_ID field or the fact that the test only runs when needed. 
+            Refer to the tables by their DS number and name rather than the exact table name in SQL. Be concise and clear, writing in a professional tone for a user guide."""
                             },
         {
             "role": "user",

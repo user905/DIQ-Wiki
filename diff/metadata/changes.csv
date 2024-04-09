@@ -1,0 +1,79 @@
+UID,DIQ Name,New DIQ Name,Subkey,Old Value,New Value
+9180588,fnDIQ_DS18_Sched_EU_IsEUMaxLtDS04OrigDur,,message,EU_max_days < DS04.duration_original_days by schedule_type & task_ID.,"EU_max_days < DS04.duration_original_days by schedule_type, task_ID, and subproject_ID."
+9040203,fnDIQ_DS04_Sched_IsPlannedCompletionAndEndOfPMBDeltaLtEqToUB,,title,Planned/Estimated Completion & End of PMB Delta Is Less Than UB,Planned/Estimated Completion & End of PMB Delta Misaligned with UB
+9040203,fnDIQ_DS04_Sched_IsPlannedCompletionAndEndOfPMBDeltaLtEqToUB,,summary,Is the delta between the Planned/Estimated Completion & End of PMB milestones less than or equal to the UB days?,Is the delta between the Planned/Estimated Completion & End of PMB milestones not equal to UB days?
+9040203,fnDIQ_DS04_Sched_IsPlannedCompletionAndEndOfPMBDeltaLtEqToUB,,message,Delta between Planned/Estimated Completion ES_date (milestone_level = 170) & End of PMB EF_date (milestone_level = 175) <= UB bgt days (DS07.UB_bgt_days).,Delta between Planned/Estimated Completion ES_date (milestone_level = 170) & End of PMB EF_date (milestone_level = 175) <> UB bgt days (DS07.UB_bgt_days).
+9180591,fnDIQ_DS18_Sched_EU_IsTaskIDMissingInDS04,,message,task_ID not in DS04.task_ID list (by schedule_type & task_ID).,"task_ID not in DS04.task_ID list (by schedule_type, task_ID, and subproject_ID)."
+9030092,fnDIQ_DS03_Cost_IsMatComingledWithNonOvhdEOCs,,status,TEST,DELETED
+1030093,fnDIQ_DS03_Cost_IsOverheadInsufficient,,status,TEST,DELETED
+1190593,fnDIQ_DS19_Sched_CAL_Std_PK,,summary,Is this calendar name duplicated in the dataset?,Is this calendar name duplicated in the dataset (by subproject_ID)?
+1190593,fnDIQ_DS19_Sched_CAL_Std_PK,,message,Count calendar_name > 1.,Count calendar_name > 1 (by subproject_id).
+9030094,fnDIQ_DS03_Cost_IsOverheadWorkMissingOtherEOCTypes,,status,TEST,DELETED
+1030097,fnDIQ_DS03_Cost_IsSPAECumEqualToZero,,message,"Cumulative BCWS, BCWP, ACWP, and ETC are all equal to zero for this WBS (Dollars, Hours, and FTEs).","Cumulative BCWS, BCWP, ACWP, and ETC are all equal to zero for this piece of work (Dollars, Hours, and FTEs)."
+1030097,fnDIQ_DS03_Cost_IsSPAECumEqualToZero,,grouping,"WBS_ID_CA, WBS_ID_WP, EOC",
+1200595,fnDIQ_DS20_Sched_CAL_Excpt_PK,,summary,Is this calendar exception duplicated by calendar name & exception date?,"Is this calendar exception duplicated by calendar name, subproject, & exception date?"
+1200595,fnDIQ_DS20_Sched_CAL_Excpt_PK,,message,Count of calendar_name & exception_date combo > 1.,"Count of calendar_name, subproject_ID, & exception_date combo > 1."
+1030110,fnDIQ_DS03_Cost_IsSubKComingledWithNonOvhdEOCs,,status,TEST,DELETED
+1040215,fnDIQ_DS04_Sched_PK,,message,Duplicate task ID found.,Duplicate task ID found (by subproject_ID).
+1030108,fnDIQ_DS03_Cost_PK,,summary,"Is this row duplicated by period date, CA WBS ID, WP WBS ID, EOC, & EVT?","Is this row duplicated by period date, CA WBS ID, WP WBS ID, EOC, EVT, & is_indirect?"
+1030108,fnDIQ_DS03_Cost_PK,,message,"Count of period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT combo > 1.","Count of period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT, is_indirect combo > 1."
+1030108,fnDIQ_DS03_Cost_PK,,grouping,"period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT","period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT, is_indirect"
+1040321,fnDIQ_DS04_Sched_AreCD4DatesMisalignedBtwFCAndBL,,message,ES_date or EF_date do not align for CD-4 in the BL & FC schedules (schedule_type = FC & BL).,ES_date or EF_date misaligned for CD-4 in the BL & FC schedules (schedule_type = FC & BL).
+1050236,fnDIQ_DS05_Logic_PK,,summary,"Is this row duplicated by schedule_type, task_ID, predecessor_task_ID?","Is this row duplicated by schedule_type, task_ID, predecessor_task_ID, subproject_ID, and predecessor_subproject_ID?"
+1050236,fnDIQ_DS05_Logic_PK,,message,"Count of schedule_type, task_ID, predecessor_task_ID combo > 1.","Count of schedule_type, task_ID, predecessor_task_ID, subproject_ID, and predecessor_subproject_ID combo > 1."
+9060285,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars,,status,TEST,DELETED
+9060285,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsWP,title,Cost Actuals without Resource Performance,Cost Actuals without Resource Performance (WP)
+9060285,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsWP,summary,Are there actuals in cost without performance in resources (by EOC)?,Are there actuals in cost without performance in resources (by WP WBS & EOC)?
+9060285,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars,fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsWP,message,Resource performance (actual_dollars) = 0 even though DS03.ACWPc > 0 (SUM of ACWSi_dollars) by EOC.,Resource performance (actual_dollars) = 0 even though DS03.ACWPc > 0 (SUM of ACWSi_dollars) by WBS_ID_WP & EOC.
+9060289,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits,,status,TEST,DELETED
+9060289,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsWP,title,Cost Labor Actuals without Resource Labor Performance,Cost Labor Actuals without Resource Labor Performance (WP)
+9060289,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsWP,summary,Are there labor actual hours in cost without labor performance units in resources?,Are there labor actual hours in cost without labor performance units in resources? (WP)
+9060289,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits,fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsWP,message,Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor).,Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor) (Test runs at WP level).
+9060288,fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHours,,status,TEST,DELETED
+9080394,fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA,,status,TEST,DELETE
+1010019,fnDIQ_DS01_WBS_IsExternalMissingSubprojectID,,title,Exteranl WBS Without Subproject ID,External WBS Without Subproject ID
+9080395,fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP,,status,TEST,DELETED
+1060256,fnDIQ_DS06_Res_AreLaborTypeAndEOCMismatched,,summary,Is the EOC for this labor type resource something other than Labor or Overhead?,Is the EOC for this labor type resource something other than Labor or Indirect?
+1060256,fnDIQ_DS06_Res_AreLaborTypeAndEOCMismatched,,message,type = labor where EOC <> Labor or Overhead.,type = labor where EOC <> Labor or Indirect.
+9060286,fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollars,,status,TEST,DELETED
+1040132,fnDIQ_DS04_Sched_DoesEVTExistOnSVTOrZBA,,title,SVT with EVT,SVT or ZBA with EVT
+1040132,fnDIQ_DS04_Sched_DoesEVTExistOnSVTOrZBA,,summary,Does this SVT have an EVT?,Does this SVT or ZBA have an EVT?
+1040132,fnDIQ_DS04_Sched_DoesEVTExistOnSVTOrZBA,,message,SVT found with EVT.,subtype = SVT or ZBS and EVT is not blank.
+1010018,fnDIQ_DS01_WBS_IsExitCriteriaMissing,,message,Exit Criteria is missing,"exit_criteria required where type = CA or SLPP. Provide if available for type = WBS, WP, or PP."
+9010024,fnDIQ_DS01_WBS_IsOverheadBCWSMissingFromProject,,status,TEST,DELETED
+9060283,fnDIQ_DS06_Res_IsCAOrWBSResourceLoaded,,message,WBS ID of type CA or WBS (DS01.type = CA or WBS) found with resources (task_ID found in DS06.task_ID list).,WBS ID of type CA or WBS (DS01.type = CA or WBS) found with resources (task_ID found in DS06.task_ID list by subproject).
+9040134,fnDIQ_DS04_Sched_DoesSVTHaveLogic,,message,SVT (subtype = SVT or ZBA) task_id found in DS05 task_ID list.,SVT (subtype = SVT) task_id found in DS05 task_ID list.
+1060241,fnDIQ_DS06_Res_IsOverheadOnItsOwn,,status,TEST,DELETED
+1060241,fnDIQ_DS06_Res_IsOverheadOnItsOwn,fnDIQ_DS06_Res_IsIndirectOnItsOwn,title,Task with Overhead EOC Only,Task with Indirect EOC Only
+1060241,fnDIQ_DS06_Res_IsOverheadOnItsOwn,fnDIQ_DS06_Res_IsIndirectOnItsOwn,summary,Is this task resource-loaded with only Overhead EOC resources?,Is this task resource-loaded with only Indirect EOC resources?
+1060241,fnDIQ_DS06_Res_IsOverheadOnItsOwn,fnDIQ_DS06_Res_IsIndirectOnItsOwn,message,Task lacking EOC other than Overhead (task_ID where EOC = Overhead only).,Task lacking EOC other than Indirect (task_ID where EOC = Indirect only).
+1060240,fnDIQ_DS06_Res_IsOverheadUsedUnevenly,,status,TEST,DELETED
+1060253,fnDIQ_DS06_Res_IsResourceRoleMissingName,,message,Resource role item found without resource name (role_name is not blank & resource_name is blank).,role_ID is not blank & role_name is blank.
+9040150,fnDIQ_DS04_Sched_IsASMisalignedWithDS03CA,,summary,"Is the actual finish for this WBS misaligned with what is in cost? (Note: Comparison is at the CA WBS level, where ACWP has been collected)","Is the actual start for this WBS misaligned with what is in cost? (Note: Comparison is at the CA WBS level, where ACWP has been collected)"
+9080421,fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA,,status,TEST,DELETED
+9080422,fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP,,status,TEST,DELETED
+1040145,fnDIQ_DS04_Sched_IsBLTaskMissingInFC,,message,Task found in baseline schedule (schedule_type = BL) but not in forecast (schedule_type = FC).,Task found in baseline schedule (schedule_type = BL) but not in forecast (schedule_type = FC) (by subproject_ID).
+9060301,fnDIQ_DS06_Res_IsTaskMissingInDS04,,message,Task_ID missing in DS04.task_ID list (by schedule_type).,Task_ID missing in DS04.task_ID list (by schedule_type & subproject_ID).
+1060259,fnDIQ_DS06_Res_PK,,summary,"Is this resource / role duplicated by schedule type, task ID, and resource or role ID?","Is this resource / role duplicated by schedule type, task ID, EOC, subproject ID, and resource or role ID?"
+1060259,fnDIQ_DS06_Res_PK,,message,"Count of schedule_type, task_ID, (resource_ID or role_id) combo > 1.","Count of schedule_type, task_ID, EOC, subproject_ID and resource_ID or role_id combo > 1."
+1040160,fnDIQ_DS04_Sched_IsCDOrBCPDuplicated,,message,CD or BCP (milestone_level = 1xx) appears more than once in either the FC or BL (or both).,CD or BCP (milestone_level = 1xx) appears more than once in either the FC or BL (or both) (by subproject_ID).
+1040166,fnDIQ_DS04_Sched_IsDPAFDateEarlierThanEFDate,,message,FC AF_date < BL EF_date where driving_path = Y (compare by task_ID).,FC AF_date < BL EF_date where driving_path = Y (compare by task_ID & subproject_ID).
+1040167,fnDIQ_DS04_Sched_IsDPASDateEarlierThanESDate,,message,AS_date < ES_date along the driving path (driving_path = Y). (BL),FC AS_date < BL ES_date where driving_path = Y (compare by task_ID & subproject_ID).
+9030068,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,,status,TEST,DELETED
+9030068,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,title,PP Starting Within 3-6 Months,PP Starting Within 4-6 Months
+9030068,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,summary,Is this PP scheduled to start within 3-6 months?,Is this PP scheduled to start within 4-6 months?
+9030068,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,message,"PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date.","PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 4-6 months of CPP Status Date."
+1040177,fnDIQ_DS04_Sched_IsEVTMisalignedBtwBLAndFC,,message,Task EVT is misaligned between BL & FC schedules.,Task EVT where schedule_type = FC <> EVT where schedule_type = BL.
+1040178,fnDIQ_DS04_Sched_IsFCTaskMissingInBL,,message,Task found in forecast schedule (schedule_type = FC) but not in baseline (schedule_type = BL).,Task found in forecast schedule (schedule_type = FC) but not in baseline (schedule_type = BL) (by subproject_ID).
+1040603,fnDIQ_DS04_Sched_IsHighFloatJustificationMissingBL,,summary,Is this task with high float missing a justification in the baseline schedule?,Is this BL task with high float missing a justification in the baseline schedule?
+1040603,fnDIQ_DS04_Sched_IsHighFloatJustificationMissingBL,,message,BL Task with high float (float_total_days > 10% of project remaining duration) is lacking a justification (justification_high_float is blank).,justification_high_float is blank where task schedule_type = FC and float_total_days > 10% of project remaining duration.
+1040184,fnDIQ_DS04_Sched_IsHighFloatJustificationMissingFC,,summary,Is this task with high float missing a justification in the forecast schedule?,Is this FC task with high float missing a justification in the forecast schedule?
+1040184,fnDIQ_DS04_Sched_IsHighFloatJustificationMissingFC,,message,FC Task with high float (float_total_days > 10% of project remaining duration) is lacking a justification (justification_high_float is blank).,justification_high_float is blank where task schedule_type = FC and float_total_days > 10% of project remaining duration.
+9030068,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,status,TEST,DELETED
+9030068,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,title,PP Starting Within 4-6 Months,PP Starting Within 3-6 Months
+9030068,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,summary,Is this PP scheduled to start within 4-6 months?,Is this PP scheduled to start within 3-6 months?
+9030068,fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths,fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths,message,"PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 4-6 months of CPP Status Date.","PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date."
+1040192,fnDIQ_DS04_Sched_IsMSEarlierThanAppStartProj,,summary,Is this milestone earlier than the approve start project milestone?,Is this milestone earlier than the Approve Start Project Milestone?
+1040192,fnDIQ_DS04_Sched_IsMSEarlierThanAppStartProj,,message,Milestone has an early start date (ES_Date) prior to the approve start project milestone (milestone_level = 100).,Milestone ES_Date < ES_Date for the Approve Start Project Milestone (milestone_level = 100) (by subproject_ID).
+1040193,fnDIQ_DS04_Sched_IsMSLaterThanAppFinishProj,,summary,Is this milestone after the approve finish project milestone?,Is this milestone after the Approve Finish Project Milestone?
+1040193,fnDIQ_DS04_Sched_IsMSLaterThanAppFinishProj,,message,Milestone has an early finish date (EF_Date) later than the approve finish project milestone (milestone_level = 199).,Milestone EF_Date > EF_Date for the Approve Finish Project Milestone (milestone_level = 199) (by subproject_ID).

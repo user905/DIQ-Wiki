@@ -1,0 +1,51 @@
+[
+  {
+    "UID": "1030089",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsLaborMissingBCWPDollarsHoursOrFTEs",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify Labor records where performance has been recorded in at least one but not all of the three BCWP fields (Dollars, Hours, or FTEs) by checking for any combination of these fields being non-zero and zero.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040114",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreSVTsAndNonSVTsComingled",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify Work Breakdown Structures (WBS) that have at least one task marked as SVT (Special Vehicle Team) but also contain tasks that are not marked as SVT. This is done by creating a list of WBS IDs and schedule types where the subtype is not SVT, then flagging any WBS IDs that also have tasks marked as SVT. Finally, it returns all flagged WBS IDs by schedule type.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070374",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleCumPctFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to check if the threshold_Schedule_cum_pct_fav equals 0 in the DS07_IPMR_header table for a given upload ID.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080414",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsLaborBudgetMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify CA WADs with labor budget dollars where no labor BCWS exists in DS03 by creating a temporary table to filter out non-labor CA WBS IDs and then joining it back to DS08 to find the relevant rows.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060249",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsRoleEOCNonLabor",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to filter for resources with a role ID that are not of the 'Labor' EOC type, instead of just excluding null EOC types.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070337",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesMRRpgExist",
+    "DIQ Name": "",
+    "Summary": "A new function named `fnDIQ_DS07_IPMR_DoesMRRpgExist` was created to check if there are any records with `MR_rpg_dollars` not equal to zero for a given `upload_id`.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070305",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyLtLastDS03ETCPlusUB",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a weekend factor in the calculation, which adds 2 days for every 5 in UB_EST_Days, for the final comparison of whether the EAC PM likely date is before the last recorded ETCi date plus UB EST days.",
+    "Type": "Name matched"
+  }
+]

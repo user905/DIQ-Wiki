@@ -87,7 +87,7 @@ for row in results:
             diq_info = {}
             for child in root:
                 # Use the tag names as keys and text values as the corresponding dictionary values
-                diq_info[child.tag] = child.text.strip()
+                diq_info[child.tag] = child.text.strip() if child.text else ''
 
             # Add diq_info to the diq_data dictionary
             diq_data[function_name] = diq_info
