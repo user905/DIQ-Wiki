@@ -22,7 +22,7 @@ output_dir = "./diff/sql"
 changes_summary = []
 
 # Read changes from changes.json
-with open(os.path.join(input_dir,'changes.json'), 'r') as json_file:  
+with open(os.path.join(input_dir,'sql_changes.json'), 'r') as json_file:  
     changes = json.load(json_file)
 
 # Iterate through each change
@@ -33,16 +33,32 @@ for change in changes:
             "role": "system",
             "content": """You are an assistant that is helping summarize code changes. Be concise. 
             Some guidelines to follow: 
-            1. If the logic of a function changed, start with a one to two sentence summary of the change. Use layman's terminology, do not reference code functions, and make reference to what the code did previously. Use a format like "The logic was adjusted to do x, rather than y." 
-            2. Do not refer to changes in return type. That will never change.
-            3. Do not refer to things that did not change.
-            4. If there was a name change, simply state: "Function name changed from ... to ...".
-            5. Ignore comment changes.
-            6. Do not make things up.
+            1. If the logic of a function changed, start with a one to two sentence summary of the change. 
+            If several unrelated changes occurred, start with a one to two sentence summary of each, and separate them with newlines.
+            The one exception is if you find a comment to the effect that the function has been replaced. If this is the case, ignore any logic changes and state simply that "DIQ replaced with xxx," where xxx is the name of the replacement function, which is typically provided in the comment.
+            2. Use layman's terminology, do not reference code functions, and make reference to what the code did previously, using format "Logic adjusted to do x, rather than y." If there was no change in logic, say "Logic unchanged."
+            If subproject_ID was added, state simply that "Logic adjusted to account for addition of subproject_id field."
+            If is_indirect was added, state simply that "Logic adjusted to account for addition of is_indirect field."
+            3. Do not refer to changes in return type. That will never change.
+            4. Do not refer to things that did not change.
+            5. Ignore changes to comments, with the exception of the "replaced" rule in #1.
+            6. Stay factual. Do not make things up. This goes for acronyms, abbreviations, etc. 
+            7. Do not comment on perceived name changes.
+            8. Refer to columns by their name. Do not make up names. Same goes for tables. Do not use table aliases.
+            8. Again, be concise.
 
-            Here is an example:
-            The logic was adjusted to consider a period date within 4-6 months from the current project status date, rather than a period within 3-6 months of the project status date.
-            Function name changed from fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths.
+            Here are good examples:
+            1. Logic adjusted to consider a period date within 4-6 months from the current project status date, rather than a period within 3-6 months of the project status date.
+            2. Logic adjusted to include handling for indirect costs by changing how the 'EOC' field is treated, specifically by introducing a condition to label costs as 'Indirect' if they are marked as such, rather than directly using the 'EOC' value. This change addresses the introduction of an 'is_indirect' flag in the data, which was not previously accounted for.\n\nAdditionally, the logic now considers both 'taskID' and 'subprojectID' when joining data from different sources to calculate resource performance, where previously only 'taskID' was used. This adjustment allows for a more precise matching of data across different tables.
+
+            Here are bad examples and why:
+            1. "Logic adjusted to include handling of cases where Work Package ID (WPID) and the indirect cost indicator (is_indirect) might be missing or null. Previously, the function did not account for these scenarios, and now it ensures that even if WPID or is_indirect are null, they are considered in the grouping and joining conditions by treating them as empty strings. This change allows for a more comprehensive analysis of cost data by including all relevant records, even those without a specified WPID or indirect cost indicator."
+            Why is this bad? WPID is not a field name. indirect cost indicator is not a field name. The field names are WBS_ID_WP and is_indirect and should only be as such. The explanation is also too long and speculative.
+            A better response would be: Logic adjusted to account for cases where WBS_ID_WP and is_indirect are missing or null. 
+            In this case, we can forgo stating what occurred previously because it is apparent from the first sentence.
+            2. "Logic adjusted to include resources where the EOC is not null in addition to the existing conditions."
+            Why is this bad? It's overly explanatory.
+            A better response would be: Logic adjusted to include resources where the EOC is not null.
             """
         },
         {
@@ -54,15 +70,32 @@ for change in changes:
     # Call OpenAI API
     response = query_gpt(prompt)
 
-    # Append response to changes_summary
-    changes_summary.append({
-        'UID': change['UID'],
-        'DIQ Name v4': change.get('DIQ Name v4', ''),  # Use get method to prevent KeyError
-        'DIQ Name': change.get('DIQ Name', ''),   # Use get method to prevent KeyError
-        'Summary': response,
-        'Type': change.get('Type', 'N/A')  # Use get method to prevent KeyError and default to 'N/A' if 'Type' isn't provided
-    })
+    # Check if response is "Logic unchanged"
+    if response != "Logic unchanged":
+        
+        # Prepare initial type value
+        type_value = change.get('Type', 'N/A')  # Use get method to prevent KeyError and default to 'N/A' if 'Type' isn't provided
+
+        # Get DIQ names
+        diq_name_v4 = change.get('DIQ Name v4', '')
+        diq_name = change.get('DIQ Name', '')
+
+        # Check if DIQ Name is populated and different from DIQ Name v4
+        if diq_name and diq_name_v4 and diq_name != diq_name_v4:
+            # Prepend text to response
+            response = f"Name changed from {diq_name_v4} to {diq_name}.\n{response}"
+
+        print(f"UID: {change['UID']}, Summary: {response}")
+        
+        # Append response to changes_summary
+        changes_summary.append({
+            'UID': change['UID'],
+            'DIQ Name v4': diq_name_v4,
+            'DIQ Name': diq_name,
+            'Summary': response,
+            'Type': type_value
+        })
 
 # Save the changes_summary to changes_summary.json file in output_dir
-with open(os.path.join(output_dir,'changes_summary.json'), 'w') as json_file:  
+with open(os.path.join(output_dir,'sql_changes_summary.json'), 'w') as json_file:  
     json.dump(changes_summary, json_file)

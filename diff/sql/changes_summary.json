@@ -3,49 +3,4704 @@
     "UID": "1030089",
     "DIQ Name v4": "fnDIQ_DS03_Cost_IsLaborMissingBCWPDollarsHoursOrFTEs",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to identify Labor records where performance has been recorded in at least one but not all of the three BCWP fields (Dollars, Hours, or FTEs) by checking for any combination of these fields being non-zero and zero.",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y', focusing only on direct labor costs, rather than including all labor costs.",
     "Type": "Name matched"
   },
   {
     "UID": "1040114",
     "DIQ Name v4": "fnDIQ_DS04_Sched_AreSVTsAndNonSVTsComingled",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to identify Work Breakdown Structures (WBS) that have at least one task marked as SVT (Special Vehicle Team) but also contain tasks that are not marked as SVT. This is done by creating a list of WBS IDs and schedule types where the subtype is not SVT, then flagging any WBS IDs that also have tasks marked as SVT. Finally, it returns all flagged WBS IDs by schedule type.",
+    "Summary": "Logic remains unchanged.",
     "Type": "Name matched"
   },
   {
     "UID": "1070374",
     "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleCumPctFavEqToZero",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to check if the threshold_Schedule_cum_pct_fav equals 0 in the DS07_IPMR_header table for a given upload ID.",
+    "Summary": "Logic remains unchanged.",
     "Type": "Name matched"
   },
   {
     "UID": "9080414",
     "DIQ Name v4": "fnDIQ_DS08_WAD_IsLaborBudgetMissingInDS03CA",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to identify CA WADs with labor budget dollars where no labor BCWS exists in DS03 by creating a temporary table to filter out non-labor CA WBS IDs and then joining it back to DS08 to find the relevant rows.",
+    "Summary": "Logic remains unchanged.",
     "Type": "Name matched"
   },
   {
     "UID": "1060249",
     "DIQ Name v4": "fnDIQ_DS06_Res_IsRoleEOCNonLabor",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to filter for resources with a role ID that are not of the 'Labor' EOC type, instead of just excluding null EOC types.",
+    "Summary": "The logic was adjusted to include resources where the EOC is not null in addition to the existing conditions.",
     "Type": "Name matched"
   },
   {
     "UID": "1070337",
     "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesMRRpgExist",
     "DIQ Name": "",
-    "Summary": "A new function named `fnDIQ_DS07_IPMR_DoesMRRpgExist` was created to check if there are any records with `MR_rpg_dollars` not equal to zero for a given `upload_id`.",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_DoesMRRpgExist]\" to a more concise and unspecified name, as the exact new name is not provided in the change summary.",
     "Type": "Name matched"
   },
   {
     "UID": "9070305",
     "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyLtLastDS03ETCPlusUB",
     "DIQ Name": "",
-    "Summary": "The logic was adjusted to include a weekend factor in the calculation, which adds 2 days for every 5 in UB_EST_Days, for the final comparison of whether the EAC PM likely date is before the last recorded ETCi date plus UB EST days.",
+    "Summary": "Logic remains unchanged.",
     "Type": "Name matched"
+  },
+  {
+    "UID": "9080623",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWPWBSMistypedInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `fnDIQ_DS08_WAD_IsWPWBSMistypedInDS01` to `CREATEFUNCTION[dbo].[fnDIQ_DS08_WAD_IsWPWBSMistypedInDS01]`.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040228",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesBCPExistWithoutRPGFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9020046",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsOBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040132",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesEVTExistOnSVTOrZBA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to look for SVTs and ZBAs with an EVT, rather than just SVTs with an EVT.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130509",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreMRInitDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080619",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS04ESDateWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070261",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsAUWLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsAUWLTZero]` to a more compact and unspecified format, as the exact new name is not provided in the change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040198",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsNonWPorPPWBSMissingJustification",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080426",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthAfterDS04WPAS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030104",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPOrPPMistypedInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070378",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleIncPctFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040279",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsRPGWBSMissingInDS10CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070383",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsUBBgtDollarsNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040230",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsSoftConstraintMissingJustification",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040278",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEVTMismatchedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100478",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040212",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsSubprojectIDMismatchedWithDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070269",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_ArePMEACDollarsOutOfOrder",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030060",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesBCWPExistInTheFuture",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130530",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFCFinishMisalignedWithDS04FCEF",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170584",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsWBSNotWPOrPP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130517",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsASDateLtAFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110495",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from not provided to not provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080441",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040150",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD0MissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080415",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsLaborBudgetMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060239",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsLaborEOCMistyped",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030074",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsVACMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060297",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreRemDollarsMisalignedWithDS03BCWR",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to account for a new distinction between direct and indirect costs in the data, specifically by treating certain rows as \"Indirect\" based on a new condition. This change affects how data is joined and aggregated, aiming to align with updates in data structure and definitions.\n\nFunction name changed from [dbo].[fnDIQ_DS06_Res_AreRemDollarsMisalignedWithDS03BCWR] to UPDATE: Nov 2023. DID v5 introduced is_indirect and replaced Overhead in the EOC with Indirect in DS03.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110485",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsCALIDMissingInDS12",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010016",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSMissingInDS04BL",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a left join with DS04_schedule on WBS_ID and filter by schedule_type 'BL' and the specific upload_ID directly in the FROM clause, rather than filtering these conditions in a WHERE clause and a subquery. This change simplifies the query by directly incorporating the condition that WBS_IDs must not exist in DS04_schedule with the specified conditions.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070344",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBBgtDollarsExistWithoutUBBgtDays",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080402",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoLaborDollarsExistWithoutLaborHours",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030330",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsVACPctMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070304",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMBestLtEndOfPMB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080618",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS04ESDateCA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of comparing project start dates by directly joining the latest Work Authorization Document (WAD) revision data with the schedule start information, rather than the previous method of collecting minimum baseline schedule dates and then comparing. This change simplifies the comparison by focusing only on the latest WAD revision and its start date relative to the schedule.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170581",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsTimeDepNonLOE",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030058",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesACWPExistAtCAAndWPLevels",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to account for a new scenario (Scenario D) introduced by an update, which allows for Actuals at both the CA and WP levels. Previously, the function collected data into two common table expressions (CTEs) based on whether Actuals were at the CA level or the WP level without considering specific scenarios that permit Actuals at both levels. Now, it explicitly identifies and excludes Scenario D CAs and WPs from the exceptions, thereby refining the selection of CAs and WPs that are allowed to have Actuals.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080411",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsInitialAuthGtPMAuth",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100466",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsDollarsDeltaMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS10_CCLogDetails_IsDollarsDeltaMissing]` to a shorter, unspecified name due to the removal of parameters and return type details in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030077",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsApportionedToIDMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110493",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsSVRCNarrMissingImpactNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040155",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD2MissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080429",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishAfterPlannedCompletionFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060296",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsFinishDateLaterThanDS04EFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040172",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEndOfPMBMSMissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `fnDIQ_DS04_Sched_IsEndOfPMBMSMissingInFC` to a removed or unspecified name.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1090441",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsCCLogIdOrgUBMissingInCCLogIDList",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030061",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesBCWPExistOnNonWPData",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070375",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleCumPctUnFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040118",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesBLTaskHaveNegativeTotalFloat",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040179",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsFinishedTaskMissingActualStart",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040280",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsRPGWBSMissingInDS10WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030102",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS04BL",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to use a LEFT JOIN to find rows where the WP WBS ID is missing in the BL schedule, rather than using a NOT IN clause.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040119",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesCompletedActivityHaveZeroActDur",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140539",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_AreSubKAndSubKPOIDComboMisalignedWithDS13",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080418",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsNarrativeEqToTitle",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080428",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthRepeatedAcrossRevisions",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030317",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSVMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030320",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsVACMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS03_Cost_IsVACMissingDS11RCNarrFav]\" to a more simplified and unspecified format in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070372",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleCumDollarFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1180586",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsEULackingSpread",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040162",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsContractCompletionMSMissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020048",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsParentLowerInOBSHierarchyThanChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060286",
+    "DIQ Name v4": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollars",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include handling for indirect costs by changing how the 'EOC' field is treated, specifically by introducing a condition to label costs as 'Indirect' if they are marked as such, rather than directly using the 'EOC' value. This change addresses the introduction of an 'is_indirect' flag in the data, which was not previously accounted for.\n\nAdditionally, the logic now considers both 'taskID' and 'subprojectID' when joining data from different sources to calculate resource performance, where previously only 'taskID' was used. This adjustment allows for a more precise matching of data across different tables.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070338",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesOTBOTSDateExistWithoutBACRpg",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1000001",
+    "DIQ Name v4": "fnDIQ_DS00_Meta_IsCPPMissingInDS03PeriodDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040139",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsActivityMissingEVT",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010023",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsOBSIDMissingInDS02OBSIDList",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040157",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD3MissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080621",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWPMMismatchedWithDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060246",
+    "DIQ Name v4": "fnDIQ_DS06_Res_DoLaborDatesOverlap",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include subproject identification in the determination of overlapping labor dates. Previously, the function only considered resource ID and schedule type for identifying overlaps. Now, it also takes into account the subproject ID, ensuring that labor date overlaps are checked within the same subproject as well as schedule type.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040218",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsTaskWithPCPhysicalGT0MissingASDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070360",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsTABNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from unspecified to `fnDIQ_DS07_IPMR_IsTABNegative`.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030319",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSVPctMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080440",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWPMMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040603",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHighFloatJustificationMissingBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070265",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMBestDollarsLtEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040605",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsTaskWBSSummary",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130519",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBACMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070308",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyGtCD4",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080389",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreLaborHoursMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010039",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsParentWBSIDMissingFromWBSIDList",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040126",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesLOETaskHaveNonDurationPCType",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010018",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsExitCriteriaMissing",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to check for missing exit criteria using a more streamlined approach, specifically by combining the check for empty or null values into a single condition.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070370",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostVACPctFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010001",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWPOrPPMissingInDS17",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040116",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesBCPExistWithCostRiskConfidenceLevelBelow95Percent",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060292",
+    "DIQ Name v4": "fnDIQ_DS06_Res_DoNonLaborSHoursExistWithDS03LaborSHours",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y' when determining if non-labor schedule hours exist alongside DS03 labor schedule hours. Previously, there was no exclusion based on the `is_indirect` status.\n\nThe function now considers both `taskID` and `subprojectID` when joining DS04 to DS06 to get non-labor budgets recorded in hours, where previously it only considered `taskID`. This change ensures that the join is more specific and accurate by including an additional identifier.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040190",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsLSDateAfterLFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040152",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD1MissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070345",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBBgtDollarsExistWithoutUBEstDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170577",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEUMaxLtDS03EACCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020043",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsNarrativeMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040210",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsScheduleMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130514",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsACWPMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150548",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_DoesOppHaveAvoidOrTransferHandling",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030046",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreBCWSiAndETCiIncommensurate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040196",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMSResourceLoaded",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060301",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsTaskMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040225",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSTypeDisallowed",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030074",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_Is0To100BCWSInMoreThanAPeriod",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a new parameter, `is_indirect`, in the analysis to define a unique row, ensuring that the comparison of work across periods is more accurate. Previously, the comparison was based on WP/EOC combinations, but now it also considers whether the work is indirect or not. This change ensures that the same work is compared to itself over different periods more accurately.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130527",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsCostCompleteSubKMissingAFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040122",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesDescriptionContainTaskID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030097",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSPAECumEqualToZero",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include handling of cases where Work Package ID (WPID) and the indirect cost indicator (is_indirect) might be missing or null. Previously, the function did not account for these scenarios, and now it ensures that even if WPID or is_indirect are null, they are considered in the grouping and joining conditions by treating them as empty strings. This change allows for a more comprehensive analysis of cost data by including all relevant records, even those without a specified WPID or indirect cost indicator.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100477",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPStartRollupMisalignedWithDS08CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080434",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartEarlierThanLastRev",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1000002",
+    "DIQ Name v4": "fnDIQ_DS00_Meta_IsCPPSDGtCD4",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060254",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsScheduleMissingResources",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110482",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsApprovedDateGtCALDates",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130516",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsAFDateMisalignedWithDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130536",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsSubKWithACWPMissingASDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080437",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsSubKBudgetMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040159",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD4MissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from fnDIQ_DS04_Sched_IsCD4MissingInFC to a removed or unspecified name.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120497",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsClosedDateLtOriginalDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030314",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCVPctMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030053",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreEOCsDuplicatedWithinCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040206",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsProjFinishMSMissingBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040202",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPlannedCompletionAlignedWithEndOfPMB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040200",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesWBSSummaryHaveLogic",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a comparison of subproject IDs, ensuring they match or are both null, in addition to the existing conditions for matching task IDs and schedule types.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080388",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreLaborHoursMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of identifying misaligned labor hours by simplifying the query structure. Previously, the function used a more complex method to compare labor hours, which has now been condensed into a more efficient approach.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040209",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsProjStartMSMissingFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040120",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesCompletedMSHaveNonZeroActDur",
+    "DIQ Name": "",
+    "Summary": "The function [dbo].[fnDIQ_DS04_Sched_DoesCompletedMSHaveNonZeroActDur] was removed because its logic is now included in another function, DS04_Sched_DoesMSHaveNonZeroDur.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040141",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsApportionedTaskMissingApportionedToID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020050",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsParentMissingFromOBSIDList",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070381",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsTypeMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040221",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSJustificationInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130515",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsACWPMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060283",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsCAOrWBSResourceLoaded",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to simplify the process of identifying CA or WBS type WBS IDs with resources. Previously, the function joined tables to filter for CA & WBS types and then joined DS04 to DS06 by task ID & schedule type. Now, it directly collects DS04 tasks with DS01.WBS type CA or WBS, then joins those tasks to the DS06 resources without the intermediate steps.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170578",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEUMaxLtDS03EACWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040136",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoMultipleReplanMSsExistInTheCurrentPeriod",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060242",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsPlannedLagNEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030313",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCVMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070359",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRAScheduleLow",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040169",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEFDateLaterThanLFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030059",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesACWPExistInTheFuture",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090448",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsRiskMisalignedWithDS15",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080436",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsSubKBudgetMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090449",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_DoBCPTransactionsExistWithoutDS04BCPs",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070276",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsNCCLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsNCCLTZero]\" to not applicable due to formatting issues in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130508",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreMRDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130504",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreBACInitDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120500",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsTransactionIDDuplicated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160564",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptCostMinGtLikely",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150554",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbCostMinPctSomewhatHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1210602",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_PK",
+    "DIQ Name": "",
+    "Summary": "The logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS21_Rates_PK]` to not applicable, as the function name has not actually changed; the formatting in the diff makes it appear altered, but upon closer inspection, it's clear there was no name change.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040220",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSIdMisalignedBtwFCAndBL",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a new identifier, `subproject_id`, in the task comparison process to handle cases where task IDs can be duplicated across subprojects. Previously, tasks were compared and flagged for misalignment solely based on their `task_ID` and `WBS_ID`, without considering `subproject_id`. Now, the comparison also involves `subproject_id` to accurately identify misaligned tasks between baseline and forecast schedules.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040148",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCAMMisalignedWithDS01CAM",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100457",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreMRDollarDeltasMisalignedWithDS07MR",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040168",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsDurationPCTypeOnNonLOETask",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040182",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHDVCIIDMissingInDS14",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070262",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsCBBLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsCBBLTZero]` to a more compact and unspecified format, as the specific changes to the function name are not provided in the diff.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsOBSIDMissingDelimiters",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040223",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSMissingInDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010036",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWPorPPAtLevelOneOrTwo",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040187",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsLOELogicIncorrect",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070390",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostVACDollarUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060248",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceMissingName",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060253",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceRoleMissingName",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060256",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreLaborTypeAndEOCMismatched",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to look for resources of type Labor where the EOC is not either Labor or Indirect, or where EOC is null, rather than just looking for resources where the EOC is not either Labor or Overhead.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1050236",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include `subproject_ID` and `predecessor_subproject_ID` in identifying primary key (PK) violations, rather than just using `schedule_type`, `task_ID`, and `predecessor_task_ID`.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040150",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsASMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130521",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBCWSMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160563",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptCostLikelyGtMax",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130522",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBLFinishMisalignedWithDS04BLEF",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100461",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsAUWChangeMissingDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040205",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPreCD3ProjectMSNotCodedAsSM",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040193",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMSLaterThanAppFinishProj",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include subproject IDs in the comparison of milestone finish dates, rather than comparing milestones across the entire project. This means the function now looks for milestones with later finish dates than the \"approve finish project\" milestone within the same subproject, instead of across all subprojects.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040113",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreEarlyDatesLaterThanEndOfPMB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1210600",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_IsIndirectRateMissingBurden",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150559",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070303",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMBestLtLastDS03ETCPlusUBEst",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040208",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsProjStartMSMissingBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020049",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsParentMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080423",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthAfterDS03CAAS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060259",
+    "DIQ Name v4": "fnDIQ_DS06_Res_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include \"subproject_ID\" and \"EOC\" as part of the primary key definition, in addition to the existing \"schedule_type,\" \"task_ID,\" \"resource_ID,\" and \"role_id.\" This change expands the criteria for identifying primary key violations.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040207",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsProjFinishMSMissingFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS04_Sched_IsProjFinishMSMissingFC]` to a more compact and unspecified format due to the removal of parameters and return type details in the provided change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1210599",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_AreRateDollarsLtEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060287",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreLaborPUnitsMisalignedWithDS03LaborPHours",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where labor is marked as indirect from the analysis, ensuring that only direct labor costs are considered. Additionally, the comparison and joining of data now also consider the subproject ID, allowing for more granular analysis by subproject.\n\nFunction name changed from `CREATE FUNCTION [dbo].[fnDIQ_DS06_Res_AreLaborPUnitsMisalignedWithDS03LaborPHours]` to `UPDATE: Nov 2023. DID v5 introduced is_indirect and replaced Overhead in the EOC with Indirect.`",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130533",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFCStartMisalignedWithDS04FCES",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040606",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsTaskWithPCDurationMissingASDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080403",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoLaborHoursExistWithoutLaborDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030327",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSViPctMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030084",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsETCLessThanZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030101",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070361",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsTABNEqToBACRpgPlusCBB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040158",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD4MissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040181",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHardConstraintMissingJustification",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040216",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsTaskMissingLogic",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional condition for matching tasks based on subproject ID, in addition to the existing conditions of task ID and schedule type. This means the function now considers the subproject ID when determining if a task is missing logic, whereas previously it did not.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040133",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesSVTHaveIncorrectMSLevel",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020039",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_AreOBSLevelsNonContiguous",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040146",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCalendarNameMissingInDS19",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130537",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_ISEACGtBAC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100459",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreUBDollarDeltasMisalignedWithDS07UB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020047",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsOBSRootRepeated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040219",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsUnitsPCTypeResourcedWithNonMaterialEOC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160561",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_DoesEventHaveImpact",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030064",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesETCExistInThePast",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030329",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsVACPctMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040161",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsConstraintJustificationInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040108",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreCDEarlyDatesMisalignedBtwFCAndBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030326",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSViMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070307",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyGtContractCompletion",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040153",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD1MissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040144",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsASMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130502",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreACWPDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1140543",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110480",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_DoesProjectLevelVARHaveRCNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080614",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS03StartCARollup",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110490",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsProjectLevelVARMisalignedWithDS01Type",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9150560",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsRiskMissingDS16ImpactTask",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080399",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoesEVTExistOnCAWAD",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030085",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsEVT100To0",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080413",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsInitialAuthMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS08_WAD_IsInitialAuthMissing]` to a more simplified and possibly incorrect format due to the lack of clear naming in the provided text. The original function name seems to be incorrectly concatenated with SQL keywords and lacks proper spacing, suggesting a formatting issue in the provided change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070264",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMBestLtCPPSD",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsEACPMBestLtCPPSD]\" to a removal of function creation syntax, indicating the specific change details were not provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040176",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEVTJustificationMissing",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify tasks with EVT that either lack justification or where the justification does not contain at least two words, rather than just lacking justification.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040128",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesMSHavePCNEqTo0Or1",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070366",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsProfitFeeAlignedWithDS10",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070388",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsIPMRMultiRow",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080401",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoesSLPPorPPHaveNonKEVT",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040222",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to use a LEFT JOIN to find WBS_IDs that are not in DS01, rather than using a NOT IN clause.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040184",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHighFloatJustificationMissingFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070274",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_AreMRBgtDollarsLtZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_AreMRBgtDollarsLtZero]` to a shorter, unspecified name due to the removal of parts of the code snippet.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040173",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsESDateLaterThanEFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070362",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_AreEACPMLikelyAndDS08BudgetsIncommensurate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040156",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD3MissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9200596",
+    "DIQ Name v4": "fnDIQ_DS20_Sched_CAL_Excpt_IsCalNameMissingInDS19",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to enhance the search for missing calendar names in DS20 by considering the subproject ID in addition to the calendar name. Previously, it only checked if the calendar name in DS20 was not present in DS19 without considering the subproject ID. Now, it also ensures that records are matched based on both the calendar name and the subproject ID, returning only those records where there is a mismatch in calendar names when considering the subproject ID.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040197",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsNonCDorBCPMSMissingDescription",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080620",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWADOfDS01TypeWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020052",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsTitleRepeated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040163",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsContractCompletionMSMissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040129",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesReplanOrReprogrammingMSExistWithoutOTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060295",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsSubKTaskMissingInDS13",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1050233",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsScheduleMissingLogic",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010020",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsNarrativeEqualToTitle",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060251",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceWithoutIDStartingSoon",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040107",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_Are1xxMSsOutOfOrder",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to simplify the process of checking if 1xx milestones are in chronological order by removing specific exceptions for certain milestone groups and consolidating the selection process. Additionally, a new step was introduced to identify problematic milestones with a specific exception for milestone levels 170 and 175 to have the same date.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040145",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsBLTaskMissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100456",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreDBHoursMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of checking if work package-level database transactions sum to the DS03 database by directly comparing the sum of hours from DS03 and DS10 data for a given upload ID, rather than creating a complex temporary structure with sub-queries for comparison.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040147",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCalendarNameMissingInDS20",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080605",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS04FCEFDateCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030325",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSViMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030072",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS04FC",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify rows where the WP WBS ID is missing in the FC schedule by using a left join approach, rather than filtering out rows that do not match IDs in a subquery. This change shifts from an exclusion-based method to a join-based method for identifying missing IDs.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040201",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPCTypeEqToUnits",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010011",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesWPorPPHaveChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010030",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsCAMissingInDS08",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1050234",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsSSorFFRelTypeImproperlyLinked",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to simplify the process of identifying improper linkages between SS or FF relationship types by using a more streamlined approach to collect and compare relationship types. Previously, the function looked for SS or FF types that were attached to a task that also has SF or FS types, using a complex method involving collecting predecessors and comparing relationship types. Now, it collects predecessors by schedule type and predecessor subproject, concatenating relationship types into a single field, and then filters for any improper combinations of relationship types in a more straightforward manner.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170580",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsTimeDepInconsistent",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060261",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsFCResourceMissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080604",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishAfterPlannedCompletionBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040171",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEndOfPMBMSMissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS04_Sched_IsEndOfPMBMSMissingInBL]` to a deletion, indicating the function was removed.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040117",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesBLTaskHaveNegativeFreeFloat",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010017",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsCAOrWBSElementMissingChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030100",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWorkMissingResourcesInDS06",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to account for a new \"is_indirect\" field in DS03, treating rows with \"is_indirect=Y\" as if their EOC is \"Indirect\". This change affects how DS03 rows are joined to DS06 resources, specifically by using a conditional logic to treat certain rows as \"Indirect\" based on the new field.\n\nThe process for creating a CTE (Common Table Expression) named Resources was simplified. Previously, it involved joining DS04 Task IDs to DS06 Task IDs where there was a budget and grouping by DS04 WBS ID & DS06 EOC. Now, it joins DS04 Tasks to their DS06 Resources with a budget by task ID and subproject ID, and groups by DS04 WBS ID & DS06 EOC, incorporating a condition to match subproject IDs.\n\nLogic remains unchanged for identifying cost data with no accompanying resources (DS06) and for the criteria used to determine missing joins as failed rows. However, the query now includes a condition to match subproject IDs between DS04 and DS06 schedules and applies the new logic for handling the \"is_indirect\" field when joining DS03 cost data to the Resources CTE.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040154",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD2MissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030065",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesETCExistOnPPOrCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070376",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleIncDollarFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080405",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAMAuthLtPMAuth",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080390",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreMatDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged. The code was simplified by removing redundant steps and consolidating the creation and use of a temporary table (MaterialCA) directly into the main query.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080615",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS03StartWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030062",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesCAHaveBCWS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040604",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCalculatedDurNEqToOrigDur",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030109",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsNAEVTBeingUsedImproperly",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from not provided to fnDIQ_DS03_Cost_IsNAEVTBeingUsedImproperly.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010009",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesWBSIDContainAdjacentLetters",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080407",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAMMisalignedWithDS01CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9210602",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_IsWBSAndEOCComboMissingInDS06",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070357",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRACostLow",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from not provided to CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsQRACostLow].",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040124",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesEVTExistOnMSOrWBSSummary",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010015",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSMissingInDS04FC",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a left join with the DS04_schedule table on conditions that match WBS_ID and schedule_type 'FC', and filter by upload_ID directly in the FROM clause, rather than filtering these conditions in a WHERE clause subquery. Additionally, the condition to check for WBS_ID not present in DS04_schedule is now directly handled by checking for null values in the joined DS04_schedule table (S.WBS_ID IS NULL), rather than using a NOT IN subquery. \n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1180587",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsEULikelyGtMax",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1180589",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsEUMinGtLikely",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080386",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreLaborDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070275",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesMRRpgExistWithoutAnOTBOTS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070369",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_ArePMBAndMRNotEqToCBB",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a more detailed breakdown of budget categories in the calculation, specifically adding labor, material, ODC, indirect, and subcontract dollars instead of a previous, less detailed approach.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040151",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCD0MissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110496",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsCVNarrMissingDS12CostNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010034",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSRootRepeated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150555",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbSchedMinPctGtMaxPct",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS15_Risk_Register_IsProbSchedMinPctGtMaxPct]\" to a simplified and unspecified name due to the removal of specific code lines in the summary provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060260",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsBLResourceMissingInFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040140",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsAFMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040199",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPCEqTo100MissingAFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060245",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceAndRoleIDMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150556",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbSchedMinPctHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040191",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMajorMSNotCodedAsSVT",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080410",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsEVTMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030080",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsBCWSLessThanZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080606",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS04FCEFDateWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130511",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreProfitFeeEarnedDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100455",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreDBHoursMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of checking if CA-level DB hours transactions sum to the DS03.DB by directly comparing the sums of hours from DS03 and DS10 data, rather than using a complex sub-query structure with a CTE (Common Table Expression) named Flags. This simplification removes the intermediate step of creating Flags, making the query more direct and presumably more efficient.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010002",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_AreWBSLevelsNonContiguous",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030073",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoPeriodDatesExistAfterDS04MS190",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130535",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFlowdownMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS13_SubK_IsFlowdownMissing]\" to a more simplified or possibly corrected format without the extra characters and spaces, but the exact new name is not provided in the change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130532",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFCStartGtFCFinish",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1000003",
+    "DIQ Name v4": "fnDIQ_DS00_Meta_IsSDInTheFuture",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130537",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsTaskIDMissingInDS04FC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9160570",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsRiskIDMissingInDS15",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040188",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsLOEOrWBSSummaryOnDrivingPath",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100473",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPFinishRollupMisalignedWithDS08CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070379",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleIncPctUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1090447",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsPMNameMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS09_CCLog_IsPMNameMissing]` to a more simplified and cleaned-up format without specific details on parameters and return types.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9180588",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsEUMaxLtDS04OrigDur",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a comparison by `subproject_ID` in addition to `task_ID` and `schedule_type` when looking for schedule EU rows where EU maximum days are less than the original duration in DS04.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070380",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsTypeCPE",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080408",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAMMisalignedWithDS01WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010032",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040224",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsWBSSummaryResourceLoaded",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional condition for joining tables by also considering the subproject ID, rather than just by task ID and schedule type.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040125",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesHardConstraintExist",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040215",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to look for duplicate task IDs within a specific schedule type and subproject ID, rather than just by schedule type.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080613",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS03StartCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120499",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsOrigDateGtForecastDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS12_VAR_CAL_IsOrigDateGtForecastDate]\" to a removal of function creation syntax, indicating the specific changes were made to the body or definition of the function rather than its creation or existence.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010002",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWPOrPPMissingWAD",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080391",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreMatDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040149",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsAFMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070339",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesOTBOTSDateExistWithoutCVRpg",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100462",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsCCLogIDMissingInDS09",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100451",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreAUWDollarsGtNTE",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040229",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesBCPExistWithoutRPGBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110494",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070354",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsProfitFeeEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010019",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsExternalMissingSubprojectID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1190592",
+    "DIQ Name v4": "fnDIQ_DS19_Sched_CAL_Std_AreHoursPerDayUnreasonable",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020051",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsParentOBSIDMissingFromChildOBSID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170573",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEUJustificationMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080387",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreLaborDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged. The code was simplified by removing redundant steps and directly incorporating the logic into the main query, making it more efficient and easier to read.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130524",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBLStartGtBLFinish",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080607",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoesCAWPRelDifferFromDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110494",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsVARMissingRCOrImpactNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070341",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesOTBOTSDateExistWithoutSVRpg",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030328",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSViPctMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160566",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptSchedLikelyGtMax",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090442",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsCCLogMissingInDS10",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040183",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHighFloatJustificationInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060237",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsBudgetEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to exclude resources where the End of Cost (EOC) is marked as 'Indirect' when looking for resources with a budget of zero dollars or zero units. Previously, it included all resources with zero budget dollars or units without this condition.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040211",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsSoftConstraintMissingDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030108",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include \"is_indirect\" in the primary key check, in addition to the existing fields of period_date, WBS_ID_CA, WBS_ID_WP, EOC, and EVT. This change follows an update to DID version 5.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030083",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCAMistypedInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130507",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreEACDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110492",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsSLPPVARMisalignedWithDS01Type",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030055",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreEOCsMisalignedWithEOCsInDS06",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1180590",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040226",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsZBANotMSLevel8xx",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040164",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsDescriptionDuplicated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080616",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS04ASDateCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070266",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMlikelyLtCPPSD",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160567",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptSchedMinGtLikely",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070385",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsUBEstDollarsNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsUBEstDollarsNegative]\" to a non-specified new name due to the incomplete code context provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130523",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBLFinishMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010031",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSIDMissingDelimiters",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9150551",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsClosedDateLtRiskTaskEFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040160",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsCDOrBCPDuplicated",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional parameter, `subproject_ID`, in the process of identifying duplicate milestones. Previously, duplicates were identified based solely on `schedule_type` and `milestone_level`. Now, duplicates are identified by considering `schedule_type`, `milestone_level`, and `subproject_ID`, making the identification of duplicates more specific to subprojects.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110483",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsApprovedDateOutsideOfCurrentPeriod",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040214",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsSVTOrZBAResourceLoaded",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to directly filter tasks by subtype 'SVT' or 'ZBA', rather than filtering out tasks without a subtype. Additionally, the method to collect resources now includes subproject_id, and tasks are joined with resources using schedule_type, task_id, and subproject_id, where previously, the join was only based on schedule_type and task_id.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080435",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartGtEqToPOPFinish",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080416",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsMatBudgetMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9050282",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsTaskMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional condition for matching tasks by also considering the subproject ID, rather than just the schedule type and task ID.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100472",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPFinishMisalignedWithDS08WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010010",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesWPMMatchCAM",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070351",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsCBBNEqToPMBPlusMRMinusOverrun",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130513",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_DoesAFDateExistWithoutAS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080398",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreWADEOCsComingled",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060285",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include checks at both Work Package (WP) and Cost Account (CA) levels, replacing the previous approach. Additionally, the function now accounts for indirect costs by treating certain direct costs as indirect based on new criteria, a change introduced to align with updates in data definitions.\n\nFunction name changed from `fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars` to a new name not provided in the excerpt.\n\nThe function's logic now incorporates a new condition for identifying indirect costs, using a `CASE` statement to classify costs as 'Indirect' when specific criteria are met, which adjusts how costs are grouped and compared.\n\nThe comparison between cost data and schedule/resource data now also considers `subproject_id` in addition to `task_id`, refining the granularity of the data join and the subsequent roll-up operations.\n\nThe grouping of data by WBS (Work Breakdown Structure) and EOC (Element of Cost) now includes `subproject_id` where applicable, enhancing the specificity of the data aggregation and the identification of missing resource performance data.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070368",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRACLSchedLowFollowingBCP",
+    "DIQ Name": "",
+    "Summary": "The function was removed.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070349",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBEstDollarsExistWithoutUBEstDays",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070263",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsCBBNEqToNCCPlusAUW",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110497",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsSVNarrMissingDS12SchedNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070389",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostVACDollarFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9150552",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsMitigateRiskMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070369",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostIncPctUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070364",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostCumPctFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160565",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptCostMissingSpread",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130512",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreProfitFeeInitDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040167",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsDPASDateEarlierThanESDate",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to simplify the process of finding FC tasks with AS dates earlier than their BLES date, by directly joining a sub-select of DPBL tasks to the FC, rather than using a more complex method involving multiple steps and conditions.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130531",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFCFinishMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030322",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCViPctMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080617",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterDS04ASDateWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070368",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostIncPctFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsThresholdCostIncPctFavEqToZero]` to not applicable, as the function name itself has not changed but the formatting of the code snippet provided does not clearly indicate a new name.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010029",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsSubprojectIDMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to use a LEFT JOIN to find records in DS01_WBS where the subproject_ID is missing in DS04_Schedule, rather than using a NOT IN clause to filter those records. This change optimizes the query for better performance.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110495",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsWPVARMisalignedWithDS01Type",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040186",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreEVTsComingled",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070260",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesOTBOTSDateExistWithoutMR",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140545",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsHDVCIMissingInDS04FC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030323",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCViPctMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130525",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBLStartMisalignedWithDS04BLES",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030057",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_ArePeriodsLT20OrGT36DaysApart",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060247",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceNameDuplicated",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include subproject identification in the process of identifying duplicated resource names. Previously, the function only considered resource names and IDs for duplication checks. Now, it also takes into account the subproject ID, allowing for more precise identification of duplicates across different subprojects.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070270",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyDollarsGtCBBWithoutOTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080417",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsMatBudgetMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080424",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthAfterDS03WPAS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090444",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsHoursDeltaMisalignedWithDS10",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070377",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleIncDollarUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010006",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesOnlyOneOBSIdExistAcrossWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS01_WBS_DoesOnlyOneOBSIdExistAcrossWBS]` to a removal, indicating the function was deleted.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9160571",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsTaskIDMissingInDS04BL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060241",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsOverheadOnItsOwn",
+    "DIQ Name": "",
+    "Summary": "The logic remains unchanged.\nFunction name changed from fnDIQ_DS06_Res_IsOverheadOnItsOwn to fnDIQ_DS06_Res_IsIndirectOnItsOwn.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070271",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMWorstLtCPPSD",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060284",
+    "DIQ Name v4": "fnDIQ_DS06_Res_ArePDollarsMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "1. The logic was adjusted to accommodate a new distinction between direct and indirect costs, specifically by treating certain costs as \"Indirect\" based on a new indicator, rather than directly aligning them with existing categories. This change addresses a modification in how overhead and indirect costs are represented.\n2. The function now considers both `task_id` and `subproject_ID` when joining schedule data to resources, where previously it only considered `task_id`. This allows for a more granular matching process.\n3. The grouping logic in several parts of the function has been updated to group by a new case condition that accounts for the indirect cost indicator, and also to include `subproject_ID` where applicable. This change ensures that costs are grouped correctly considering the new indirect cost distinction.\n4. Function name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010005",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesOnlyOneCAMExistAcrossWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170582",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130510",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreProfitFeeDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040134",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesSVTHaveLogic",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional condition based on `subproject_id` when joining SVT rows to the DS05 Logic file, which wasn't considered before. This change ensures that the logic now also takes into account the `subproject_id` along with `task_id` and `schedule_type` when determining if SVTs have logic.\n\nAdditionally, the condition for filtering on `subtype` was simplified by removing the ISNULL check, directly filtering for 'SVT'.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060299",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsResourceMissingInDS21",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010027",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsParentWBSIDMissingFromChildWBSID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080406",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAMAuthMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010021",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsNarrativeInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040180",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsHardConstraintMissingDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110484",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsCALIDMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030087",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsEVTMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030318",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSVPctMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS03_Cost_IsSVPctMissingDS11RCNarrFav]` to a shorter, unspecified name due to the removal of parameters and detailed logic in the provided change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100471",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPFinishMisalignedWithDS08CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070363",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostCumDollarUnFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040321",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreCD4DatesMisalignedBtwFCAndBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100469",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsOTBOTSRpgMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080419",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsODCBudgetMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070358",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRAScheduleHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsQRAScheduleHigh]\" to a more simplified or possibly corrected format without the \"CREATEFUNCTION\" prefix and other syntax elements, but the exact new name is not provided in the change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100468",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsNonDBTransactionBelowProjectLevel",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100463",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsDBTransactionForDS01WBSType",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010014",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070346",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBEstDaysExistWithoutUBBgtDays",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040135",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesWBSHaveOnlyZBATasks",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070310",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesDS04RPGExistWithoutOTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010030",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsTitleRepeated",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040143",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsASDateLaterThanAFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070340",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesOTBOTSDateExistWithoutDS04Rpg",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070384",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsUBEstDaysNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsUBEstDaysNegative]` to not applicable due to formatting issues in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170583",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170576",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEUMaxLtDS03DB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010024",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsOverheadBCWSMissingFromProject",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to delete the function that checks for missing Overhead budget in a project and replace it with a new function that checks for missing Indirect budget instead. This change reflects a shift from focusing on Overhead to Indirect costs.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040130",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesRpgExistWithoutAppRpgMS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070350",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsCalculatedEACGtPMEACBest",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150561",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbCostMinPctHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030075",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_Is5050BCWSImproperlySpread",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a new parameter, `is_indirect`, in the analysis to define a unique row, replacing the previous use of `Overhead` in the EOC with `Indirect`. This change ensures that comparisons of work packages (WP) across periods are more accurate by considering whether the work is direct or indirect.\n\nFunction name changed from `fnDIQ_DS03_Cost_Is5050BCWSImproperlySpread` to include handling of the `is_indirect` parameter, though the exact new name is not provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010008",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesTitleContainWBSID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1140547",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsSubKPOIDMissingSubKID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010033",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSRootNotTypeWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1140540",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_DoesEquipIDExistWithoutSubKId",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070365",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsOTBOTSDateOverdue",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070364",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACGtBACWithoutOTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060258",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsMaterialTypeUOMMissingOrNumeric",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120501",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsTransactionIDMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS12_VAR_CAL_IsTransactionIDMissing]` to a more compact and possibly corrected format without unnecessary characters and spaces.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040123",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesDiscreteTaskHaveNonPhysicalPCType",
+    "DIQ Name": "",
+    "Summary": "The function was removed entirely.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080612",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS03FinishWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030092",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsMatComingledWithNonOvhdEOCs",
+    "DIQ Name": "",
+    "Summary": "Function name changed from fnDIQ_DS03_Cost_IsMatComingledWithNonOvhdEOCs to fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs due to DIDv5 changes.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130538",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130505",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreBCWPDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110491",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsProjectLevelVARMissingNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130538",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsTaskIDMissingInDS06Labor",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS13_SubK_IsTaskIDMissingInDS06Labor]` to a removal of the function, indicating the function has been deleted or its creation code has been removed in the change.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070366",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostIncDollarFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9050279",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsSubProjMisalignedWithDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080610",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthorizedWADMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100476",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPStartMisalignedWithDS08WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010007",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesSLPPHaveChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9020041",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsCAMarkedAsExternal",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120498",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsInitDateGtOriginalDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS12_VAR_CAL_IsInitDateGtOriginalDate]\" to not applicable, as the function name itself has not changed but rather the formatting and comments within the code were adjusted.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010026",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsParentMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070356",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRACostHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080420",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsODCBudgetMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100470",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsOTBOTSRpgMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010013",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsBWCOnCAorWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030088",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsLaborMissingACWPDollarsHoursOrFTEs",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y' from the function's consideration. This change was made to reflect an update in November 2023, where \"Indirect\" replaced \"Overhead\" in the EOC, and only rows with `is_indirect` not equal to 'Y' are relevant for this function's purpose.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040217",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsTaskMissingResources",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to also exclude tasks by subproject_ID in addition to the previous criteria. Previously, the function looked for tasks missing in the resources file excluding certain types (SVTs & ZBAs) and by task_ID and schedule type. Now, it also considers subproject_ID in its criteria.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040192",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMSEarlierThanAppStartProj",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110486",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsCAVARMisalignedWithDS01Type",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030081",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsBCWSMissing",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to account for a new scenario introduced by a schema change in October 2023, where work package-level data can have only actual cost of work performed (ACWP) when the work package is marked as indirect and categorized under 'Indirect' in the element of cost (EOC). Additionally, the condition to identify missing budgeted cost of work scheduled (BCWS) now excludes indirect work packages with ACWP dollars greater than zero and ensures work packages have a non-empty work breakdown structure (WBS) ID. \n\nComments were updated to reflect these logic changes and to clarify the conditions under which BCWS is considered missing.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040121",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesCompletedTaskHaveRemDur",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140541",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged. The code was simplified to remove unnecessary comments and streamline the SQL query. Specifically, the condition for filtering records based on `upload_ID` was corrected to ensure consistency in comparing `upload_ID` across different tables.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9110489",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsPPVARMisalignedWithDS01Type",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070268",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyDollarsLtEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1200595",
+    "DIQ Name v4": "fnDIQ_DS20_Sched_CAL_Excpt_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include \"subproject_ID\" as part of the primary key definition, in addition to \"calendar_name\" and \"exception_date\". Previously, the primary key was defined only by \"calendar_name\" and \"exception_date\".",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040127",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesMSHaveNonZeroDur",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070343",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBBgtDaysExistWithoutUBEstDays",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130503",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreBACDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100458",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreNTEDollarsNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110487",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsCVRCNarrMissingImpactNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020040",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_DoesTitleContainOBSID",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to perform a case-sensitive search for the OBS_ID within the title, rather than a case-insensitive search.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1200598",
+    "DIQ Name v4": "fnDIQ_DS20_Sched_CAL_Excpt_IsShiftInExcessOf12Hours",
+    "DIQ Name": "",
+    "Summary": "The function was removed.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030099",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesETCExistOnCompletedWork",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010003",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesCAHaveACAChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040200",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPCGT0MissingASDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040131",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesSoftConstraintExist",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070367",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsQRACLCostLowFollowingBCP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010013",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWBSMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090445",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsImpDateMissingOrUnreasonable",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070347",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBEstDaysExistWithoutUBEstDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150553",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbCostMinPctGtMaxPct",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080611",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS03FinishCARollup",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150557",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsProbSchedMinPctSomewhatHigh",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060294",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsEOCComboMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "1. The logic was adjusted to account for changes in how certain fields are defined and joined in the database. Specifically, it now considers \"Indirect\" costs in a new way and handles optional EOC fields for roles differently.\n2. The function now includes logic to treat blanks in DS06 as a flag, acknowledging that blanks will not exist in DS03.\n3. The joining criteria between schedules and resources have been updated to include both task ID and subproject ID, rather than just task ID.\n4. Function name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070348",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBEstDollarsExistWithoutUBBgtDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100467",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsHoursDeltaMissingDollarsDelta",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9050280",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsLagMissingJustification",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to enhance the method of joining two schedules by including a condition that matches subproject IDs, ensuring they are considered even when null. Additionally, the criteria for identifying missing justifications now trim whitespace from the justification field before checking if it is empty, ensuring that justifications containing only spaces are treated as missing.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040170",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEFMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090446",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsPMMisalignedWithDS08",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060298",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreRemUnitsMisalignedWithDS03BCWRHours",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y' when determining discrepancies between remaining labor units and remaining labor work hours. Additionally, the comparison between cost data and schedule data now includes `subprojectID` alongside `taskID` for a more precise matching. This change aims to refine the accuracy of identifying misalignments by considering indirect labor and the relationship between tasks and subprojects.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100475",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPStartMisalignedWithDS08CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040115",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoesActivityHaveOrigDurOfZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9050283",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsLOESuccessorRelEqToFF",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070342",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoUBBgtDaysExistWithoutUBBgtDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_DoesOBSIDContainAdjacentLetters",
+    "DIQ Name": "",
+    "Summary": "The function was removed following a decision that there is no specific formatting requirement for OBS IDs.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030095",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsPeriodAfterPMBEnd",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100479",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsMREntryMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150549",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsAppDateGtClosedDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070272",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMWorstDollarsLtEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080430",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS03FinishCA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030316",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSVMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1050232",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsLead",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS05_Logic_IsLead]` to a more concise and unspecified format in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060289",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits",
+    "DIQ Name": "",
+    "Summary": "1. The logic was adjusted to include checks for both WP level and CA level, replacing the previous approach.\n2. The function now excludes rows marked as indirect following an update in the data model where \"is_indirect\" was introduced and \"Overhead\" was replaced with \"Indirect\" in the EOC.\n3. The logic now accounts for the association of cost data with schedule data by both WBS ID and subproject ID, rather than just by WBS ID.\n4. The function has been updated to collect DS06 labor performance by both task_ID and subproject_ID, instead of just by task_ID.\n5. The join between DS04 and DS06 now includes subproject ID to get resource labor performance by Schedule WBS ID.\n6. The final CTE, FlagsByTask, has been adjusted to include a comma for clarity in the code structure.\n7. The query now filters out indirect labor by checking the \"is_indirect\" field, which was not previously considered.\n8. The selection from DS06_schedule_resources now includes \"subproject_ID\" in the grouping, which was not included before.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030311",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCViMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070367",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostIncDollarUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1190593",
+    "DIQ Name v4": "fnDIQ_DS19_Sched_CAL_Std_PK",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify non-unique DS19 schedule calendar names by also considering the subproject ID, rather than just the calendar name alone.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1210601",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_IsOvhdEOCDirect",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080395",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to focus on instances where the indirect budget dollars do not match the BCWS (Budgeted Cost of Work Scheduled) in DS03, rather than focusing on overhead budget dollars not matching the BCWS in DS03. Function name changed from fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP to fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010035",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWPMFoundOnNonPPorWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060255",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsStartDateLaterThanFinish",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040142",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsASDateEarlierThanESDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010025",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsParentLowerInWBSHierarchyThanChild",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010028",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsPMNameInconsistent",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process for checking PM name consistency for high-level WBS items. Previously, the check involved a more complex series of steps to filter and compare WBS rows above the Control Account level to the Level 1 CAM (PM). Now, the process involves loading the ancestry tree into a CTE, filtering for specific types, and then using these results to flag inconsistencies directly, making the logic more straightforward and focused on directly identifying and flagging the inconsistencies without the previously detailed intermediate steps.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030063",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesCCExistWithoutCCDescription",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040194",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMSLevelDescriptionInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040165",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsDescriptionInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1090440",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9210603",
+    "DIQ Name v4": "fnDIQ_DS21_Rates_IsLaborRateChangeGtDS07EscalationRate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070353",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMWorstDateAfterCD4",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130534",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsFCStartMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS13_SubK_IsFCStartMissing]\" to a more simplified and unspecified format, as the specific changes to the function name are not provided in the diff.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040195",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsMSMistyped",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140542",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCFC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged. The code was simplified by removing unnecessary comments and lines, making it more concise.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060257",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreLaborTypeAndUOMMismatched",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130506",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_AreBCWSDollarsMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160568",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImptSchedMissingSpread",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020045",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070336",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_AreUBEstDollarsGtUBBgtDollars",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1090449",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsRiskMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040277",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEVTJustificationMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060238",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsBudgetLtZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030056",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreEstimatesMisalignedWithPMBEnd",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS03_Cost_AreEstimatesMisalignedWithPMBEnd]` to a simplified or altered format due to the removal of parameters and return type details in the provided change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100474",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsPOPStartGtPOPFinish",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010015",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsCAMMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040204",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPostCD3MSNotCodedAsFM",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150558",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsRealizedDateGtClosedDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070306",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEACPMLikelyLtEndOfPMB",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040189",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsLOETypeMismatchedWithEVT",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS04_Sched_IsLOETypeMismatchedWithEVT]` to a simplified or possibly incorrect format due to the diff structure not providing a clear new name. The changes primarily involve the removal of parameters and return type declarations, which are not to be noted as per the guidelines.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030091",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsLaborMissingETCDollarsHoursOrFTEs",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y' from the function's consideration. This change was made to align with the introduction of `is_indirect` in place of `Overhead` in the EOC, following a decision that indirects should only have dollar values.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080400",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_DoesSLPPHaveACAMAuthDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040151",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsBCPMSMissingDS09Entry",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160562",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsImpactMissingValue",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040137",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_DoMultipleRpgMSsExistInTheCurrentPeriod",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110488",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_IsNarrTypeMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070259",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_AreMRRpgDollarsLtZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040138",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsActDurPlusRemDurGreaterThanOrigDur",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070362",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostCumDollarFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080394",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic was adjusted to compare budget indirect dollars instead of overhead budget dollars with BCWSc in DS03. This change reflects an update to align with DID v5 changes.\nFunction name changed from fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA to fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140546",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsSubKMissingInDS13",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080412",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsInitialAuthInconsistent",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030067",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPneqSForLOE",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080425",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthAfterDS04CAAS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060250",
+    "DIQ Name v4": "fnDIQ_DS06_Res_DoesResourceHaveRole",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040166",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsDPAFDateEarlierThanEFDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1150550",
+    "DIQ Name v4": "fnDIQ_DS15_Risk_Register_IsAppDateGtRealizedDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070273",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsEscalationRatePercentOverlyHighorLow",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030072",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreWPOrPPEVTsComingled",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080409",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsEVTMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080438",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWPMAuthLtCAMAuth",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080622",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsWPWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030079",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsBCWPLessThanZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060293",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsCalendarMissingInDS19",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to enhance how it checks for missing calendar names in DS19 by refining the selection and comparison process. Specifically, it now includes a check for subproject IDs in addition to calendar names, and it ensures the query only runs if there are any calendars in DS19.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010016",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsCAorSLPPAtLowerLevelThanWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060300",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsStartDateEarlierThanDS04ESDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040203",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsPlannedCompletionAndEndOfPMBDeltaLtEqToUB",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to check if the difference between the start/finish dates of two milestones is not equal to the DS07 UB budget days field, rather than checking if it is less than or equal to the DS07 UB budget days field.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070267",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_ArePMEACDatesChronological",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9180591",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsTaskIDMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include an additional condition for matching rows based on `subproject_ID` in addition to `task_ID` and `schedule_type` when joining tables DS18 and DS04. This means the function now also considers the `subproject_ID` to find missing Task IDs, where previously it did not.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170574",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEULackingSpread",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030110",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSubKComingledWithNonOvhdEOCs",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from fnDIQ_DS03_Cost_IsSubKComingledWithNonOvhdEOCs to fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1190594",
+    "DIQ Name v4": "fnDIQ_DS19_Sched_CAL_Std_IsShiftLongerThan12Hours",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1120502",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040175",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsESMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040178",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsFCTaskMissingInBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS04_Sched_IsFCTaskMissingInBL]` to a more streamlined and corrected format without unnecessary characters and spaces, but the exact new name is not provided in the change summary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9010004",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_DoesCAMDifferFromDS04CAM",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080421",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify CA WADs with indirect budget dollars where no indirect BCWS exists in DS03, rather than looking for CA WADs with overhead budget dollars where no overhead BCWS exists in DS03. Function name changed from fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA to fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1020042",
+    "DIQ Name v4": "fnDIQ_DS02_OBS_IsNarrativeEqualToTitle",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030096",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsSLPPOrPPMistypedInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010037",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsWPorPPLackingCAAncestor",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070355",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsProfitFeeLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS07_IPMR_IsProfitFeeLTZero]\" to a more concise and unspecified name.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060290",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreSDollarsMisalignedWithDS03SDollars",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to account for a new distinction between direct and indirect costs, specifically by treating any cost as 'Indirect' if marked as such, rather than strictly by its original cost type. This change reflects an update to accommodate a new version of the data model that includes an 'is_indirect' flag.\n\nAdditionally, the logic now includes 'subproject_id' as part of the criteria for joining and aggregating data, which means it now considers subprojects in its calculations, where previously it did not.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030312",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCVMissingDS11RCNarrFav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9120496",
+    "DIQ Name v4": "fnDIQ_DS12_VAR_CAL_IsCALIDMissingInDS11",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070302",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsCalculatedEACGtPMEACLikely",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9160572",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_IsTaskIDMissingInDS04FC",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1050235",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsRelTypeSF",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from \"CREATEFUNCTION[dbo].[fnDIQ_DS05_Logic_IsRelTypeSF]\" to a more simplified and unspecified name in the provided text.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030105",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPOrPPParentMismatchedWithDS01Parent",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030076",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsACWPLessThanZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100464",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsDBTransactionMissingWBSID",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080432",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS04BLEFDateWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9170579",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsWBSAndEOCComboNotInDS03",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a new condition where if an entry is marked as indirect (is_indirect='Y'), it will treat any EOC value that isn't 'Indirect' as 'Indirect'. Previously, it did not account for this scenario and directly used the EOC value without modification.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9140544",
+    "DIQ Name v4": "fnDIQ_DS14_HDV_CI_IsHDVCIMissingInDS04BL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030106",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsWPorPPRepeatedAcrossCAs",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030078",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsApportionedWBSIDMismatchedWithDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080404",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsBudgetNegativeOrMissing",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to check for WADs with no budgets or only negative budgets by considering indirect budget dollars instead of overhead budget dollars.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060240",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsOverheadUsedUnevenly",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060243",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsRemainingLagNEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100454",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreDBDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of identifying misaligned dollar amounts between two data sets by directly comparing sums of dollars in one query, rather than using a complex common table expression with sub-queries.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080609",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAWBSMistypedInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070371",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostVACPctUnfavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1130526",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBLStartMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from `CREATEFUNCTION[dbo].[fnDIQ_DS13_SubK_IsBLStartMissing]` to a more simplified and cleaned-up format without specific changes to the function's core logic or purpose.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9070363",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_DoesUBExistWithoutDS10Transactions",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100465",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsDescriptionMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1110481",
+    "DIQ Name v4": "fnDIQ_DS11_VAR_DoesSLPPorPPVARHaveRCNarr",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060236",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsPerformanceLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080397",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreSubKDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030086",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsEVTJustificationMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1160569",
+    "DIQ Name v4": "fnDIQ_DS16_RR_Tasks_PK",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080393",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreODCDollarsMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130529",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsEACMisalignedWithDS03WP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9050281",
+    "DIQ Name v4": "fnDIQ_DS05_Logic_IsPredMissingInDS04",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a check for null predecessor subproject IDs, assuming the same subproject for backward compatibility. Previously, the function only joined DS05 to DS04 by schedule type and predecessor ID, but now it also considers the subproject ID, filling in blanks with the same subproject ID where necessary.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070382",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsUBBgtDaysNegative",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030093",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsOverheadInsufficient",
+    "DIQ Name": "",
+    "Summary": "Function name changed from fnDIQ_DS03_Cost_IsOverheadInsufficient to fnDIQ_DS03_Cost_IsIndirectInsufficient.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080422",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to identify Work Packages (WPs) with indirect budget dollars where no indirect BCWS (Budgeted Cost of Work Scheduled) exists, rather than focusing on overhead budget dollars where no overhead BCWS exists. \n\nFunction name changed from fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP to fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170575",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEULikelyGtMax",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080433",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPStartAfterInitialAuth",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030324",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsEVTMisalignedWithDS08",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060291",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreLaborSUnitsMisalignedWithDS03LaborSHours",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to exclude rows where `is_indirect` is 'Y' from the test, addressing a change in definitions introduced in Nov 2023. Previously, all rows were considered without this exclusion.\n\nThe function now joins DS04 to DS06 using both `taskID` and `subprojectID` to get resource budgets by WBSID, where it previously joined only by `taskID`. This change ensures that the join considers an additional level of detail by including `subprojectID`.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040185",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsLagJustificationInsufficient",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030315",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCVPctMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100450",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreAUWDollarDeltasMisalignedWithDS07AUW",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130518",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsASDateMisalignedWithDS04",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080431",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPOPFinishBeforeDS04BLEFDateCA",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of identifying CA WADs where the POP finish date does not align with the DS04.EF_date (BL). Previously, the function created a table to get the maximum EF date by CA WBS ID, joined to the Ancestry Tree_Get function filtered for type 'CA' and parent type 'CA', and then joined this to DS08. It also joined to LatestCAWADRev_Get to only compare the last revision. Now, it directly selects the necessary data with fewer steps and joins DS08_WAD with CAFinish on WBS_ID to CAWBS where POP_finish_date is not equal to EF, and joins to LatestCAWADRev_Get based on WBS_ID and auth_PM_date, ensuring the comparison is only made against the latest revision and under specific conditions.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1170579",
+    "DIQ Name v4": "fnDIQ_DS17_WBS_EU_IsEUMinGtLikely",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100479",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_IsWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030082",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCAMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1100452",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreAUWDollarsNegativeAndNTENonZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010022",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsOBSIDMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030094",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsOverheadWorkMissingOtherEOCTypes",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from fnDIQ_DS03_Cost_IsOverheadWorkMissingOtherEOCTypes to fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9090443",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsDollarsDeltaMisalignedWithDS10",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9060288",
+    "DIQ Name v4": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHours",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include subproject ID in addition to task ID when joining and filtering data, aiming to refine the accuracy of labor performance unit identification by considering subproject distinctions. Previously, the logic only considered task ID for these operations.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100460",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_DoOTBOTSDollarsExistWithoutDS07OTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030321",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_IsCViMissingDS11RCNarrUnfav",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030071",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesSLPPOrPPHaveACWP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9100453",
+    "DIQ Name v4": "fnDIQ_DS10_CCLogDetails_AreDBDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9040213",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsSVTNotExternal",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080608",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAWBSMissingInDS01",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030054",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_AreEOCsDuplicatedWithinWPOrPP",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080427",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsPMAuthMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1010014",
+    "DIQ Name v4": "fnDIQ_DS01_WBS_IsCAMInconsistentInCABranch",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130520",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsBCWPMisalignedWithDS03",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040177",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsEVTMisalignedBtwBLAndFC",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to include a check for matching subproject IDs in addition to the existing condition where the EVT dates between BL and FC schedules do not match. Previously, the function only looked for tasks where the EVT dates were different.\n\nFunction name remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070365",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdCostCumPctUnFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.\nFunction name changed from not provided to not provided.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1200597",
+    "DIQ Name v4": "fnDIQ_DS20_Sched_CAL_Excpt_IsNonWorkDayExceptionMissingShift",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1090439",
+    "DIQ Name v4": "fnDIQ_DS09_CCLog_IsAppDateLTImpDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9130528",
+    "DIQ Name v4": "fnDIQ_DS13_SubK_IsEACMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060244",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsRemBudgetLTZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080392",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreODCDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030070",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesRPGExistWithoutDS07OTBOTSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9080396",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_AreSubKDollarsMisalignedWithDS03CA",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040111",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_AreCDLateDatesMisalignedBtwFCAndBL",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1030066",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesETCiExistAYearOrMoreAfterLastBCWSi",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070373",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_IsThresholdScheduleCumDollarUnFavEqToZero",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1180585",
+    "DIQ Name v4": "fnDIQ_DS18_Sched_EU_IsEUJustificationMissing",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1060252",
+    "DIQ Name v4": "fnDIQ_DS06_Res_IsRoleNameDuplicated",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to streamline the process of identifying duplicated role names within the same schedule type. Previously, the function performed a more complex series of steps, including self-joining a table twice for each schedule type (BL and FC), and then performing unions and additional joins. Now, it simplifies this process by directly selecting and comparing roles within each schedule type to identify duplicates, and then joining the results with the main schedule resources table to flag the duplicated roles.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1040174",
+    "DIQ Name v4": "fnDIQ_DS04_Sched_IsESDateLaterThanLSDate",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1070335",
+    "DIQ Name v4": "fnDIQ_DS07_IPMR_AreUBEstDaysGtUBBgtDays",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "1080439",
+    "DIQ Name v4": "fnDIQ_DS08_WAD_IsCAWBSEqToWPWBS",
+    "DIQ Name": "",
+    "Summary": "Logic remains unchanged.",
+    "Type": "Name matched"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 4-6 months from the current project status date, rather than a period within 3-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 4-6 months from the current project status date, rather than a period within 3-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 4-6 months from the current project status date, rather than a period within 3-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 3-6 months from the current project status date, rather than a period within 4-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 3-6 months from the current project status date, rather than a period within 4-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 3-6 months from the current project status date, rather than a period within 4-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths.",
+    "Type": "Name changed"
+  },
+  {
+    "UID": "9030068",
+    "DIQ Name v4": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "DIQ Name": "",
+    "Summary": "The logic was adjusted to consider a period date within 3-6 months from the current project status date, rather than a period within 4-6 months of the project status date.\nFunction name changed from fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths to fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths.",
+    "Type": "Name changed"
   }
 ]

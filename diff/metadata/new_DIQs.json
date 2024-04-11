@@ -1,0 +1,106 @@
+[
+  {
+    "UID": "9060304",
+    "DIQ Name": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsCA"
+  },
+  {
+    "UID": "9060305",
+    "DIQ Name": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP"
+  },
+  {
+    "UID": "1030113",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs"
+  },
+  {
+    "UID": "1030117",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsLaborComingledWithNonIndirectEOCs"
+  },
+  {
+    "UID": "9060306",
+    "DIQ Name": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsCA"
+  },
+  {
+    "UID": "9060307",
+    "DIQ Name": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsCA"
+  },
+  {
+    "UID": "9080411",
+    "DIQ Name": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA"
+  },
+  {
+    "UID": "1060269",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsCAWBSEqTWPWBS"
+  },
+  {
+    "UID": "1030111",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsIndirectBCWSMissingFromProject"
+  },
+  {
+    "UID": "1030094",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsIndirectInsufficient"
+  },
+  {
+    "UID": "1030095",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs"
+  },
+  {
+    "UID": "1030112",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs"
+  },
+  {
+    "UID": "1030098",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes"
+  },
+  {
+    "UID": "9080433",
+    "DIQ Name": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03WP"
+  },
+  {
+    "UID": "9080434",
+    "DIQ Name": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA"
+  },
+  {
+    "UID": "9080410",
+    "DIQ Name": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP"
+  },
+  {
+    "UID": "9060302",
+    "DIQ Name": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursWP"
+  },
+  {
+    "UID": "9060303",
+    "DIQ Name": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursCA"
+  },
+  {
+    "UID": "1060262",
+    "DIQ Name": "fnDIQ_DS06_Res_IsIndirectUsedUnevenly"
+  },
+  {
+    "UID": "1060264",
+    "DIQ Name": "fnDIQ_DS06_Res_AreEOCsComingled"
+  },
+  {
+    "UID": "1060265",
+    "DIQ Name": "fnDIQ_DS06_Res_IsResourceMissingEOC"
+  },
+  {
+    "UID": "1060266",
+    "DIQ Name": "fnDIQ_DS06_Res_IsResourceDuplicated"
+  },
+  {
+    "UID": "1060267",
+    "DIQ Name": "fnDIQ_DS06_Res_DoesIndirectHaveUnits"
+  },
+  {
+    "UID": "1030114",
+    "DIQ Name": "fnDIQ_DS03_Cost_DoesIndirectHaveHoursOrFTEs"
+  },
+  {
+    "UID": "1030115",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsIndirectCollectedImproperly"
+  },
+  {
+    "UID": "1030116",
+    "DIQ Name": "fnDIQ_DS03_Cost_IsIndirectUseInconsistent"
+  }
+]

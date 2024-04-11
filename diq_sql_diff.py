@@ -13,7 +13,7 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 # Read changes from 'changes.csv'
-changes_df = pd.read_csv(os.path.join(read_dir,'changes.csv'))
+metadata_changes = pd.read_csv(os.path.join(read_dir,'metdata_changes.csv'))
 
 changes = []
 
@@ -68,7 +68,7 @@ for v4_file in v4_files:
             lines_v4 = clean_lines(file_content_v4.split('\n'))
             
             lines = clean_lines(file.read().split('\n'))
-            diff = list(unified_diff(lines, lines_v4))
+            diff = list(unified_diff(lines_v4, lines))
 
             if diff: # If there's a difference
                 changes.append({
@@ -79,7 +79,7 @@ for v4_file in v4_files:
                 })
 
 # Iterate through each row in changes DataFrame for name changed files
-for idx, row in changes_df.iterrows():
+for idx, row in metadata_changes.iterrows():
     uid = row['UID']
     diq_name = row['DIQ Name']
     diq_name_v4 = row['New DIQ Name']
@@ -106,5 +106,5 @@ for idx, row in changes_df.iterrows():
                 })
 
 # Save the changes to changes.json file in output_dir
-with open(os.path.join(output_dir,'changes.json'), 'w') as json_file:  
+with open(os.path.join(output_dir,'sql_changes.json'), 'w') as json_file:  
     json.dump(changes, json_file)
