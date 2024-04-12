@@ -13,7 +13,7 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 # Read changes from 'changes.csv'
-metadata_changes = pd.read_csv(os.path.join(read_dir,'metdata_changes.csv'))
+metadata_changes = pd.read_csv(os.path.join(read_dir,'metadata_changes.csv'))
 
 changes = []
 
@@ -59,7 +59,7 @@ def get_uid(file_content):
 v4_files = [f for f in os.listdir(diqs_folder_v4) if f.endswith('.sql')]
 diqs_files = [f for f in os.listdir(diqs_folder) if f.endswith('.sql')]
 
-# Compare SQL scripts where file names match across diqs_folder_v4 and diqs_folder folders
+# Compare SQL scripts where file names match across /diqs_v4 and /diqs
 for v4_file in v4_files:
     if v4_file in diqs_files:
         with open(os.path.join(diqs_folder_v4, v4_file), 'r') as file_v4, open(os.path.join(diqs_folder, v4_file), 'r') as file:
@@ -74,11 +74,11 @@ for v4_file in v4_files:
                 changes.append({
                     'UID': uid,
                     'DIQ Name v4': v4_file.replace('.sql', ''),
-                    'Type': 'Name matched',
+                    'Match Type': 'Name matched',
                     'Diff': diff
                 })
 
-# Iterate through each row in changes DataFrame for name changed files
+# Compare changes in /diqs and /diqs_v4 where the DIQ name changed but the UID remained the same
 for idx, row in metadata_changes.iterrows():
     uid = row['UID']
     diq_name = row['DIQ Name']
@@ -101,7 +101,7 @@ for idx, row in metadata_changes.iterrows():
                     'UID': uid,
                     'New DIQ Name': diq_name,
                     'DIQ Name v4': diq_name_v4,
-                    'Type': 'Name changed',
+                    'Match Type': 'UID (Name changed)',
                     'Diff': diff
                 })
 

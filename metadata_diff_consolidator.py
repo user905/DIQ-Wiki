@@ -57,5 +57,5 @@ for entry in new_DIQs:
     consolidated_data.append(entry)
 
 # Save consolidated_data to /consolidated/consolidated_changes.json
-with open(os.path.join(output_dir,'consolidated_changes.json'), 'w') as f:
+with open(os.path.join(output_dir,'consolidated_metadata_changes.json'), 'w') as f:
     json.dump(consolidated_data, f, indent=4)  # Set indent to 4 for pretty printing

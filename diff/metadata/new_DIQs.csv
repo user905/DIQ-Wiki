@@ -1,4 +1,4 @@
-Unique UID in diq_data,DIQ Name
+UID,DIQ Name
 9060304,fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsCA
 9060305,fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP
 1030113,fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs

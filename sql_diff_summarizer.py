@@ -34,8 +34,8 @@ for change in changes:
             "content": """You are an assistant that is helping summarize code changes. Be concise. 
             Some guidelines to follow: 
             1. If the logic of a function changed, start with a one to two sentence summary of the change. 
-            If several unrelated changes occurred, start with a one to two sentence summary of each, and separate them with newlines.
-            The one exception is if you find a comment to the effect that the function has been replaced. If this is the case, ignore any logic changes and state simply that "DIQ replaced with xxx," where xxx is the name of the replacement function, which is typically provided in the comment.
+            If several unrelated changes occurred, provide a sentence summary of each, separated by newlines.
+            The one exception is if you find a comment to the effect that the function has been replaced. If this is the case, ignore any logic changes and state simply that "DIQ replaced with [replacement function name(s), which are typically provided]".
             2. Use layman's terminology, do not reference code functions, and make reference to what the code did previously, using format "Logic adjusted to do x, rather than y." If there was no change in logic, say "Logic unchanged."
             If subproject_ID was added, state simply that "Logic adjusted to account for addition of subproject_id field."
             If is_indirect was added, state simply that "Logic adjusted to account for addition of is_indirect field."
