@@ -28,13 +28,6 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "1030058",
-    "Original DIQ Name": "fnDIQ_DS03_Cost_DoesACWPExistAtCAAndWPLevels",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
-  },
-  {
     "UID": "9060296",
     "Original DIQ Name": "fnDIQ_DS06_Res_IsFinishDateLaterThanDS04EFDate",
     "New DIQ Name": "",
@@ -46,13 +39,6 @@
     "Original DIQ Name": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS04BL",
     "New DIQ Name": "",
     "Summary": "Minor code optimization.",
-    "Unchanged?": "N"
-  },
-  {
-    "UID": "9060286",
-    "Original DIQ Name": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollars",
-    "New DIQ Name": "",
-    "Summary": "1. Logic adjusted to handle the replacement of 'overhead' with 'indirect' in the 'EOC' field, as well as the introduction of the 'is_indirect' field.\n2. Additionally, the query accounts for the new 'subproject_ID' field.",
     "Unchanged?": "N"
   },
   {
@@ -117,13 +103,6 @@
     "New DIQ Name": "",
     "Summary": "Logic adjusted to account for the addition of is_indirect field. Minor adjustment to treatment of missing 'WBS_ID_WP' values for both grouping and filtering purposes.",
     "Unchanged?": "N"
-  },
-  {
-    "UID": "1040202",
-    "Original DIQ Name": "fnDIQ_DS04_Sched_IsPlannedCompletionAlignedWithEndOfPMB",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
   },
   {
     "UID": "9040200",
@@ -224,13 +203,6 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "1040184",
-    "Original DIQ Name": "fnDIQ_DS04_Sched_IsHighFloatJustificationMissingFC",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
-  },
-  {
     "UID": "9070362",
     "Original DIQ Name": "fnDIQ_DS07_IPMR_AreEACPMLikelyAndDS08BudgetsIncommensurate",
     "New DIQ Name": "",
@@ -285,13 +257,6 @@
     "New DIQ Name": "",
     "Summary": "1. Logic adjusted to account for the addition of subproject_id field.\n2. Logic adjusted to account for the addition of 'is_indirect' field. All cases where 'is_indirect' = 'Y' are treated as indirect data.",
     "Unchanged?": "N"
-  },
-  {
-    "UID": "9210602",
-    "Original DIQ Name": "fnDIQ_DS21_Rates_IsWBSAndEOCComboMissingInDS06",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
   },
   {
     "UID": "9010015",
@@ -371,13 +336,6 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "9060285",
-    "Original DIQ Name": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars",
-    "New DIQ Name": "",
-    "Summary": "DIQ replaced by CA & WP versions.",
-    "Unchanged?": "N"
-  },
-  {
     "UID": "1040167",
     "Original DIQ Name": "fnDIQ_DS04_Sched_IsDPASDateEarlierThanESDate",
     "New DIQ Name": "",
@@ -397,13 +355,6 @@
     "New DIQ Name": "",
     "Summary": "Logic adjusted to account for the addition of 'subproject_ID' field, as well as for improved readability.",
     "Unchanged?": "N"
-  },
-  {
-    "UID": "1070270",
-    "Original DIQ Name": "fnDIQ_DS07_IPMR_IsEACPMLikelyDollarsGtCBBWithoutOTBOTSDate",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
   },
   {
     "UID": "9060284",
@@ -469,13 +420,6 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "9140541",
-    "Original DIQ Name": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCBL",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
-  },
-  {
     "UID": "1200595",
     "Original DIQ Name": "fnDIQ_DS20_Sched_CAL_Excpt_PK",
     "New DIQ Name": "",
@@ -525,32 +469,11 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "9060289",
-    "Original DIQ Name": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits",
-    "New DIQ Name": "",
-    "Summary": "DIQ replaced by CA & WP versions.",
-    "Unchanged?": "N"
-  },
-  {
     "UID": "1190593",
     "Original DIQ Name": "fnDIQ_DS19_Sched_CAL_Std_PK",
     "New DIQ Name": "",
     "Summary": "Logic adjusted to account for 'subproject_id' field, as well as for minor optimizations.",
     "Unchanged?": "N"
-  },
-  {
-    "UID": "9080395",
-    "Original DIQ Name": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP",
-    "New DIQ Name": "",
-    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' field with 'budget_indirect_dollars'.",
-    "Unchanged?": "N"
-  },
-  {
-    "UID": "9140542",
-    "Original DIQ Name": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCFC",
-    "New DIQ Name": "",
-    "Summary": "Logic unchanged.",
-    "Unchanged?": "Y"
   },
   {
     "UID": "1030091",
@@ -609,13 +532,6 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "9080421",
-    "Original DIQ Name": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA",
-    "New DIQ Name": "",
-    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
-    "Unchanged?": "N"
-  },
-  {
     "UID": "9060290",
     "Original DIQ Name": "fnDIQ_DS06_Res_AreSDollarsMisalignedWithDS03SDollars",
     "New DIQ Name": "",
@@ -637,24 +553,10 @@
     "Unchanged?": "N"
   },
   {
-    "UID": "1060240",
-    "Original DIQ Name": "fnDIQ_DS06_Res_IsOverheadUsedUnevenly",
-    "New DIQ Name": "",
-    "Summary": "Logic adjusted to account for replacement of EOC = 'Overhead' with 'Indirect'.",
-    "Unchanged?": "N"
-  },
-  {
     "UID": "9050281",
     "Original DIQ Name": "fnDIQ_DS05_Logic_IsPredMissingInDS04",
     "New DIQ Name": "",
     "Summary": "Logic adjusted to account for the addition of 'subproject_id' field.",
-    "Unchanged?": "N"
-  },
-  {
-    "UID": "9080422",
-    "Original DIQ Name": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP",
-    "New DIQ Name": "",
-    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
     "Unchanged?": "N"
   },
   {
@@ -669,13 +571,6 @@
     "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborSUnitsMisalignedWithDS03LaborSHours",
     "New DIQ Name": "",
     "Summary": "1. Logic adjusted to account for addition of 'is_indirect' and 'subproject_id' fields.",
-    "Unchanged?": "N"
-  },
-  {
-    "UID": "9060288",
-    "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHours",
-    "New DIQ Name": "",
-    "Summary": "DIQ replaced by CA & WP versions.",
     "Unchanged?": "N"
   },
   {

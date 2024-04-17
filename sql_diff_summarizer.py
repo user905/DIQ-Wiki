@@ -74,6 +74,9 @@ for change in changes:
     # Call OpenAI API
     response = query_gpt(prompt)
 
+    if 'logic unchanged' in response.lower():
+        continue
+
     # Log response to responses.json
     with open(os.path.join(input_dir,output_filename), 'a+') as f:
         # If it's the first entry, add an array

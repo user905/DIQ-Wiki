@@ -573,53 +573,6 @@
         ]
     },
     {
-        "UID": "9030068",
-        "DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
-        "New DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
-        "changes": [
-            {
-                "Subkey": "status",
-                "Old Value": "TEST",
-                "New Value": "DELETED"
-            },
-            {
-                "Subkey": "title",
-                "Old Value": "PP Starting Within 3-6 Months",
-                "New Value": "PP Starting Within 4-6 Months"
-            },
-            {
-                "Subkey": "summary",
-                "Old Value": "Is this PP scheduled to start within 3-6 months?",
-                "New Value": "Is this PP scheduled to start within 4-6 months?"
-            },
-            {
-                "Subkey": "message",
-                "Old Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date.",
-                "New Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 4-6 months of CPP Status Date."
-            },
-            {
-                "Subkey": "status",
-                "Old Value": "TEST",
-                "New Value": "DELETED"
-            },
-            {
-                "Subkey": "title",
-                "Old Value": "PP Starting Within 4-6 Months",
-                "New Value": "PP Starting Within 3-6 Months"
-            },
-            {
-                "Subkey": "summary",
-                "Old Value": "Is this PP scheduled to start within 4-6 months?",
-                "New Value": "Is this PP scheduled to start within 3-6 months?"
-            },
-            {
-                "Subkey": "message",
-                "Old Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 4-6 months of CPP Status Date.",
-                "New Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date."
-            }
-        ]
-    },
-    {
         "UID": "1040177",
         "DIQ Name": "fnDIQ_DS04_Sched_IsEVTMisalignedBtwBLAndFC",
         "New DIQ Name": "",
@@ -674,6 +627,33 @@
                 "Subkey": "message",
                 "Old Value": "FC Task with high float (float_total_days > 10% of project remaining duration) is lacking a justification (justification_high_float is blank).",
                 "New Value": "justification_high_float is blank where task schedule_type = FC and float_total_days > 10% of project remaining duration."
+            }
+        ]
+    },
+    {
+        "UID": "9030068",
+        "DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+        "New DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+        "changes": [
+            {
+                "Subkey": "status",
+                "Old Value": "TEST",
+                "New Value": "DELETED"
+            },
+            {
+                "Subkey": "title",
+                "Old Value": "PP Starting Within 4-6 Months",
+                "New Value": "PP Starting Within 3-6 Months"
+            },
+            {
+                "Subkey": "summary",
+                "Old Value": "Is this PP scheduled to start within 4-6 months?",
+                "New Value": "Is this PP scheduled to start within 3-6 months?"
+            },
+            {
+                "Subkey": "message",
+                "Old Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 4-6 months of CPP Status Date.",
+                "New Value": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date."
             }
         ]
     },

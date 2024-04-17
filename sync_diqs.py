@@ -32,7 +32,7 @@ logging.info("Connected to database successfully")
 cursor = connection.cursor()
 
 # Create /diqs folder in the current directory if not exists
-diqs_path = os.path.join(os.getcwd(), "diqs_v4")
+diqs_path = os.path.join(os.getcwd(), "diqs")
 os.makedirs(diqs_path, exist_ok=True)
 
 logging.info(f"Created diqs folder at path: {diqs_path}")
