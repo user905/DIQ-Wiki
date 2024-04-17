@@ -1,0 +1,695 @@
+[
+  {
+    "UID": "1030089",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsLaborMissingBCWPDollarsHoursOrFTEs",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to exclude records where is_indirect is 'Y'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060249",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsRoleEOCNonLabor",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to include records where EOC is not null.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060297",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreRemDollarsMisalignedWithDS03BCWR",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to use 'is_indirect' field as part of logic for determining indirect data, rather than simply using the 'EOC' field.\n2. Logic adjusted to account for the addition of 'subproject_ID'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9010016",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsWBSMissingInDS04BL",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030058",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_DoesACWPExistAtCAAndWPLevels",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "9060296",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsFinishDateLaterThanDS04EFDate",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'subproject_id' field. Additionally, the query now explicitly filters resources by 'schedule_type = 'BL''.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9030102",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS04BL",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060286",
+    "Original DIQ Name": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollars",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to handle the replacement of 'overhead' with 'indirect' in the 'EOC' field, as well as the introduction of the 'is_indirect' field.\n2. Additionally, the query accounts for the new 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040139",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsActivityMissingEVT",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to exclude records where the subtype is either 'SVT' or 'ZBA', in addition to the existing filters.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060246",
+    "Original DIQ Name": "fnDIQ_DS06_Res_DoLaborDatesOverlap",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_ID field. Minor organizational changes otherwise.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1010018",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsExitCriteriaMissing",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to simplify the condition for checking empty or null exit_criteria by using a more streamlined approach.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060292",
+    "Original DIQ Name": "fnDIQ_DS06_Res_DoNonLaborSHoursExistWithDS03LaborSHours",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to exclude indirect labor costs by filtering out records where 'is_indirect' is 'Y' in the 'CostWBS' section.\n2. Logic adjusted to account for the addition of 'subproject_ID' field.\n3. Logic adjusted to exclude resources with an 'EOC' value of 'Labor' in both the 'ScheduleWBS' and final selection sections, where previously there was no such filter.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030046",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_AreBCWSiAndETCiIncommensurate",
+    "New DIQ Name": "",
+    "Summary": "Minor organizational changes.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040196",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsMSResourceLoaded",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060301",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsTaskMissingInDS04",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030074",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_Is0To100BCWSInMoreThanAPeriod",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of is_indirect field. All cases where is_indirect = 'Y' are treated as indirect data.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030097",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsSPAECumEqualToZero",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of is_indirect field. Minor adjustment to treatment of missing 'WBS_ID_WP' values for both grouping and filtering purposes.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040202",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsPlannedCompletionAlignedWithEndOfPMB",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "9040200",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_DoesWBSSummaryHaveLogic",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060283",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsCAOrWBSResourceLoaded",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for addition of subproject_id field.\n2. Logic adjusted to filter WBS_ID directly in the query for DS04_schedule, using a subquery to check conditions in DS01_WBS, rather than creating a separate WBS filter step.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040220",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsWBSIdMisalignedBtwFCAndBL",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the addition of 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040223",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsWBSMissingInDS03",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to filter out records from 'DS04_schedule' that have a matching 'WBS_ID' in 'DS03_cost', using a new method. Previously, it directly excluded 'WBS_ID' present in 'DS03_cost'. Now, it creates a temporary list of distinct 'WBS_ID_WP' from 'DS03_cost' and then performs a left join to exclude those 'WBS_ID'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040187",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsLOELogicIncorrect",
+    "New DIQ Name": "",
+    "Summary": "Logic overhaul. DIQ now flags the following LOE & apportioned tasks (EVT = A, J, M or type = LOE): 1. Those without two predecessors (one SS, one FF); 2. Those with successors; 3. Those without immediate, discrete predecessors. \n Logic also adjusted to account for the addition of 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060256",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborTypeAndEOCMismatched",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to include records where EOC is either null or does not belong to 'Labor' or 'Indirect', rather than excluding records with EOC values 'Labor' and 'Overhead'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1050236",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' and 'predecessor_subproject_ID' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040193",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsMSLaterThanAppFinishProj",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' and 'predecessor_subproject_ID' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060259",
+    "Original DIQ Name": "fnDIQ_DS06_Res_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to include 'EOC' and 'subproject_ID' fields as part of the test.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060287",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborPUnitsMisalignedWithDS03LaborPHours",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the 'is_indirect' field being added to DS03_Cost.\n2. Logic adjusted to account for the addition of 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040216",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsTaskMissingLogic",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040219",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsUnitsPCTypeResourcedWithNonMaterialEOC",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the addition of 'subproject_ID' field.\n2. Logic adjusted to improve non-material filtering.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040176",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsEVTJustificationMissing",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to include records where 'justification_float_high' is inadequate.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040222",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsWBSMissingInDS01",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040184",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsHighFloatJustificationMissingFC",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "9070362",
+    "Original DIQ Name": "fnDIQ_DS07_IPMR_AreEACPMLikelyAndDS08BudgetsIncommensurate",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to use 'budget_indirect_dollars' instead of 'budget_overhead_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9200596",
+    "Original DIQ Name": "fnDIQ_DS20_Sched_CAL_Excpt_IsCalNameMissingInDS19",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_id' field, as well as for a minor code optimization",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040107",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_Are1xxMSsOutOfOrder",
+    "New DIQ Name": "1. Logic adjusted to account for the addition of 'subproject_id' field.\n2. Exception created for milestone_level = 170 (planned/estimated completion without UB), which should have the same date as milestone_level = 175 (End of PMB)",
+    "Summary": "Logic ",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040145",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsBLTaskMissingInFC",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9030072",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsWPOrPPMissingInDS04FC",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1050234",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_IsSSorFFRelTypeImproperlyLinked",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the predecessor_subproject_ID field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060261",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsFCResourceMissingInBL",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9030100",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsWorkMissingResourcesInDS06",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the addition of subproject_id field.\n2. Logic adjusted to account for the addition of 'is_indirect' field. All cases where 'is_indirect' = 'Y' are treated as indirect data.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9210602",
+    "Original DIQ Name": "fnDIQ_DS21_Rates_IsWBSAndEOCComboMissingInDS06",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "9010015",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsWBSMissingInDS04FC",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9070369",
+    "Original DIQ Name": "fnDIQ_DS07_IPMR_ArePMBAndMRNotEqToCBB",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to replace 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060260",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsBLResourceMissingInFC",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9180588",
+    "Original DIQ Name": "fnDIQ_DS18_Sched_EU_IsEUMaxLtDS04OrigDur",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040224",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsWBSSummaryResourceLoaded",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040215",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060237",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsBudgetEqToZero",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to filter out resources where EOC is 'Indirect'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030108",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the 'is_indirect' field. All cases where 'is_indirect' is missing or null are treated as empty strings.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040160",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsCDOrBCPDuplicated",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040214",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsSVTOrZBAResourceLoaded",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the addition of subproject_id field.\n2. Logic adjusted to filter records based on subtype being either 'SVT' or 'ZBA', rather than excluding records where subtype is empty or null.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9050282",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_IsTaskMissingInDS04",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060285",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars",
+    "New DIQ Name": "",
+    "Summary": "DIQ replaced by CA & WP versions.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040167",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsDPASDateEarlierThanESDate",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' field, as well as to improve readability.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9010029",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsSubprojectIDMissingInDS04",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060247",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsResourceNameDuplicated",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' field, as well as for improved readability.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1070270",
+    "Original DIQ Name": "fnDIQ_DS07_IPMR_IsEACPMLikelyDollarsGtCBBWithoutOTBOTSDate",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "9060284",
+    "Original DIQ Name": "fnDIQ_DS06_Res_ArePDollarsMisalignedWithDS03",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for addition of 'is_indirect' and 'subproject_ID' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040134",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_DoesSVTHaveLogic",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for addition of 'subproject_ID' field and for improved filtering of subtypes.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040321",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_AreCD4DatesMisalignedBtwFCAndBL",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_ID field and for minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9010014",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsWBSMissingInDS03CA",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to exclude external WBS, as well as for minor optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030075",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_Is5050BCWSImproperlySpread",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the is_indirect field. All cases where is_indirect = 'Y' are treated as indirect data.\n\nLogic also adjusted to include a filter that excludes records with empty WBS_ID_WP fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030088",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsLaborMissingACWPDollarsHoursOrFTEs",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to exclude records where is_indirect is 'Y', in addition to the existing filters.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040217",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsTaskMissingResources",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040192",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsMSEarlierThanAppStartProj",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of the 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1030081",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsBCWSMissing",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'is_indirect' field, which is used to exclude is_indirect = Y. All cases where is_indirect = 'Y' are treated as indirect data. Logic also adjusted to exclude records with empty WBS_ID_WP fields (non-WP/PP data).",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9140541",
+    "Original DIQ Name": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCBL",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "1200595",
+    "Original DIQ Name": "fnDIQ_DS20_Sched_CAL_Excpt_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_ID field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1020040",
+    "Original DIQ Name": "fnDIQ_DS02_OBS_DoesTitleContainOBSID",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to use a case-sensitive search for 'Title' using 'OBS_ID', rather than a case-insensitive search.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9010013",
+    "Original DIQ Name": "fnDIQ_DS01_WBS_IsWBSMissingInDS03WP",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to exclude external WBS, as well as for minor optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060294",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsEOCComboMisalignedWithDS03",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for the addition of 'is_indirect' field. All cases where 'is_indirect' = 'Y' are treated as indirect data.\n2. Logic adjusted to account for the addition of 'subproject_id' field.\n3. Logic adjusted to include EOC in test.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9050280",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_IsLagMissingJustification",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'subproject_id' field, as well as for code maintainability.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060298",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreRemUnitsMisalignedWithDS03BCWRHours",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_ID' and 'is_indirect' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9050283",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_IsLOESuccessorRelEqToFF",
+    "New DIQ Name": "",
+    "Summary": "Minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060289",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits",
+    "New DIQ Name": "",
+    "Summary": "DIQ replaced by CA & WP versions.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1190593",
+    "Original DIQ Name": "fnDIQ_DS19_Sched_CAL_Std_PK",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'subproject_id' field, as well as for minor optimizations.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9080395",
+    "Original DIQ Name": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' field with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9140542",
+    "Original DIQ Name": "fnDIQ_DS14_HDV_CI_IsEquipMissingDS06SubKOrMatEOCFC",
+    "New DIQ Name": "",
+    "Summary": "Logic unchanged.",
+    "Unchanged?": "Y"
+  },
+  {
+    "UID": "1030091",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsLaborMissingETCDollarsHoursOrFTEs",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'is_indirect' field, which is used to exclude is_indirect = Y. All cases where is_indirect = 'Y' are treated as indirect data.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9080394",
+    "Original DIQ Name": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' field with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040166",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsDPAFDateEarlierThanEFDate",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060293",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsCalendarMissingInDS19",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_id' field, as well as for a minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060300",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsStartDateEarlierThanDS04ESDate",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_id' field, as well as for a minor code optimization.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9040203",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsPlannedCompletionAndEndOfPMBDeltaLtEqToUB",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to compare Delta and UB as not equal, rather than Delta being less than or equal to UB.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9180591",
+    "Original DIQ Name": "fnDIQ_DS18_Sched_EU_IsTaskIDMissingInDS04",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of subproject_id field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040178",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsFCTaskMissingInBL",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for addition of 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9080421",
+    "Original DIQ Name": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060290",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreSDollarsMisalignedWithDS03SDollars",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for addition of 'is_indirect' and 'subproject_id' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9170579",
+    "Original DIQ Name": "fnDIQ_DS17_WBS_EU_IsWBSAndEOCComboNotInDS03",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for addition of 'is_indirect' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1080404",
+    "Original DIQ Name": "fnDIQ_DS08_WAD_IsBudgetNegativeOrMissing",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1060240",
+    "Original DIQ Name": "fnDIQ_DS06_Res_IsOverheadUsedUnevenly",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of EOC = 'Overhead' with 'Indirect'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9050281",
+    "Original DIQ Name": "fnDIQ_DS05_Logic_IsPredMissingInDS04",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for the addition of 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9080422",
+    "Original DIQ Name": "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for replacement of 'budget_overhead_dollars' with 'budget_indirect_dollars'.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9030324",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_IsEVTMisalignedWithDS08",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to classify 'C' as 'Discrete', where previously it was not included in this classification.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060291",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborSUnitsMisalignedWithDS03LaborSHours",
+    "New DIQ Name": "",
+    "Summary": "1. Logic adjusted to account for addition of 'is_indirect' and 'subproject_id' fields.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9060288",
+    "Original DIQ Name": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHours",
+    "New DIQ Name": "",
+    "Summary": "DIQ replaced by CA & WP versions.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "1040177",
+    "Original DIQ Name": "fnDIQ_DS04_Sched_IsEVTMisalignedBtwBLAndFC",
+    "New DIQ Name": "",
+    "Summary": "Logic adjusted to account for addition of 'subproject_id' field.",
+    "Unchanged?": "N"
+  },
+  {
+    "UID": "9030068",
+    "Original DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInFourToSixMonths",
+    "New DIQ Name": "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths",
+    "Summary": "Logic adjusted to consider a period date within 3-6 months from the current project status date, rather than 4-6 months.",
+    "Unchanged?": "N"
+  }
+]

@@ -7513,20 +7513,6 @@
     "test": "D:\\Development\\pars\\json_DIQS\\tests\\DIQ_Test_fnDIQ_DS04_Sched_IsEVTJustificationMisalignedWithDS03.json",
     "wiki": "generated"
   },
-  "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths": {
-    "author": "Elias Cooper",
-    "table": "DS03 Cost",
-    "status": "TEST",
-    "severity": "ALERT",
-    "title": "PP Starting Within 3-6 Months",
-    "summary": "Is this PP scheduled to start within 3-6 months?",
-    "message": "PP with BCWSi > 0 (Dollar, Hours, or FTEs) and period_date within 3-6 months of CPP Status Date.",
-    "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-    "returns": "Rows of data that fail the DIQ check",
-    "UID": "9030068",
-    "test": "D:\\Development\\pars\\json_DIQS\\tests\\DIQ_Test_fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths.json",
-    "wiki": "generated"
-  },
   "fnDIQ_DS16_RR_Tasks_DoesEventHaveImpact": {
     "author": "Elias Cooper",
     "table": "DS16 Risk Register Tasks",

@@ -235,7 +235,7 @@
         "severity": "ALERT",
         "title": "EU Maximum Days Less Than Original Duration",
         "summary": "Are the EU maximum days for this task less than the original duration?",
-        "message": "EU_max_days < DS04.duration_original_days by schedule_type, task_ID, and subproject_ID.",
+        "message": "EU_max_days < DS04.duration_original_days by schedule_type & task_ID.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9180588"
@@ -269,9 +269,9 @@
         "table": "DS04 Schedule",
         "status": "TEST",
         "severity": "ALERT",
-        "title": "Planned/Estimated Completion & End of PMB Delta Misaligned with UB",
-        "summary": "Is the delta between the Planned/Estimated Completion & End of PMB milestones not equal to UB days?",
-        "message": "Delta between Planned/Estimated Completion ES_date (milestone_level = 170) & End of PMB EF_date (milestone_level = 175) <> UB bgt days (DS07.UB_bgt_days).",
+        "title": "Planned/Estimated Completion & End of PMB Delta Is Less Than UB",
+        "summary": "Is the delta between the Planned/Estimated Completion & End of PMB milestones less than or equal to the UB days?",
+        "message": "Delta between Planned/Estimated Completion ES_date (milestone_level = 170) & End of PMB EF_date (milestone_level = 175) <= UB bgt days (DS07.UB_bgt_days).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9040203"
@@ -355,7 +355,7 @@
         "severity": "ALERT",
         "title": "Schedule EU Task Missing in Schedule",
         "summary": "Is this schedule EU task missing in its respective schedule?",
-        "message": "task_ID not in DS04.task_ID list (by schedule_type, task_ID, and subproject_ID).",
+        "message": "task_ID not in DS04.task_ID list (by schedule_type & task_ID).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9180591"
@@ -442,13 +442,12 @@
         "message": "No row found for approve finish project milestone (milestone_level = 199) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040206"
     },
     "fnDIQ_DS03_Cost_IsMatComingledWithNonOvhdEOCs": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Material Comingled with Non-Overhead EOCs",
         "summary": "Does this SLPP, PP, or WP comingle Material with other EOC types (excluding Overhead)?",
@@ -503,7 +502,6 @@
         "message": "No row found for approve finish project milestone (milestone_level = 199) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040207"
     },
     "fnDIQ_DS03_Cost_IsNAEVTBeingUsedImproperly": {
@@ -564,13 +562,12 @@
         "message": "No row found for approve start project milestone (milestone_level = 100) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040208"
     },
     "fnDIQ_DS03_Cost_IsOverheadInsufficient": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Insufficient Overhead",
         "summary": "Is this SLPP, WP, or PP lacking sufficient Overhead? (Minimally 10% of the total Budget by period)",
@@ -586,8 +583,8 @@
         "status": "TEST",
         "severity": "ERROR",
         "title": "Duplicate Calendar Name",
-        "summary": "Is this calendar name duplicated in the dataset (by subproject_ID)?",
-        "message": "Count calendar_name > 1 (by subproject_id).",
+        "summary": "Is this calendar name duplicated in the dataset?",
+        "message": "Count calendar_name > 1.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1190593"
@@ -626,13 +623,12 @@
         "message": "No row found for approve start project milestone (milestone_level = 100) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040209"
     },
     "fnDIQ_DS03_Cost_IsOverheadWorkMissingOtherEOCTypes": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Overhead Not Mingled With Other EOCs",
         "summary": "Does this SLPP, PP, or WP have only Overhead EOCs?",
@@ -663,7 +659,6 @@
         "message": "Count where category = MR is 0.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1100479"
     },
     "fnDIQ_DS07_IPMR_IsQRAScheduleLow": {
@@ -677,18 +672,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070359"
-    },
-    "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsCA": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Resource Performance without Cost Actuals (CA)",
-        "summary": "Has this resource recorded performance even though actuals are not recorded in cost (by EOC, at the CA level)?",
-        "message": "Resource performance (actual_dollars) > 0 even though DS03.ACWPc = 0 (SUM of ACWSi_dollars) by EOC (CA level).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060304"
     },
     "fnDIQ_DS04_Sched_IsRPGWBSMissingInDS10CA": {
         "author": "Elias Cooper",
@@ -814,18 +797,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070361"
     },
-    "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Resource Performance without Cost Actuals (WP)",
-        "summary": "Has this resource recorded performance even though actuals are not recorded in cost (by EOC, at the WP level)?",
-        "message": "Resource performance (actual_dollars) > 0 even though DS03.ACWPc = 0 (SUM of ACWSi_dollars) by EOC (WP level).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060305"
-    },
     "fnDIQ_DS04_Sched_IsScheduleMissing": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -836,7 +807,6 @@
         "message": "Zero rows found in either the BL or FC schedule (schedule_type = BL or FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040210"
     },
     "fnDIQ_DS03_Cost_IsSPAECumEqualToZero": {
@@ -846,8 +816,8 @@
         "severity": "ALERT",
         "title": "Zero SPAEcum",
         "summary": "Is this WBS missing Budget, Performance, Actuals, and Estimates?",
-        "message": "Cumulative BCWS, BCWP, ACWP, and ETC are all equal to zero for this piece of work (Dollars, Hours, and FTEs).",
-        "grouping": "",
+        "message": "Cumulative BCWS, BCWP, ACWP, and ETC are all equal to zero for this WBS (Dollars, Hours, and FTEs).",
+        "grouping": "WBS_ID_CA, WBS_ID_WP, EOC",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1030097"
@@ -858,8 +828,8 @@
         "status": "TEST",
         "severity": "ERROR",
         "title": "Duplicate Calendar Exception",
-        "summary": "Is this calendar exception duplicated by calendar name, subproject, & exception date?",
-        "message": "Count of calendar_name, subproject_ID, & exception_date combo > 1.",
+        "summary": "Is this calendar exception duplicated by calendar name & exception date?",
+        "message": "Count of calendar_name & exception_date combo > 1.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1200595"
@@ -904,7 +874,7 @@
     "fnDIQ_DS03_Cost_IsSubKComingledWithNonOvhdEOCs": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Subcontract Comingled with Non-Overhead EOCs",
         "summary": "Does this SLPP, PP, or WP mingle Subcontract with other EOC types (excluding Overhead)?",
@@ -949,18 +919,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070363"
-    },
-    "fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "ODC Found Alongside Non-Indirect EOC",
-        "summary": "Does this WP/PP mingle ODC with other EOC types (excluding Indirect)?",
-        "message": "EOC = ODC & Material, Subcontract, or Labor by WBS_ID_WP.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030113"
     },
     "fnDIQ_DS04_Sched_IsSoftConstraintMissingJustification": {
         "author": "Elias Cooper",
@@ -1071,18 +1029,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070365"
-    },
-    "fnDIQ_DS03_Cost_IsLaborComingledWithNonIndirectEOCs": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Labor Found Alongside Non-Indirect EOC",
-        "summary": "Does this WP/PP mingle Labor with other EOC types (excluding Indirect)?",
-        "message": "EOC = Labor & Material, Subcontract, or ODC by WBS_ID_WP.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030117"
     },
     "fnDIQ_DS04_Sched_IsSVTNotExternal": {
         "author": "Elias Cooper",
@@ -1489,7 +1435,6 @@
         "message": "DS00.CPP_Status_Date > today's date.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1000003"
     },
     "fnDIQ_DS11_VAR_IsApprovedDateGtCALDates": {
@@ -1865,7 +1810,7 @@
         "severity": "ERROR",
         "title": "Duplicate Task ID",
         "summary": "Is this task duplicated in the schedule?",
-        "message": "Duplicate task ID found (by subproject_ID).",
+        "message": "Duplicate task ID found.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040215"
@@ -2023,9 +1968,9 @@
         "status": "TEST",
         "severity": "ERROR",
         "title": "Non-Unique Cost Row",
-        "summary": "Is this row duplicated by period date, CA WBS ID, WP WBS ID, EOC, EVT, & is_indirect?",
-        "message": "Count of period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT, is_indirect combo > 1.",
-        "grouping": "period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT, is_indirect",
+        "summary": "Is this row duplicated by period date, CA WBS ID, WP WBS ID, EOC, & EVT?",
+        "message": "Count of period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT combo > 1.",
+        "grouping": "period_date, WBS_ID_CA, WBS_ID_WP, EOC, EVT",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1030108"
@@ -2121,7 +2066,7 @@
         "severity": "ALERT",
         "title": "CD-4 Early Start or Finish Dates Misaligned Between FC & BL",
         "summary": "Are the early start or finish dates for the CD-4 milestone misaligned between FC & BL?",
-        "message": "ES_date or EF_date misaligned for CD-4 in the BL & FC schedules (schedule_type = FC & BL).",
+        "message": "ES_date or EF_date do not align for CD-4 in the BL & FC schedules (schedule_type = FC & BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040321"
@@ -2160,7 +2105,6 @@
         "message": "Zero logic rows found for either the BL or FC schedule (schedule_type = BL or FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1050233"
     },
     "fnDIQ_DS04_Sched_AreCDEarlyDatesMisalignedBtwFCAndBL": {
@@ -2386,8 +2330,8 @@
         "status": "TEST",
         "severity": "ERROR",
         "title": "Non-Unique Relationship",
-        "summary": "Is this row duplicated by schedule_type, task_ID, predecessor_task_ID, subproject_ID, and predecessor_subproject_ID?",
-        "message": "Count of schedule_type, task_ID, predecessor_task_ID, subproject_ID, and predecessor_subproject_ID combo > 1.",
+        "summary": "Is this row duplicated by schedule_type, task_ID, predecessor_task_ID?",
+        "message": "Count of schedule_type, task_ID, predecessor_task_ID combo > 1.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1050236"
@@ -2415,7 +2359,6 @@
         "message": "Only a single CAM found for all WBS Elements; more than one CAM is required across the WBS hierarchy",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1010005"
     },
     "fnDIQ_DS12_VAR_CAL_IsCALIDMissingInDS11": {
@@ -2445,7 +2388,7 @@
     "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollars": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "ALERT",
         "title": "Cost Actuals without Resource Performance",
         "summary": "Are there actuals in cost without performance in resources (by EOC)?",
@@ -2477,7 +2420,6 @@
         "message": "Only a single OBS_ID found for all WBS Elements; more than one OBS ID is required across the WBS hierarchy",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1010006"
     },
     "fnDIQ_DS12_VAR_CAL_IsClosedDateLtOriginalDate": {
@@ -2504,22 +2446,10 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080391"
     },
-    "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsWP": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Cost Actuals without Resource Performance (WP)",
-        "summary": "Are there actuals in cost without performance in resources (by WP WBS & EOC)?",
-        "message": "Resource performance (actual_dollars) = 0 even though DS03.ACWPc > 0 (SUM of ACWSi_dollars) by WBS_ID_WP & EOC.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060285"
-    },
     "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnits": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Cost Labor Actuals without Resource Labor Performance",
         "summary": "Are there labor actual hours in cost without labor performance units in resources?",
@@ -2598,7 +2528,6 @@
         "message": "BCP milestone(s) found (milestone_level = 131 - 135) without accompanying RPG tasks (RPG = Y). (BL)",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040229"
     },
     "fnDIQ_DS01_WBS_DoesTitleContainWBSID": {
@@ -2638,22 +2567,10 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080393"
     },
-    "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsCA": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Cost Actuals without Resource Performance (CA)",
-        "summary": "Are there actuals in cost without performance in resources (by CA WBS & EOC)?",
-        "message": "Resource performance (actual_dollars) = 0 even though DS03.ACWPc > 0 (SUM of ACWSi_dollars) by WBS_ID_CA & EOC.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060306"
-    },
     "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHours": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Resource Labor Performance without Cost Labor Actuals",
         "summary": "Are there resource labor performance units recorded without labor actual hours in cost?",
@@ -2672,7 +2589,6 @@
         "message": "BCP milestone(s) found (milestone_level = 131 - 135) without accompanying RPG tasks (RPG = Y). (FC)",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040228"
     },
     "fnDIQ_DS01_WBS_DoesWBSIDContainAdjacentLetters": {
@@ -2702,7 +2618,7 @@
     "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA": {
         "author": "Elias Cooper",
         "table": "DS08 WAD",
-        "status": "DELETE",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "CA Overhead Dollars Misaligned With Cost",
         "summary": "Are the overhead budget dollars for this CA WAD misaligned with what is in cost?",
@@ -2774,7 +2690,7 @@
     "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03WP": {
         "author": "Elias Cooper",
         "table": "DS08 WAD",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "WP Overhead Dollars Misaligned With Cost",
         "summary": "Are the overhead budget dollars for this WP/PP WAD misaligned with what is in cost?",
@@ -2783,26 +2699,14 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080395"
     },
-    "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsWP": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Cost Labor Actuals without Resource Labor Performance (WP)",
-        "summary": "Are there labor actual hours in cost without labor performance units in resources? (WP)",
-        "message": "Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor) (Test runs at WP level).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060289"
-    },
     "fnDIQ_DS06_Res_AreLaborTypeAndEOCMismatched": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
         "status": "TEST",
         "severity": "WARNING",
         "title": "Labor Resource Lacking Appropriate EOC",
-        "summary": "Is the EOC for this labor type resource something other than Labor or Indirect?",
-        "message": "type = labor where EOC <> Labor or Indirect.",
+        "summary": "Is the EOC for this labor type resource something other than Labor or Overhead?",
+        "message": "type = labor where EOC <> Labor or Overhead.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060256"
@@ -2867,18 +2771,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080396"
     },
-    "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsCA": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Cost Labor Actuals without Resource Labor Performance (CA)",
-        "summary": "Are there labor actual hours in cost without labor performance units in resources? (CA)",
-        "message": "Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor) (Test runs at CA level).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060307"
-    },
     "fnDIQ_DS06_Res_AreLaborTypeAndUOMMismatched": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
@@ -2938,18 +2830,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080397"
-    },
-    "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA": {
-        "author": "Elias Cooper",
-        "table": "DS08 WAD",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "CA Indirect Dollars Misaligned With Cost",
-        "summary": "Are the indirect budget dollars for this CA WAD misaligned with what is in cost?",
-        "message": "budget_indirect_dollars <> SUM(DS03.BCWSi_dollars) where EOC = Indirect or is_indirect = Y (by WBS_ID_CA).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9080411"
     },
     "fnDIQ_DS06_Res_ArePDollarsMisalignedWithDS03": {
         "author": "Elias Cooper",
@@ -3026,7 +2906,7 @@
     "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollars": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "ALERT",
         "title": "Resource Performance without Cost Actuals",
         "summary": "Has this resource recorded performance even though actuals are not recorded in cost (by EOC)?",
@@ -3082,18 +2962,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9080607"
-    },
-    "fnDIQ_DS03_Cost_IsCAWBSEqTWPWBS": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "CA WBS Matches WP WBS",
-        "summary": "Do the CA & WP WBS IDs match?",
-        "message": "WBS_ID_CA = WBS_ID_WP",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060269"
     },
     "fnDIQ_DS06_Res_AreRemDollarsMisalignedWithDS03BCWR": {
         "author": "Elias Cooper",
@@ -3356,7 +3224,7 @@
         "severity": "WARNING",
         "title": "Exit Criteria Missing",
         "summary": "Is the Exit Criteria missing?",
-        "message": "exit_criteria required where type = CA or SLPP. Provide if available for type = WBS, WP, or PP.",
+        "message": "Exit Criteria is missing",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1010018"
@@ -3666,7 +3534,7 @@
     "fnDIQ_DS01_WBS_IsOverheadBCWSMissingFromProject": {
         "author": "Elias Cooper",
         "table": "DS01 WBS",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Overhead Missing From Project",
         "summary": "Is Overhead missing from this project?",
@@ -3706,7 +3574,7 @@
         "severity": "WARNING",
         "title": "Resource Loaded CA or WBS",
         "summary": "Is this WBS of type CA or WBS resource loaded?",
-        "message": "WBS ID of type CA or WBS (DS01.type = CA or WBS) found with resources (task_ID found in DS06.task_ID list by subproject).",
+        "message": "WBS ID of type CA or WBS (DS01.type = CA or WBS) found with resources (task_ID found in DS06.task_ID list).",
         "grouping": "task_ID,schedule_type",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
@@ -3912,7 +3780,7 @@
         "severity": "ALERT",
         "title": "SVT With Logic",
         "summary": "Does this SVT have logic?",
-        "message": "SVT (subtype = SVT) task_id found in DS05 task_ID list.",
+        "message": "SVT (subtype = SVT or ZBA) task_id found in DS05 task_ID list.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9040134"
@@ -4029,7 +3897,7 @@
     "fnDIQ_DS06_Res_IsOverheadOnItsOwn": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Task with Overhead EOC Only",
         "summary": "Is this task resource-loaded with only Overhead EOC resources?",
@@ -4102,7 +3970,7 @@
     "fnDIQ_DS06_Res_IsOverheadUsedUnevenly": {
         "author": "Elias Cooper",
         "table": "DS06 Resources",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "Uneven Use of Overhead",
         "summary": "Is Overhead EOC used for some tasks but not all?",
@@ -4489,19 +4357,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9060299"
     },
-    "fnDIQ_DS03_Cost_IsIndirectBCWSMissingFromProject": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "DELETED",
-        "severity": "WARNING",
-        "title": "Indirect Missing From Project",
-        "summary": "Is Indirect missing from this project?",
-        "message": "No rows found where BCWSi > 0 (Dollars, Hours, or FTEs) and EOC = Indirect or is_indirect = Y.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
-        "UID": "1030111"
-    },
     "fnDIQ_DS04_Sched_IsApportionedTaskMissingApportionedToID": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -4622,19 +4477,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060247"
     },
-    "fnDIQ_DS03_Cost_IsIndirectInsufficient": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Insufficient Indirect",
-        "summary": "Is this WP or PP lacking sufficient Indirect? (Minimally 10% of the total budget by period)",
-        "message": "BCWSi_dollars/hours/FTEs for this WP or PP makes up less than 10% of total budget for this period (on Dollars, Hours, or FTEs).",
-        "grouping": "WBS_ID_CA, WBS_ID_WP, period_date",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030094"
-    },
     "fnDIQ_DS04_Sched_IsASDateLaterThanAFDate": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -4695,18 +4537,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060253"
-    },
-    "fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Material Found Alongside Non-Overhead EOCs",
-        "summary": "Does this WP/PP comingle Material with other EOC types (excluding Indirect)?",
-        "message": "EOC = Material & Subcontract, ODC, or Labor by WBS_ID_WP.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030095"
     },
     "fnDIQ_DS04_Sched_IsASMisalignedWithDS03CA": {
         "author": "Elias Cooper",
@@ -4769,18 +4599,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060251"
     },
-    "fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Subcontract Found Alongside Non-Indirect EOC",
-        "summary": "Does this WP/PP mingle Subcontract with other EOC types (excluding Indirect)?",
-        "message": "EOC = Subcontract & Material, ODC, or Labor by WBS_ID_WP.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030112"
-    },
     "fnDIQ_DS04_Sched_IsASMisalignedWithDS03WP": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -4821,7 +4639,7 @@
     "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03CA": {
         "author": "Elias Cooper",
         "table": "DS08 WAD",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "CA Overhead Dollars Missing In Cost",
         "summary": "Are the overhead budget dollars for this CA WAD missing in cost?",
@@ -4841,18 +4659,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060249"
-    },
-    "fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Indirect Not Mingled With Other EOCs",
-        "summary": "Does this CA, SLPP, PP, or WP have only Indirect EOCs?",
-        "message": "CA, SLPP, PP, or WP with only Indirect.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030098"
     },
     "fnDIQ_DS04_Sched_IsBCPMSMissingDS09Entry": {
         "author": "Elias Cooper",
@@ -4892,7 +4698,7 @@
     "fnDIQ_DS08_WAD_IsOverheadBudgetMissingInDS03WP": {
         "author": "Elias Cooper",
         "table": "DS08 WAD",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "WARNING",
         "title": "WP Overhead Dollars Missing In Cost",
         "summary": "Are the overhead budget dollars for this WP/PP WAD missing in cost?",
@@ -4913,18 +4719,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060252"
     },
-    "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03WP": {
-        "author": "Elias Cooper",
-        "table": "DS08 WAD",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "WP Indirect Dollars Missing In Cost",
-        "summary": "Are the indirect budget dollars for this WP/PP WAD missing in cost?",
-        "message": "budget_indirect_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = indirect (by WBS_ID_WP).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9080433"
-    },
     "fnDIQ_DS04_Sched_IsBLTaskMissingInFC": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -4932,7 +4726,7 @@
         "severity": "WARNING",
         "title": "Baseline Task Missing In Forecast",
         "summary": "Is this task missing in the forecast schedule?",
-        "message": "Task found in baseline schedule (schedule_type = BL) but not in forecast (schedule_type = FC) (by subproject_ID).",
+        "message": "Task found in baseline schedule (schedule_type = BL) but not in forecast (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040145"
@@ -4983,20 +4777,7 @@
         "message": "Zero resource rows found for either the BL or FC schedule (schedule_type = BL or FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1060254"
-    },
-    "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA": {
-        "author": "Elias Cooper",
-        "table": "DS08 WAD",
-        "status": "DELETED",
-        "severity": "WARNING",
-        "title": "CA Indirect Dollars Missing In Cost",
-        "summary": "Are the indirect budget dollars for this CA WAD missing in cost?",
-        "message": "budget_indirect_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = Indirect or is_indirect = Y (by WBS_ID_CA).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9080434"
     },
     "fnDIQ_DS04_Sched_IsCalculatedDurNEqToOrigDur": {
         "author": "Elias Cooper",
@@ -5058,18 +4839,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9060300"
-    },
-    "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP": {
-        "author": "Elias Cooper",
-        "table": "DS08 WAD",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "WP Indirect Dollars Misaligned With Cost",
-        "summary": "Are the indirect budget dollars for this WP/PP WAD misaligned with what is in cost?",
-        "message": "budget_indirect_dollars <> SUM(DS03.BCWSi_dollars) where EOC = Indirect or is_indirect = Y (by WBS_ID_WP).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9080410"
     },
     "fnDIQ_DS04_Sched_IsCalendarNameMissingInDS19": {
         "author": "Elias Cooper",
@@ -5246,22 +5015,10 @@
         "severity": "ERROR",
         "title": "Resource Task Missing in Schedule",
         "summary": "Is the task this resource is assigned to missing in the schedule?",
-        "message": "Task_ID missing in DS04.task_ID list (by schedule_type & subproject_ID).",
+        "message": "Task_ID missing in DS04.task_ID list (by schedule_type).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9060301"
-    },
-    "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursWP": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Resource Labor Performance without Cost Labor Actuals (WP)",
-        "summary": "Are there resource labor performance units recorded without labor actual hours in cost at the WP level?",
-        "message": "Resource labor performance units > 0 (actual_units where EOC or type = Labor) while cost labor actuals hours = 0 (SUM of DS03.ACWPi_hours where EOC = Labor) by WBS_ID_WP.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060302"
     },
     "fnDIQ_DS04_Sched_IsCD0MissingInBL": {
         "author": "Elias Cooper",
@@ -5273,7 +5030,6 @@
         "message": "No row found for CD-0 milestone (milestone_level = 110) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040150"
     },
     "fnDIQ_DS02_OBS_IsOBSMissingInDS01": {
@@ -5318,23 +5074,11 @@
         "status": "TEST",
         "severity": "ERROR",
         "title": "Non-Unique Resource or Role",
-        "summary": "Is this resource / role duplicated by schedule type, task ID, EOC, subproject ID, and resource or role ID?",
-        "message": "Count of schedule_type, task_ID, EOC, subproject_ID and resource_ID or role_id combo > 1.",
+        "summary": "Is this resource / role duplicated by schedule type, task ID, and resource or role ID?",
+        "message": "Count of schedule_type, task_ID, (resource_ID or role_id) combo > 1.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1060259"
-    },
-    "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursCA": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Resource Labor Performance without Cost Labor Actuals (CA)",
-        "summary": "Are there resource labor performance units recorded without labor actual hours in cost at the CA level?",
-        "message": "Resource labor performance units > 0 (actual_units where EOC or type = Labor) while cost labor actuals hours = 0 (SUM of DS03.ACWPi_hours where EOC = Labor) by WBS_ID_CA.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060303"
     },
     "fnDIQ_DS04_Sched_IsCD0MissingInFC": {
         "author": "Elias Cooper",
@@ -5346,7 +5090,6 @@
         "message": "No row found for CD-0 milestone (milestone_level = 110) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040151"
     },
     "fnDIQ_DS02_OBS_IsOBSRootRepeated": {
@@ -5398,19 +5141,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070362"
     },
-    "fnDIQ_DS06_Res_IsIndirectUsedUnevenly": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Uneven Use of Indirect",
-        "summary": "Is Indirect EOC used for some tasks but not all?",
-        "message": "Task lacking Indirect EOC despite Indirect use elsewhere (if Indirect is used on tasks, it must be used for all tasks).",
-        "grouping": "task_ID, schedule_type",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060262"
-    },
     "fnDIQ_DS04_Sched_IsCD1MissingInBL": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -5421,7 +5151,6 @@
         "message": "No row found for CD-1 milestone (milestone_level = 120) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040152"
     },
     "fnDIQ_DS02_OBS_IsParentLowerInOBSHierarchyThanChild": {
@@ -5482,7 +5211,6 @@
         "message": "No row found for CD-1 milestone (milestone_level = 120) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040153"
     },
     "fnDIQ_DS00_Meta_IsCPPMissingInDS03PeriodDate": {
@@ -5495,7 +5223,6 @@
         "message": "DS00.CPP_Status_Date not in DS03.period_date list.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1000001"
     },
     "fnDIQ_DS02_OBS_IsParentMissing": {
@@ -5547,19 +5274,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070259"
     },
-    "fnDIQ_DS06_Res_IsIndirectOnItsOwn": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Task with Indirect EOC Only",
-        "summary": "Is this task resource-loaded with only Indirect EOC resources?",
-        "message": "Task lacking EOC other than Indirect (task_ID where EOC = Indirect only).",
-        "grouping": "task_ID, schedule_type",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060241"
-    },
     "fnDIQ_DS04_Sched_IsCD2MissingInBL": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -5570,7 +5284,6 @@
         "message": "No row found for CD-2 milestone (milestone_level = 130) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040154"
     },
     "fnDIQ_DS00_Meta_IsCPPSDGtCD4": {
@@ -5584,7 +5297,6 @@
         "message": "DS00.CPP_Status_Date > min DS04.ES_date or EF_date where milestone_level = 190.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1000002"
     },
     "fnDIQ_DS02_OBS_IsParentMissingFromOBSIDList": {
@@ -5635,18 +5347,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070369"
     },
-    "fnDIQ_DS06_Res_AreEOCsComingled": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "EOCs Improperly Mingled",
-        "summary": "Are material, ODC, subcontract, or labor EOCs comingled in the same task?",
-        "message": "Task_ID found with combo of material, ODC, subcontract, and/or labor EOC.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060264"
-    },
     "fnDIQ_DS04_Sched_IsCD2MissingInFC": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -5657,7 +5357,6 @@
         "message": "No row found for CD-2 milestone (milestone_level = 130) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040155"
     },
     "fnDIQ_DS02_OBS_IsParentOBSIDMissingFromChildOBSID": {
@@ -5708,18 +5407,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070267"
     },
-    "fnDIQ_DS06_Res_IsResourceMissingEOC": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ERROR",
-        "title": "Resource Missing EOC",
-        "summary": "Is this resource lacking an EOC?",
-        "message": "EOC missing (where resource_ID is not blank).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060265"
-    },
     "fnDIQ_DS04_Sched_IsCD3MissingInBL": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -5730,7 +5417,6 @@
         "message": "No row found for CD-3 milestone (milestone_level = 150) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040156"
     },
     "fnDIQ_DS01_WBS_IsWBSMissingInDS03WP": {
@@ -5803,7 +5489,6 @@
         "message": "No row found for CD-3 milestone (milestone_level = 150) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040157"
     },
     "fnDIQ_DS01_WBS_IsWBSMissingInDS03CA": {
@@ -5876,7 +5561,6 @@
         "message": "No row found for CD-4 milestone (milestone_level = 190) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040158"
     },
     "fnDIQ_DS03_Cost_AreBCWSiAndETCiIncommensurate": {
@@ -5929,18 +5613,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070336"
     },
-    "fnDIQ_DS06_Res_IsResourceDuplicated": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Duplicate Resource",
-        "summary": "Is this resource duplicated across subprojects?",
-        "message": "Count of Resource_id > 1 across distinct subproject_id.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060266"
-    },
     "fnDIQ_DS04_Sched_IsCD4MissingInFC": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -5951,7 +5623,6 @@
         "message": "No row found for CD-4 milestone (milestone_level = 190) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040159"
     },
     "fnDIQ_DS01_WBS_IsWBSMissingInDS04FC": {
@@ -6016,18 +5687,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070310"
     },
-    "fnDIQ_DS06_Res_DoesIndirectHaveUnits": {
-        "author": "Elias Cooper",
-        "table": "DS06 Resources",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Indirect With Hours",
-        "summary": "Does this indirect resource have hours?",
-        "message": "budget, actual, or remaining units > 0 where EOC = Indirect.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1060267"
-    },
     "fnDIQ_DS04_Sched_IsCDOrBCPDuplicated": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -6035,7 +5694,7 @@
         "severity": "ALERT",
         "title": "Duplicate CD or BCP Entry",
         "summary": "Does this CD or BCP appear more than once in the schedule?",
-        "message": "CD or BCP (milestone_level = 1xx) appears more than once in either the FC or BL (or both) (by subproject_ID).",
+        "message": "CD or BCP (milestone_level = 1xx) appears more than once in either the FC or BL (or both).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040160"
@@ -6101,19 +5760,6 @@
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1070337"
-    },
-    "fnDIQ_DS03_Cost_DoesIndirectHaveHoursOrFTEs": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "ALERT",
-        "title": "Indirect With Hours and/or FTEs",
-        "summary": "Does this indirect have hours or FTEs?",
-        "message": "EOC = 'Indirect' or is_indirect = 'Y' AND (BCWSi, BCWPi, ACWPi, or ETCi hours or FTEs > 0)",
-        "grouping": "",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "UID": "1030114"
     },
     "fnDIQ_DS04_Sched_IsConstraintJustificationInsufficient": {
         "author": "Elias Cooper",
@@ -6185,7 +5831,6 @@
         "message": "No row found for Contract Completion milestone (milestone_level = 180) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040162"
     },
     "fnDIQ_DS03_Cost_AreEstimatesMisalignedWithPMBEnd": {
@@ -6236,19 +5881,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070338"
     },
-    "fnDIQ_DS03_Cost_IsIndirectCollectedImproperly": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "WARNING",
-        "title": "Improper Collection of Indirect",
-        "summary": "Is indirect collected at the CA level or via the EOC field (rather than using is_indirect)?",
-        "message": "EOC = Indirect, is_indirect missing, or is_indirect = Y/N found at the CA level (where WBS_ID_WP is blank).",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
-        "UID": "1030115"
-    },
     "fnDIQ_DS04_Sched_IsContractCompletionMSMissingInFC": {
         "author": "Elias Cooper",
         "table": "DS04 Schedule",
@@ -6259,7 +5891,6 @@
         "message": "No row found for Contract Completion milestone (milestone_level = 180) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040163"
     },
     "fnDIQ_DS03_Cost_ArePeriodsLT20OrGT36DaysApart": {
@@ -6372,19 +6003,6 @@
         "returns": "Rows of data that fail the DIQ check",
         "UID": "9070340"
     },
-    "fnDIQ_DS03_Cost_IsIndirectUseInconsistent": {
-        "author": "Elias Cooper",
-        "table": "DS03 Cost",
-        "status": "TEST",
-        "severity": "ERROR",
-        "title": "Inconsistent Use of Indirect",
-        "summary": "Is indirect distributed inconsistently?",
-        "message": "Possible Reasons: 1) indirect actuals found where is_indirect = Y, and both EOC = Indirect and EOC <> Indirect are used; 2) is_indirect utilized in some WPs/CAs and missing in others; 3) indirect actuals found at both the CA & WP levels; 4) data found where is_indirect = N but EOC = Indirect.",
-        "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
-        "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
-        "UID": "1030116"
-    },
     "fnDIQ_DS03_Cost_DoesACWPExistAtCAAndWPLevels": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
@@ -6442,7 +6060,7 @@
         "severity": "WARNING",
         "title": "Actual Finish Prior to Early Finish Along the Driving Path",
         "summary": "Does this FC task along the Driving Path have an Actual Finish earlier than the BL Early Finish?",
-        "message": "FC AF_date < BL EF_date where driving_path = Y (compare by task_ID & subproject_ID).",
+        "message": "FC AF_date < BL EF_date where driving_path = Y (compare by task_ID).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040166"
@@ -6502,7 +6120,7 @@
         "severity": "WARNING",
         "title": "Actual Start Prior to Early Start Along the Driving Path",
         "summary": "Does this task along the Driving Path have an Actual Start earlier than the Early Start? (BL)",
-        "message": "FC AS_date < BL ES_date where driving_path = Y (compare by task_ID & subproject_ID).",
+        "message": "AS_date < ES_date along the driving path (driving_path = Y). (BL)",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040167"
@@ -6735,7 +6353,6 @@
         "message": "No row found for End of PMB milestone (milestone_level = 175) in baseline schedule (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040171"
     },
     "fnDIQ_DS03_Cost_DoesETCExistInThePast": {
@@ -6796,7 +6413,6 @@
         "message": "No row found for End of PMB milestone (milestone_level = 175) in forecast schedule (schedule_type = FC).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1040172"
     },
     "fnDIQ_DS03_Cost_DoesETCExistOnCompletedWork": {
@@ -7069,7 +6685,7 @@
     "fnDIQ_DS03_Cost_DoesPPStartInThreeToSixMonths": {
         "author": "Elias Cooper",
         "table": "DS03 Cost",
-        "status": "DELETED",
+        "status": "TEST",
         "severity": "ALERT",
         "title": "PP Starting Within 3-6 Months",
         "summary": "Is this PP scheduled to start within 3-6 months?",
@@ -7157,7 +6773,7 @@
         "severity": "WARNING",
         "title": "EVT Misaligned Between BL & FC",
         "summary": "Is the EVT for this task misaligned between BL & FC schedules?",
-        "message": "Task EVT where schedule_type = FC <> EVT where schedule_type = BL.",
+        "message": "Task EVT is misaligned between BL & FC schedules.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040177"
@@ -7279,7 +6895,7 @@
         "severity": "ALERT",
         "title": "Forecast Task Missing In Baseline",
         "summary": "Is this task missing in the baseline schedule?",
-        "message": "Task found in forecast schedule (schedule_type = FC) but not in baseline (schedule_type = BL) (by subproject_ID).",
+        "message": "Task found in forecast schedule (schedule_type = FC) but not in baseline (schedule_type = BL).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040178"
@@ -7640,8 +7256,8 @@
         "status": "TEST",
         "severity": "ALERT",
         "title": "High Float Missing Justification (BL)",
-        "summary": "Is this BL task with high float missing a justification in the baseline schedule?",
-        "message": "justification_high_float is blank where task schedule_type = FC and float_total_days > 10% of project remaining duration.",
+        "summary": "Is this task with high float missing a justification in the baseline schedule?",
+        "message": "BL Task with high float (float_total_days > 10% of project remaining duration) is lacking a justification (justification_high_float is blank).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040603"
@@ -7700,8 +7316,8 @@
         "status": "TEST",
         "severity": "ALERT",
         "title": "High Float Missing Justification (FC)",
-        "summary": "Is this FC task with high float missing a justification in the forecast schedule?",
-        "message": "justification_high_float is blank where task schedule_type = FC and float_total_days > 10% of project remaining duration.",
+        "summary": "Is this task with high float missing a justification in the forecast schedule?",
+        "message": "FC Task with high float (float_total_days > 10% of project remaining duration) is lacking a justification (justification_high_float is blank).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040184"
@@ -7923,7 +7539,6 @@
         "message": "Count of CC log entries > 5 & Count of risk_id = 0.",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "dummy": "YES",
         "UID": "1090449"
     },
     "fnDIQ_DS07_IPMR_IsEACPMLikelyGtContractCompletion": {
@@ -8127,8 +7742,8 @@
         "status": "TEST",
         "severity": "WARNING",
         "title": "Milestone Prior To Approve Start Project",
-        "summary": "Is this milestone earlier than the Approve Start Project Milestone?",
-        "message": "Milestone ES_Date < ES_Date for the Approve Start Project Milestone (milestone_level = 100) (by subproject_ID).",
+        "summary": "Is this milestone earlier than the approve start project milestone?",
+        "message": "Milestone has an early start date (ES_Date) prior to the approve start project milestone (milestone_level = 100).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040192"
@@ -8176,8 +7791,8 @@
         "status": "TEST",
         "severity": "WARNING",
         "title": "Milestone After Approve Finish Project",
-        "summary": "Is this milestone after the Approve Finish Project Milestone?",
-        "message": "Milestone EF_Date > EF_Date for the Approve Finish Project Milestone (milestone_level = 199) (by subproject_ID).",
+        "summary": "Is this milestone after the approve finish project milestone?",
+        "message": "Milestone has an early finish date (EF_Date) later than the approve finish project milestone (milestone_level = 199).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
         "UID": "1040193"

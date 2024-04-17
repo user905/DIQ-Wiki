@@ -32,7 +32,7 @@ logging.info("Connected to database successfully")
 cursor = connection.cursor()
 
 # Create /diqs folder in the current directory if not exists
-diqs_path = os.path.join(os.getcwd(), "diqs")
+diqs_path = os.path.join(os.getcwd(), "diqs_v4")
 os.makedirs(diqs_path, exist_ok=True)
 
 logging.info(f"Created diqs folder at path: {diqs_path}")
@@ -49,7 +49,7 @@ for filename in os.listdir(diqs_path):
 
 # Retrieve functions with name starting with 'fnDIQ'
 query = """
-SELECT ROUTINE_NAME, ROUTINE_DEFINITION
+SELECT ROUTINE_NAME, OBJECT_DEFINITION(OBJECT_ID(ROUTINE_NAME)) AS ROUTINE_DEFINITION
 FROM INFORMATION_SCHEMA.ROUTINES
 WHERE ROUTINE_TYPE = 'FUNCTION' AND ROUTINE_NAME LIKE 'fnDIQ%'
 """
@@ -63,8 +63,8 @@ logging.info(f"Number of rows fetched: {len(results)}")
 
 # Print the function definitions and save them in diqs folder
 for row in results:
-    function_name = row[0]
-    function_definition = row[1].strip()
+    function_name = row.ROUTINE_NAME
+    function_definition = row.ROUTINE_DEFINITION.strip() # using ROW. (dot notation) to access column for readability 
 
     logging.info(f"Function name: {function_name}")
    # logging.info(f"Function definition: {function_definition}")

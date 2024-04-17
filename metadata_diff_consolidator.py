@@ -2,7 +2,7 @@ import json
 import os
 
 home_dir = "./diff"
-output_dir = os.path.join(home_dir, "consolidated")
+output_dir = os.path.join(home_dir, "metadata")
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -11,7 +11,7 @@ if not os.path.exists(output_dir):
 consolidated_data = []
 
 # Open and parse metadata_changes.json
-with open(os.path.join(home_dir,'metadata/metadata_changes.json'), 'r') as f:
+with open(os.path.join(output_dir,'metadata_changes.json'), 'r') as f:
     metadata_changes = json.load(f)
 
 # Make a dictionary where the keys are UIDs and the values are corresponding entries

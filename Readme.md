@@ -2,11 +2,12 @@ Loose notes for now because Elias is dumb and forgets things.
 
 Order in which to run scripts:
 
-1. sync_diqs.py
-2. metadata_diff.py
-3. metadata_change_consolidator.py
-4. sql_diff.py
-5. sql_diff_summarizer.py
+1. sync_diqs.py - Get the latest DIQ SQL scripts from the database.
+2. metadata_diff.py - Find diffs btw the old & new Metadata.
+3. sql_cleanup.py - Remove all comments and newlines from the SQL scripts in both folders (excluding the Metadata)
+4. sql_diff.py - Compare the old & new SQL
+5. sql_diff_summarizer.py - Ask ChatGPT to summarize the changes.
+6. metadata_diff_consolidator.py - Consolidate the Metadata changes by UID.
 
 - Rename /diqs to /diqs\_[version #]
 - Rename diq*data.json to diq_data*[version #].json
