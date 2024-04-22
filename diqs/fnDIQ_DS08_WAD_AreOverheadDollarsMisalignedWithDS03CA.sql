@@ -2,7 +2,7 @@
 <documentation>
   <author>Elias Cooper</author>
   <table>DS08 WAD</table>
-  <status>DELETE</status>
+  <status>DELETED</status>
   <severity>WARNING</severity>
   <title>CA Overhead Dollars Misaligned With Cost</title>
   <summary>Are the overhead budget dollars for this CA WAD misaligned with what is in cost?</summary>

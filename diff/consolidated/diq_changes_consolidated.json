@@ -300,7 +300,7 @@
     "DIQ Name": "fnDIQ_DS08_WAD_AreOverheadDollarsMisalignedWithDS03CA",
     "New DIQ Name": "",
     "changes": [
-      { "Subkey": "status", "Old Value": "TEST", "New Value": "DELETE" },
+      { "Subkey": "status", "Old Value": "TEST", "New Value": "DELETED" },
       {
         "Subkey": "sql",
         "Old Value": "",
@@ -1051,7 +1051,7 @@
       {
         "Subkey": "sql",
         "Old Value": "",
-        "New Value": "1. Logic adjusted to account for the addition of 'subproject_ID' field."
+        "New Value": "Logic adjusted to account for the addition of 'subproject_ID' field."
       }
     ]
   },
