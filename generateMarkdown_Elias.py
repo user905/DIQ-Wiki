@@ -162,45 +162,45 @@ def create_wiki_page(name, diag):
 
 to_create = {
     "9060304": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsCA",
-    # "9060305": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP",
-    # "1030113": "fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs",
-    # "1030117": "fnDIQ_DS03_Cost_IsLaborComingledWithNonIndirectEOCs",
-    # "9060306": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsCA",
-    # "9060307": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsCA",
-    # "9080411": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA",
-    # "1060269": "fnDIQ_DS03_Cost_IsCAWBSEqTWPWBS",
-    # "1030111": "fnDIQ_DS03_Cost_IsIndirectBCWSMissingFromProject",
-    # "1030094": "fnDIQ_DS03_Cost_IsIndirectInsufficient",
-    # "1030095": "fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs",
-    # "1030112": "fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs",
-    # "1030098": "fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes",
-    # "9080433": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03WP",
-    # "9080434": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA",
-    # "9080410": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP",
-    # "9060302": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursWP",
-    # "9060303": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursCA",
-    # "1060262": "fnDIQ_DS06_Res_IsIndirectUsedUnevenly",
-    # "1060264": "fnDIQ_DS06_Res_AreEOCsComingled",
-    # "1060265": "fnDIQ_DS06_Res_IsResourceMissingEOC",
-    # "1060266": "fnDIQ_DS06_Res_IsResourceDuplicated",
-    # "1060267": "fnDIQ_DS06_Res_DoesIndirectHaveUnits",
-    # "1030114": "fnDIQ_DS03_Cost_DoesIndirectHaveHoursOrFTEs",
-    # "1030115": "fnDIQ_DS03_Cost_IsIndirectCollectedImproperly",
-    # "1030116": "fnDIQ_DS03_Cost_IsIndirectUseInconsistent",
-    # "9050283": "fnDIQ_DS05_Logic_IsLOESuccessorRelEqToFF"
+    "9060305": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP",
+    "1030113": "fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs",
+    "1030117": "fnDIQ_DS03_Cost_IsLaborComingledWithNonIndirectEOCs",
+    "9060306": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsCA",
+    "9060307": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsCA",
+    "9080411": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA",
+    "1060269": "fnDIQ_DS03_Cost_IsCAWBSEqTWPWBS",
+    "1030111": "fnDIQ_DS03_Cost_IsIndirectBCWSMissingFromProject",
+    "1030094": "fnDIQ_DS03_Cost_IsIndirectInsufficient",
+    "1030095": "fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs",
+    "1030112": "fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs",
+    "1030098": "fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes",
+    "9080433": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03WP",
+    "9080434": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA",
+    "9080410": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP",
+    "9060302": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursWP",
+    "9060303": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursCA",
+    "1060262": "fnDIQ_DS06_Res_IsIndirectUsedUnevenly",
+    "1060264": "fnDIQ_DS06_Res_AreEOCsComingled",
+    "1060265": "fnDIQ_DS06_Res_IsResourceMissingEOC",
+    "1060266": "fnDIQ_DS06_Res_IsResourceDuplicated",
+    "1060267": "fnDIQ_DS06_Res_DoesIndirectHaveUnits",
+    "1030114": "fnDIQ_DS03_Cost_DoesIndirectHaveHoursOrFTEs",
+    "1030115": "fnDIQ_DS03_Cost_IsIndirectCollectedImproperly",
+    "1030116": "fnDIQ_DS03_Cost_IsIndirectUseInconsistent",
+    "9050283": "fnDIQ_DS05_Logic_IsLOESuccessorRelEqToFF"
 }
 
 # Load diq_data.json
 with open('diq_data.json') as f:
     data = json.load(f)
 
-count=0
-for key, value in enumerate(data.items()):
-    # Skip this iteration if value[0] is not in to_create.values()
-    if value[0] not in to_create.values():
-        continue
+# count=0
+# for key, value in enumerate(data.items()):
+#     # Skip this iteration if value[0] is not in to_create.values()
+#     if value[0] not in to_create.values():
+#         continue
 
-    create_wiki_page(value[0], value[1])
+#     create_wiki_page(value[0], value[1])
 
 # Create default dictionary with list as default value type
 ds_tables = defaultdict(list)
@@ -216,47 +216,47 @@ for key, diag in data.items():
         ds_tables[diag["table"].split(" ")[0]].append(diag)
 
 # Iterate through all DS's
-for ds, diqs in ds_tables.items():
+# for ds, diqs in ds_tables.items():
 
-    # Sort diqs based on Severity and UID 
-    diqs.sort(key=lambda x: (x['severity'], x['UID']))
-    dir_path = f'wikijs/{ds}'
+#     # Sort diqs based on Severity and UID 
+#     diqs.sort(key=lambda x: (x['severity'], x['UID']))
+#     dir_path = f'wikijs/{ds}'
     
-    # Check if directory exists, if not, then create it
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
+#     # Check if directory exists, if not, then create it
+#     if not os.path.exists(dir_path):
+#         os.makedirs(dir_path)
     
-    with open(f'{dir_path}/index.md', 'w') as ds_index:
+#     with open(f'{dir_path}/index.md', 'w') as ds_index:
         
-        for severity in ['ERROR', 'WARNING', 'ALERT']:  
-            diqs_severity = [diq for diq in diqs if diq['severity'] == severity]
-            if diqs_severity:   # If there are diqs for this severity level
-                diqs_severity.sort(key=lambda x: x['UID'])
+#         for severity in ['ERROR', 'WARNING', 'ALERT']:  
+#             diqs_severity = [diq for diq in diqs if diq['severity'] == severity]
+#             if diqs_severity:   # If there are diqs for this severity level
+#                 diqs_severity.sort(key=lambda x: x['UID'])
                 
-                ds_index.write(f"## [{severity}](/DIQs/{severity.lower()})\n\n")
-                ds_index.write("| UID | Title | Summary | Error Message |\n")
-                ds_index.write("|-----|-------|---------|---------------|\n")
+#                 ds_index.write(f"## [{severity}](/DIQs/{severity.lower()})\n\n")
+#                 ds_index.write("| UID | Title | Summary | Error Message |\n")
+#                 ds_index.write("|-----|-------|---------|---------------|\n")
                         
-                for diq in diqs_severity:
-                    uid_link = f'[{diq["UID"]}](/DIQs/{ds}/{diq["UID"]})'
-                    ds_index.write(f"| {uid_link} | {diq['title']} | {diq['summary']} | {diq['message']} |\n")
+#                 for diq in diqs_severity:
+#                     uid_link = f'[{diq["UID"]}](/DIQs/{ds}/{diq["UID"]})'
+#                     ds_index.write(f"| {uid_link} | {diq['title']} | {diq['summary']} | {diq['message']} |\n")
 
 
 
 severity_order = {'ERROR': 0, 'WARNING': 1, 'ALERT': 2}
 
-with open('wikijs/index.md', 'w') as root_index:
-    for ds, diqs in sorted(ds_tables.items()): # Sort by DS 
-        ds_link = f"[{ds}](/DIQs/{ds})"
-        root_index.write(f"## {ds_link}\n\n")
-        root_index.write("| UID | Title | Severity | Summary | Error Message |\n")
-        root_index.write("|-----|-------|----------|---------|---------------|\n")
+# with open('wikijs/index.md', 'w') as root_index:
+#     for ds, diqs in sorted(ds_tables.items()): # Sort by DS 
+#         ds_link = f"[{ds}](/DIQs/{ds})"
+#         root_index.write(f"## {ds_link}\n\n")
+#         root_index.write("| UID | Title | Severity | Summary | Error Message |\n")
+#         root_index.write("|-----|-------|----------|---------|---------------|\n")
         
-        # Sorting diqs by severity then uid
-        sorted_diqs = sorted(diqs, key=lambda x: (severity_order[x['severity']], x["UID"]))
-        for diq in sorted_diqs:
-            uid_link = f'[{diq["UID"]}](/DIQs/{ds}/{diq["UID"]})'
-            root_index.write(f"| {uid_link} | {diq['title']} | [{diq['severity']}](/DIQs/{diq['severity'].lower()}) | {diq['summary']} | {diq['message']} |\n")
+#         # Sorting diqs by severity then uid
+#         sorted_diqs = sorted(diqs, key=lambda x: (severity_order[x['severity']], x["UID"]))
+#         for diq in sorted_diqs:
+#             uid_link = f'[{diq["UID"]}](/DIQs/{ds}/{diq["UID"]})'
+#             root_index.write(f"| {uid_link} | {diq['title']} | [{diq['severity']}](/DIQs/{diq['severity'].lower()}) | {diq['summary']} | {diq['message']} |\n")
 
 # Create dictionaries for each severity type
 error_diqs = defaultdict(list)
@@ -300,7 +300,7 @@ def write_to_file(filename, data):
 
 
 # Write data to each file
-write_to_file('error', error_diqs)
-write_to_file('warning', warning_diqs)
-write_to_file('alert', alert_diqs)
+write_to_file('error2', error_diqs)
+write_to_file('warning2', warning_diqs)
+write_to_file('alert2', alert_diqs)
 
