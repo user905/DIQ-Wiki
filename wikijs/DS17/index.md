@@ -1,21 +1,23 @@
-## [ERROR](/DIQs/error)
+## ERROR
 
-| UID | Title | Summary | Error Message |
-|-----|-------|---------|---------------|
+| UID                           | Title                                | Summary                             | Error Message                       |
+| ----------------------------- | ------------------------------------ | ----------------------------------- | ----------------------------------- |
 | [1170582](/DIQs/DS17/1170582) | Duplicate Estimate Uncertainty Entry | Is this WBS / EOC combo duplicated? | Count of combo WBS & EOC combo > 1. |
-## [ALERT](/DIQs/alert)
 
-| UID | Title | Summary | Error Message |
-|-----|-------|---------|---------------|
-| [1170573](/DIQs/DS17/1170573) | EU Justification Missing | Is an EU justification missing for why the min dollars equal the likely, the likel equal the max, or the min equal the max? | justification_EU is missing or blank & EU_min_dollars = EU_likely_dollars, EU_likely_dollars = EU_max_dollars, or EU_max_dollars = EU_min_dollars. |
-| [1170574](/DIQs/DS17/1170574) | EU Lacking Spread | Are the EU minimum, likely, and maximum dollars all equal? | EU_min_dollars = EU_likely_dollars = EU_max_dollars. |
-| [1170575](/DIQs/DS17/1170575) | EU Likely Dollars Greater Than Max | Are the EU likely dollars greater than the max dollars? | EU_likely_dollars > EU_max_dollars. |
-| [1170579](/DIQs/DS17/1170579) | EU Minimum Dollars Greater Than Likely | Are the EU minimum dollars greater than the likely dollars? | EU_min_dollars > EU_likely_dollars. |
-| [1170580](/DIQs/DS17/1170580) | WBS Time Dependence Inconsistent | Is the time dependent flag inconsistent within this WBS? | time_dependent is not all Y or all N by WBS_ID. |
-| [9170576](/DIQs/DS17/9170576) | EU Max Dollars Less Than DB | Are the EU maximum dollars less than the cost DB for this WBS_ID / EOC combo? | EU_max_dollars < DS03.DB by WBS_ID_WP & EOC. |
-| [9170577](/DIQs/DS17/9170577) | EU Max Dollars Less Than EAC (CA) | Are the EU maximum dollars less than the cost EAC (at the CA level)? | EU_max_dollars < DS03.EAC by WBS_ID_CA & EOC. |
-| [9170578](/DIQs/DS17/9170578) | EU Max Dollars Less Than EAC (WP) | Are the EU maximum dollars less than the cost EAC for this WBS / EOC combo? | EU_max_dollars < DS03.EAC by WBS_ID_WP & EOC. |
-| [9170579](/DIQs/DS17/9170579) | WBS & EOC Combo Missing in Cost | Is this WBS_ID / EOC combo missing in the cost processor? | Combo of WBS_ID_WP & EOC missin in DS03. |
-| [9170581](/DIQs/DS17/9170581) | Non-LOE Time Dependence | Is this time dependent WBS non-LOE in cost? | time_dependent = Y & DS03.EVT <> A (by WBS_ID). |
-| [9170583](/DIQs/DS17/9170583) | WBS Missing in WBS Hierarchy | Is this WBS missing in the WBS hierarchy? | WBS missing in DS01.WBS_ID list. |
-| [9170584](/DIQs/DS17/9170584) | WBS Of Non-WP or PP Type | Is this WBS of a type other than WP or PP? | WBS_ID not in DS01.WBS_ID where type = WP or PP. |
+## ALERT
+
+| UID                           | Title                                  | Summary                                                                                                                     | Error Message                                                                                                                                      |
+| ----------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [1170573](/DIQs/DS17/1170573) | EU Justification Missing               | Is an EU justification missing for why the min dollars equal the likely, the likel equal the max, or the min equal the max? | justification_EU is missing or blank & EU_min_dollars = EU_likely_dollars, EU_likely_dollars = EU_max_dollars, or EU_max_dollars = EU_min_dollars. |
+| [1170574](/DIQs/DS17/1170574) | EU Lacking Spread                      | Are the EU minimum, likely, and maximum dollars all equal?                                                                  | EU_min_dollars = EU_likely_dollars = EU_max_dollars.                                                                                               |
+| [1170575](/DIQs/DS17/1170575) | EU Likely Dollars Greater Than Max     | Are the EU likely dollars greater than the max dollars?                                                                     | EU_likely_dollars > EU_max_dollars.                                                                                                                |
+| [1170579](/DIQs/DS17/1170579) | EU Minimum Dollars Greater Than Likely | Are the EU minimum dollars greater than the likely dollars?                                                                 | EU_min_dollars > EU_likely_dollars.                                                                                                                |
+| [1170580](/DIQs/DS17/1170580) | WBS Time Dependence Inconsistent       | Is the time dependent flag inconsistent within this WBS?                                                                    | time_dependent is not all Y or all N by WBS_ID.                                                                                                    |
+| [9170576](/DIQs/DS17/9170576) | EU Max Dollars Less Than DB            | Are the EU maximum dollars less than the cost DB for this WBS_ID / EOC combo?                                               | EU_max_dollars < DS03.DB by WBS_ID_WP & EOC.                                                                                                       |
+| [9170577](/DIQs/DS17/9170577) | EU Max Dollars Less Than EAC (CA)      | Are the EU maximum dollars less than the cost EAC (at the CA level)?                                                        | EU_max_dollars < DS03.EAC by WBS_ID_CA & EOC.                                                                                                      |
+| [9170578](/DIQs/DS17/9170578) | EU Max Dollars Less Than EAC (WP)      | Are the EU maximum dollars less than the cost EAC for this WBS / EOC combo?                                                 | EU_max_dollars < DS03.EAC by WBS_ID_WP & EOC.                                                                                                      |
+| [9170579](/DIQs/DS17/9170579) | WBS & EOC Combo Missing in Cost        | Is this WBS_ID / EOC combo missing in the cost processor?                                                                   | Combo of WBS_ID_WP & EOC missin in DS03.                                                                                                           |
+| [9170581](/DIQs/DS17/9170581) | Non-LOE Time Dependence                | Is this time dependent WBS non-LOE in cost?                                                                                 | time_dependent = Y & DS03.EVT <> A (by WBS_ID).                                                                                                    |
+| [9170583](/DIQs/DS17/9170583) | WBS Missing in WBS Hierarchy           | Is this WBS missing in the WBS hierarchy?                                                                                   | WBS missing in DS01.WBS_ID list.                                                                                                                   |
+| [9170584](/DIQs/DS17/9170584) | WBS Of Non-WP or PP Type               | Is this WBS of a type other than WP or PP?                                                                                  | WBS_ID not in DS01.WBS_ID where type = WP or PP.                                                                                                   |
+

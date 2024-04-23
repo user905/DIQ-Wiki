@@ -1,4 +1,4 @@
-## [ERROR](/DIQs/error)
+## ERROR
 
 | UID                           | Title                                     | Summary                                                                                | Error Message                                                                                       |
 | ----------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -13,7 +13,7 @@
 | [1010036](/DIQs/DS01/1010036) | WP or PP At Level 1 or 2                  | Is the WP or PP at Level 1 or 2 in the WBS hierarchy?                                  | WP or PP at Level 1 or 2 in the WBS hierarchy                                                       |
 | [1010039](/DIQs/DS01/1010039) | Parent WBS ID Missing In WBS List         | Is the Parent WBS ID missing in the WBS ID list?                                       | Parent WBS ID not found in the WBS ID list.                                                         |
 
-## [WARNING](/DIQs/warning)
+## WARNING
 
 | UID                           | Title                               | Summary                                                        | Error Message                                                                                                                             |
 | ----------------------------- | ----------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,8 +24,8 @@
 | [1010011](/DIQs/DS01/1010011) | WP or PP with Child                 | Does the WP or PP have a child in the WBS hierarchy?           | WP or PP found with child in the WBS hierarchy.                                                                                           |
 | [1010014](/DIQs/DS01/1010014) | CAM Not Consistent in CA Branch     | Does the CA have a different CAM from its descendants?         | CA and its descendents do not share the same CAM.                                                                                         |
 | [1010015](/DIQs/DS01/1010015) | CA, WP, or PP Missing CAM           | Is the CA, WP, or PP missing a CAM?                            | CA, WP, or PP is missing a CAM name                                                                                                       |
-| [1010018](/DIQs/DS01/1010018) | Exit Criteria Missing               | Is the Exit Criteria missing?                                  | Exit Criteria is missing                                                                                                                  |
-| [1010019](/DIQs/DS01/1010019) | Exteranl WBS Without Subproject ID  | Is the external WBS missing a subproject ID?                   | External = Y & subproject_ID is missing or blank.                                                                                         |
+| [1010018](/DIQs/DS01/1010018) | Exit Criteria Missing               | Is the Exit Criteria missing?                                  | exit_criteria required where type = CA or SLPP. Provide if available for type = WBS, WP, or PP.                                           |
+| [1010019](/DIQs/DS01/1010019) | External WBS Without Subproject ID  | Is the external WBS missing a subproject ID?                   | External = Y & subproject_ID is missing or blank.                                                                                         |
 | [1010020](/DIQs/DS01/1010020) | Title Equal to Narrative            | Are the Title and Narrative the same?                          | Narrative is not distinct from the Title (Narrative should be your scope paragraph from your WBS Dictionary)                              |
 | [1010021](/DIQs/DS01/1010021) | Insufficient WBS Narrative          | Is the narrative only one word?                                | Narrative is only one word.                                                                                                               |
 | [1010022](/DIQs/DS01/1010022) | OBS ID Missing                      | Is the OBS_ID null or blank?                                   | OBS ID is missing                                                                                                                         |
@@ -40,10 +40,9 @@
 | [9010015](/DIQs/DS01/9010015) | WP or PP Missing from Schedule (FC) | Is this WP or PP WBS ID missing in your forecast schedule?     | WBS_ID where type = WP or PP missing in DS04.WBS_ID list where schedule_type = FC.                                                        |
 | [9010016](/DIQs/DS01/9010016) | WP or PP Missing from Schedule (BL) | Is this WP or PP WBS ID missing in your baseline schedule?     | WBS_ID where type = WP or PP missing in DS04.WBS_ID list where schedule_type = BL.                                                        |
 | [9010023](/DIQs/DS01/9010023) | OBS ID Missing in DS02 OBS List     | Is the OBS ID missing in DS02 OBS?                             | OBS ID missing in the DS02 OBS ID list                                                                                                    |
-| [9010024](/DIQs/DS01/9010024) | Overhead Missing From Project       | Is Overhead missing from this project?                         | No rows found in DS03 where BCWSi > 0 (Dollars, Hours, or FTEs) and EOC = Overhead.                                                       |
 | [9010030](/DIQs/DS01/9010030) | CA WBS ID Missing in WAD List       | Is this CA missing in the WAD list?                            | WBS_ID where DS01.type = CA not in DS08.WBS_ID list.                                                                                      |
 
-## [ALERT](/DIQs/alert)
+## ALERT
 
 | UID                           | Title                                   | Summary                                                  | Error Message                                              |
 | ----------------------------- | --------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
@@ -55,3 +54,4 @@
 | [1010037](/DIQs/DS01/1010037) | WP or PP Missing CA Ancestor            | Is a CA missing from the ancestry tree of this WP or PP? | WP or PP missing CA ancestry tree                          |
 | [9010001](/DIQs/DS01/9010001) | WP or PP Missing EU                     | Is this WP or PP missing in the WBS EU log?              | WBS_ID not in DS17.WBS_ID list where DS01.type = WP or PP. |
 | [9010029](/DIQs/DS01/9010029) | Subproject ID Missing in Schedule       | Is the subproject ID missing in the schedule?            | Subproject ID missing in DS04 Schedule                     |
+
