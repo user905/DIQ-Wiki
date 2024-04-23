@@ -3,29 +3,24 @@ import os
 import re
 import openai
 import sys
+from openai import OpenAI
 from collections import defaultdict
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 def query_gpt(messages):
-    content = ""
-    for chunk in openai.ChatCompletion.create(
+    content = client.chat.completions.create(
         model="gpt-4-0125-preview",
         messages=messages,
-        stream=True,
         temperature=0
-    ):
-        new_content = chunk["choices"][0].get("delta", {}).get("content", "")
-        if new_content is not None:
-            print(new_content, end='')
-            sys.stdout.flush()
-        content += new_content
-    return content
+    )
+    return content.choices[0].message.content.strip()
 
 def create_wiki_page(name, diag):
-
+    print(name, diag)
     print(f"{diag['table']}: {diag['title']}")
     if(diag['status'] == "DELETED"):
         print("Deleted, skipping")
@@ -165,19 +160,56 @@ def create_wiki_page(name, diag):
         json.dump(diq_data, file, indent=4)   # Write the updated data back to file
         file.truncate() 
 
+to_create = {
+    "9060304": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsCA",
+    # "9060305": "fnDIQ_DS06_Res_ArePDollarsMissingDS03ADollarsWP",
+    # "1030113": "fnDIQ_DS03_Cost_IsODCComingledWithNonIndirectEOCs",
+    # "1030117": "fnDIQ_DS03_Cost_IsLaborComingledWithNonIndirectEOCs",
+    # "9060306": "fnDIQ_DS06_Res_AreDS03ADollarsMissingResourcePDollarsCA",
+    # "9060307": "fnDIQ_DS06_Res_AreDS03LaborAHoursMissingResourceLaborPUnitsCA",
+    # "9080411": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03CA",
+    # "1060269": "fnDIQ_DS03_Cost_IsCAWBSEqTWPWBS",
+    # "1030111": "fnDIQ_DS03_Cost_IsIndirectBCWSMissingFromProject",
+    # "1030094": "fnDIQ_DS03_Cost_IsIndirectInsufficient",
+    # "1030095": "fnDIQ_DS03_Cost_IsMatComingledWithNonIndirectEOCs",
+    # "1030112": "fnDIQ_DS03_Cost_IsSubKComingledWithNonIndirectEOCs",
+    # "1030098": "fnDIQ_DS03_Cost_IsIndirectWorkMissingOtherEOCTypes",
+    # "9080433": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03WP",
+    # "9080434": "fnDIQ_DS08_WAD_IsIndirectBudgetMissingInDS03CA",
+    # "9080410": "fnDIQ_DS08_WAD_AreIndirectDollarsMisalignedWithDS03WP",
+    # "9060302": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursWP",
+    # "9060303": "fnDIQ_DS06_Res_AreLaborPUnitsMissingDS03LaborAHoursCA",
+    # "1060262": "fnDIQ_DS06_Res_IsIndirectUsedUnevenly",
+    # "1060264": "fnDIQ_DS06_Res_AreEOCsComingled",
+    # "1060265": "fnDIQ_DS06_Res_IsResourceMissingEOC",
+    # "1060266": "fnDIQ_DS06_Res_IsResourceDuplicated",
+    # "1060267": "fnDIQ_DS06_Res_DoesIndirectHaveUnits",
+    # "1030114": "fnDIQ_DS03_Cost_DoesIndirectHaveHoursOrFTEs",
+    # "1030115": "fnDIQ_DS03_Cost_IsIndirectCollectedImproperly",
+    # "1030116": "fnDIQ_DS03_Cost_IsIndirectUseInconsistent",
+    # "9050283": "fnDIQ_DS05_Logic_IsLOESuccessorRelEqToFF"
+}
+
 # Load diq_data.json
 with open('diq_data.json') as f:
     data = json.load(f)
 
 count=0
-for index, (key,value) in enumerate(data.items()):
-    create_wiki_page(key, value)
+for key, value in enumerate(data.items()):
+    # Skip this iteration if value[0] is not in to_create.values()
+    if value[0] not in to_create.values():
+        continue
+
+    create_wiki_page(value[0], value[1])
 
 # Create default dictionary with list as default value type
 ds_tables = defaultdict(list)
 
 # Iterate through all diqs
 for key, diag in data.items():
+    # Skip this iteration if value[0] is not in to_create.values()
+    if key not in to_create.values():
+        continue
     # Exclude all rows where status = DELETED
     if diag["status"] != "DELETED":
         # Add each diag to its respective DS' list

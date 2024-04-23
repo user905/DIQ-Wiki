@@ -688,7 +688,8 @@
         "message": "Resource performance (actual_dollars) > 0 even though DS03.ACWPc = 0 (SUM of ACWSi_dollars) by EOC (CA level).",
         "param": "The unique identifier of the PARS CPP Upload on which this DIQ check will run.",
         "returns": "Rows of data that fail the DIQ check",
-        "UID": "9060304"
+        "UID": "9060304",
+        "wiki": "generated"
     },
     "fnDIQ_DS04_Sched_IsRPGWBSMissingInDS10CA": {
         "author": "Elias Cooper",
