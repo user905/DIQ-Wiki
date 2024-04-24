@@ -1,3 +1,6 @@
+# Simplifies all SQL scripts by removing comments and empty lines
+# Script maintains XML comments above the function declaration, however
+
 import os
 import re
 

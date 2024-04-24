@@ -1,31 +1,25 @@
-Loose notes for now because Elias is dumb and forgets things.
+Updates to the Wiki haven't been 100% systematized, so the below is a loose guide on what scripts do.
+Remember, ChatGPT is your friend and good at python, which is excellent for this sort of thing.
 
-Order in which to run scripts:
-
-1. sync_diqs.py - Get the latest DIQ SQL scripts from the database.
-2. metadata_diff.py - Find diffs btw the old & new Metadata.
-3. sql_cleanup.py - Remove all comments and newlines from the SQL scripts in both folders (excluding the Metadata)
-4. sql_diff.py - Compare the old & new SQL
-5. sql_diff_summarizer.py - Ask ChatGPT to summarize the changes.
-6. metadata_diff_consolidator.py - Consolidate the Metadata changes by UID.
+Generally, steps are:
 
 - Rename /diqs to /diqs\_[version #]
-- Rename diq*data.json to diq_data*[version #].json
-- Run sync_diqs.py to pull current list from DB
-- Log diff btw list in diq_data.json & dig_data_v4.json
-  - Link by UID and compare metadata & title (be sure to check against added metadata fields)
-  - Keep track of any DIQs that replaced another DIQ but that maintained the UID
-  - This gets one list of new DIQs and another with changed metadata
-- Compare SQL in /diqs to what’s in /diqs_v4
-  - Use the UID link to assist with this
-- Write all results to a JSON file
-- Review all changes in the JSON file
-- Generate markdown for all new files (Use AI if there are many)
-- Pull down MD files for any DIQs that changed, replace the SQL, update metadata, and add a revision history entry (if the DIQ is new, add a created date), then write to /wikijs
-- Do a final review.
-- Get sign-off from the feds.
-- Modify deployToWiki.py
-  - to ensure it’s pointing in the right places
-- Run deployToWiki.py (Get with Craig & 🤲)
-- Pull all MD files & find / replace the severity levels
-- Recreate table of contents markdown pages with new severity levels (possibly automated, depending on number of changes)
+- Rename `diq_data.json` to `diq_data_v[version #].json`
+- Run `sync_diqs.py` to pull current list of SQL scripts from DB
+- Rename /wikijs to /wikijs_v[prior version #]
+- Create /wikijs
+- Run `sql_cleanup.py` to remove all comments and newlines from the SQL scripts in both the new & old SQL script folders, excluding the XML Metadata. (This isn't strictly necessary, but it makes things easier)
+- And then compare...
+- Lastly, use `generateMarkdown.py` to generate the markdown MDs and `deployToWiki.py` to deploy.
+
+Scrips that might prove useful:
+
+- `metadata_diff.py`: find diffs btw old & new Metadata; also tracks addition and deletion of DIQs
+- `metadata_diff_consolidator.py`: Consolidate the above changes by UID into a single file.
+- `sql_diff.py`: find diff btw old & new SQL
+- `sql_diff_summarizer.py`: ask ChatGPT to summarize SQL diffs.
+- `copy_index_files.py`: Copy/paste the index.md files from the prior wiki release's DSxx sub-directories to the new one
+- `move_mds_to_new_wiki_dir.py`: Move a list of UID.md files from the old wikijs/DS## subfolders to the new ones; useful for any changed DIQs
+- `replace_sql_blocks.py`: replace the SQL blocks in the new DIQ MD files
+  with the new SQL code from /diqs
+- `write_index_markdown.py`: Write the top-level index file by referencing the contents of error.md, alert.md, and warning.md in /wikijs
