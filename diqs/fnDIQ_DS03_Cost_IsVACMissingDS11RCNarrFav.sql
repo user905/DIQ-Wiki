@@ -6,7 +6,7 @@
   <severity>WARNING</severity>
   <title>VAC without Root Cause Narrative (Favorable)</title>
   <summary>Is a root cause narrative missing for this CA where the VAC is tripping the favorable dollar threshold?</summary>
-  <message>|BCWSi_dollars - ACWPi_dollars - ETCi_dollars|) &gt; |DS07.threshold_cost_VAC_dollar_fav| &amp; DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA &amp; DS11.WBS_ID).</message>
+  <message>|BCWSi_dollars - ACWPi_dollars - ETCi_dollars| &gt; |DS07.threshold_cost_VAC_dollar_fav| &amp; DS11.narrative_overall is missing or blank where DS11.narrative_type = 120 (by DS03.WBS_ID_CA &amp; DS11.WBS_ID).</message>
   <grouping>WBS_ID_CA</grouping>
   <param name="@upload_ID">The unique identifier of the PARS CPP Upload on which this DIQ check will run.</param>
   <returns>Rows of data that fail the DIQ check</returns>
