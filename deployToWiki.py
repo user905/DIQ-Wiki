@@ -47,6 +47,14 @@ def fetch_existing_page_id(path, locale='en'):
         return None
 
 
+# Create or update a page on the wiki
+# @param path The path of the page (e.g. "DIQs/DS01")
+# @param title The title of the page
+# @param subtitle The subtitle of the page
+# @param severity The severity of the page (e.g. "error", "warning", "alert")
+# @param content The content of the page
+# @param editor The editor to use for the page ("markdown" or "html")
+# @param ispublished Whether the page should be published or not
 def create_or_update_page(path, title, subtitle, severity, content, editor='markdown', ispublished=True, 
                           isprivate=False, locale="en", tags=None, ds=None):
     
@@ -182,8 +190,6 @@ with open('diq_data.json', 'w') as json_file:
 for root, dirs, files in os.walk("./wikijs"):
     print(count)
     for file in files:
-
-
         if file.endswith(".md"):
             path = os.path.join(root, file)
             
