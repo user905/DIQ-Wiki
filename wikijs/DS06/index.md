@@ -1,4 +1,4 @@
-## ERROR
+## CRITICAL
 
 | UID                           | Title                             | Summary                                                                                                    | Error Message                                                                             |
 | ----------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -11,7 +11,7 @@
 | [9060301](/DIQs/DS06/9060301) | Resource Task Missing in Schedule | Is the task this resource is assigned to missing in the schedule?                                          | Task_ID missing in DS04.task_ID list (by schedule_type & subproject_ID).                  |
 | [1060265](/DIQs/DS06/1060265) | Resource Missing EOC              | Is this resource lacking an EOC?                                                                           | EOC missing (where resource_ID is not blank).                                             |
 
-## WARNING
+## MAJOR
 
 | UID                           | Title                                                        | Summary                                                                                                 | Error Message                                                                                                                                                                         |
 | ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@
 | [9060303](/DIQs/DS06/9060303) | Resource Labor Performance without Cost Labor Actuals (CA)   | Are there resource labor performance units recorded without labor actual hours in cost at the CA level? | Resource labor performance units > 0 (actual_units where EOC or type = Labor) while cost labor actuals hours = 0 (SUM of DS03.ACWPi_hours where EOC = Labor) by WBS_ID_CA.            |
 | [9060307](/DIQs/DS06/9060307) | Cost Labor Actuals without Resource Labor Performance (CA)   | Are there labor actual hours in cost without labor performance units in resources? (CA)                 | Resource labor performance units = 0 (actual_units where EOC or type = Labor) while cost labor actuals hours > 0 (SUM of DS03.ACWPi_hours where EOC = Labor) (Test runs at CA level). |
 
-## ALERT
+## MINOR
 
 | UID                           | Title                                                    | Summary                                                                                                                   | Error Message                                                                                                                         |
 | ----------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |

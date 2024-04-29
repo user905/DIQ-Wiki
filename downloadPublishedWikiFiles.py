@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ENABLE_UPDATE=False
-
 def fetch_existing_page_id(path, locale='en'):
     print(f"Fetching existing page at path {path}...")
     

@@ -23,5 +23,7 @@ Scrips that might prove useful:
 - `replace_sql_blocks.py`: replace the SQL blocks in the new DIQ MD files
   with the new SQL code from /diqs
 - `write_index_markdown.py`: Write the top-level index file by referencing the contents of error.md, alert.md, and warning.md in /wikijs
-- `downloadPublishedWikiFiles.py`: Download all currently published WikiJS DIQ pages to the wikijs_published folder.
+- `downloadPublishedWikiFiles.py`: Download published versions of the .md files found in wikijs
+- `downloadAllWikiFiles.py`: Download all published MD files
 - `deletePublishedPagesWithoutHumanNarrative.py`: Delete any of the above published WikiJS DIQ pages that haven't had a human review their narrative.
+- `generate_changelog.py`: Generate a changelog. Parts of this may be useful.

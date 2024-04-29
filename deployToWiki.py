@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ENABLE_UPDATE=False
+ENABLE_UPDATE=True
 
 def fetch_existing_page_id(path, locale='en'):
     print(f"Fetching existing page at path {path}...")
@@ -189,12 +189,15 @@ with open('diq_data.json', 'w') as json_file:
 
 for root, dirs, files in os.walk("./wikijs"):
     print(count)
+    # if count > 5:
+    #     break
     for file in files:
         if file.endswith(".md"):
             path = os.path.join(root, file)
             
             name = file.replace('.md', '')
             try:
+                print(file)
                 with open(path, 'r') as file_content:
                     content = file_content.read()
             except IOError:
@@ -212,9 +215,13 @@ for root, dirs, files in os.walk("./wikijs"):
                     create_or_update_page(path, "DIQs", "", None, content)
                 count+=1
             
-            if(name == "error" or name == "warning" or name == "alert"):
+            if(name == "error" or name == "warning" or name == "alert" or name == "critical" or name == "major" or name == "minor"):
                 path=f"DIQs/{name}"
                 create_or_update_page(path, f"{name.upper()} DIQs", "", None, content) 
+            
+            if(name == "changelog"):
+                path=f"DIQs/{name}"
+                create_or_update_page(path, f"{name.upper()}", "", None, content)
 
             
             with open('diq_data.json', 'r') as json_file:

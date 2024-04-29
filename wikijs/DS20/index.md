@@ -1,10 +1,10 @@
-## ERROR
+## CRITICAL
 
 | UID                           | Title                        | Summary                                                                               | Error Message                                                      |
 | ----------------------------- | ---------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | [1200595](/DIQs/DS20/1200595) | Duplicate Calendar Exception | Is this calendar exception duplicated by calendar name, subproject, & exception date? | Count of calendar_name, subproject_ID, & exception_date combo > 1. |
 
-## ALERT
+## MINOR
 
 | UID                           | Title                                           | Summary                                                     | Error Message                                                                                     |
 | ----------------------------- | ----------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |

@@ -1,4 +1,26 @@
 /*
+
+The name of the function should include the ID and a short title, for example: DIQ0001_WBS_Pkey or DIQ0003_WBS_Single_Level_1
+
+author is your name.
+
+id is the unique DIQ ID of this test. Should be an integer increasing from 1.
+
+table is the table name (flat file) against which this test runs, for example: "FF01_WBS" or "FF26_WBS_EU".
+DIQ tests might pull data from multiple tables but should only return rows from one table (split up the tests if needed).
+This value is the table from which this row returns tests.
+
+status should be set to TEST, LIVE, SKIP.
+TEST indicates the test should be run on test/development DIQ checks.
+LIVE indicates the test should run on live/production DIQ checks.
+SKIP indicates this isn't a test and should be skipped.
+
+severity should be set to WARNING or ERROR. ERROR indicates a blocking check that prevents further data processing.
+
+summary is a summary of the check for a technical audience.
+
+message is the error message displayed to the user for the check.
+
 <documentation>
   <author>Elias Cooper</author>
   <table>DS03 Cost</table>
@@ -13,12 +35,27 @@
   <UID>9030057</UID>
 </documentation>
 */
+
 CREATE FUNCTION [dbo].[fnDIQ_DS03_Cost_ArePeriodsLT20OrGT36DaysApart] (
 	@upload_id int = 0
 )
 RETURNS TABLE
 AS RETURN
 (
+
+
+
+	/*
+		This function looks for consecutive Period Dates within the PMB that are not between 
+		20-36 days apart.
+
+		It creates a cte, PMBPeriod, with a list periods that are prior to the DS04.ES_date
+		of milestone_level = 175 (end of PMB). (We use MAX(ES_Date) in case there are several
+		MSs that represent this milestone.)
+
+		Alongside the periods are the period prior and the period after, which will be used for comparison
+	*/
+
 	with PMBPeriods AS (
 		SELECT 
 			period_date Period, 
@@ -32,6 +69,12 @@ AS RETURN
 		)
 		GROUP BY period_date
 	)
+
+	/*
+		Using PMBPeriods we then sub-select for Periods where prevperiod/nextperiod
+		are not within 20-36 of the current period.
+	*/
+
 	SELECT 
 		* 
 	FROM 

@@ -1,10 +1,10 @@
-## ERROR
+## CRITICAL
 
 | UID                           | Title         | Summary                                                           | Error Message                                             |
 | ----------------------------- | ------------- | ----------------------------------------------------------------- | --------------------------------------------------------- |
 | [1080441](/DIQs/DS08/1080441) | Duplicate WAD | Is this WAD a duplicate by WAD ID, WBS ID, WP WBS ID, & revision? | Count of WAD_ID, WBS_ID, WBS_ID_WP, & revision combo > 1. |
 
-## WARNING
+## MAJOR
 
 | UID                           | Title                                                              | Summary                                                                                                                            | Error Message                                                                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -66,7 +66,7 @@
 | [9080411](/DIQs/DS08/9080411) | CA Indirect Dollars Misaligned With Cost                           | Are the indirect budget dollars for this CA WAD misaligned with what is in cost?                                                   | budget_indirect_dollars <> SUM(DS03.BCWSi_dollars) where EOC = Indirect or is_indirect = Y (by WBS_ID_CA).                                      |
 | [9080433](/DIQs/DS08/9080433) | WP Indirect Dollars Missing In Cost                                | Are the indirect budget dollars for this WP/PP WAD missing in cost?                                                                | budget_indirect_dollars > 0 & DS03.BCWSi_dollars = 0 where EOC = indirect (by WBS_ID_WP).                                                       |
 
-## ALERT
+## MINOR
 
 | UID                           | Title                                                      | Summary                                                                                     | Error Message                                                                                                                 |
 | ----------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |

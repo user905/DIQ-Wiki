@@ -1,4 +1,4 @@
-## ERROR
+## CRITICAL
 
 | UID                           | Title                                                | Summary                                                                               | Error Message                                                                                                                                                                                                                                                                                         |
 | ----------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -12,7 +12,7 @@
 | [9030078](/DIQs/DS03/9030078) | Apportionment IDs Mismatch Between Cost and Schedule | Is the WBS ID to which this work is apportioned mismatched in cost and schedule?      | EVT = J or M where EVT_J_to_WBS_ID does not equal the WBS ID in Schedule.                                                                                                                                                                                                                             |
 | [1030116](/DIQs/DS03/1030116) | Inconsistent Use of Indirect                         | Is indirect distributed inconsistently?                                               | Possible Reasons: 1) indirect actuals found where is_indirect = Y, and both EOC = Indirect and EOC <> Indirect are used; 2) is_indirect utilized in some WPs/CAs and missing in others; 3) indirect actuals found at both the CA & WP levels; 4) data found where is_indirect = N but EOC = Indirect. |
 
-## WARNING
+## MAJOR
 
 | UID                           | Title                                                             | Summary                                                                                                                       | Error Message                                                                                                                                                                        |
 | ----------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | --- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +70,7 @@
 | [1030117](/DIQs/DS03/1030117) | Labor Found Alongside Non-Indirect EOC                            | Does this WP/PP mingle Labor with other EOC types (excluding Indirect)?                                                       | EOC = Labor & Material, Subcontract, or ODC by WBS_ID_WP.                                                                                                                            |
 | [1060269](/DIQs/DS03/1060269) | CA WBS Matches WP WBS                                             | Do the CA & WP WBS IDs match?                                                                                                 | WBS_ID_CA = WBS_ID_WP                                                                                                                                                                |
 
-## ALERT
+## MINOR
 
 | UID                           | Title                                                     | Summary                                                                                                                                                           | Error Message                                                                                                                     |
 | ----------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |

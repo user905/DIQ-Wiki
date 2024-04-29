@@ -1,4 +1,4 @@
-## ERROR
+## CRITICAL
 
 | UID                           | Title                                     | Summary                                                                                | Error Message                                                                                       |
 | ----------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -13,7 +13,7 @@
 | [1010036](/DIQs/DS01/1010036) | WP or PP At Level 1 or 2                  | Is the WP or PP at Level 1 or 2 in the WBS hierarchy?                                  | WP or PP at Level 1 or 2 in the WBS hierarchy                                                       |
 | [1010039](/DIQs/DS01/1010039) | Parent WBS ID Missing In WBS List         | Is the Parent WBS ID missing in the WBS ID list?                                       | Parent WBS ID not found in the WBS ID list.                                                         |
 
-## WARNING
+## MAJOR
 
 | UID                           | Title                               | Summary                                                        | Error Message                                                                                                                             |
 | ----------------------------- | ----------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,7 +42,7 @@
 | [9010023](/DIQs/DS01/9010023) | OBS ID Missing in DS02 OBS List     | Is the OBS ID missing in DS02 OBS?                             | OBS ID missing in the DS02 OBS ID list                                                                                                    |
 | [9010030](/DIQs/DS01/9010030) | CA WBS ID Missing in WAD List       | Is this CA missing in the WAD list?                            | WBS_ID where DS01.type = CA not in DS08.WBS_ID list.                                                                                      |
 
-## ALERT
+## MINOR
 
 | UID                           | Title                                   | Summary                                                  | Error Message                                              |
 | ----------------------------- | --------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
