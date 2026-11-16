@@ -1,3 +1,5 @@
 .env
 *.DS_Store
-*.zip
+*.zip__pycache__/
+.pytest_cache/
+/generated/

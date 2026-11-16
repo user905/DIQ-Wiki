@@ -1,43 +1,31 @@
-import os
+"""Rebuilds only the DIQ index and severity pages, with no model and no DIQ page.
 
-def write_sections_to_index(files, root_dir):
-    for filename in files:
-        filepath = os.path.join(root_dir, filename) # Getting complete path
-        with open(filepath, 'r') as md_file:
-            lines = md_file.readlines()
+Writes `<out>/diqs/index.md`, `<out>/diqs/dsNN/index.md` and `<out>/diqs/{critical,major,minor}.md`
+from diq_data.json, in PLASMA's syntax (relative `.md` links, frontmatter). The text before the
+first heading of an existing index page is kept when its folder is given with --reuse-from.
 
-        # The name of the section to be used as a heading in the index.md files (e.g., ERROR, WARNING, ALERT)
-        section_name = filename.split('.')[0].upper()
-        ds_number = None
-        section_lines = []
+    python write_index_markdown.py --reuse-from ../plasma
+"""
 
-        for line in lines:
-            if line.startswith('## '):  # Section header found
-                if ds_number is not None and section_lines:  # If there's a previous section captured
-                    write_section_to_index(ds_number, section_name, section_lines, root_dir)
-                
-                # Extract the new DS number and reset the section lines
-                ds_number = line.split(' ')[1].strip()
-                section_lines = []
-            else:
-                section_lines.append(line)
+import argparse
+import json
+import sys
 
-        # Write the last section to the corresponding index.md file
-        if ds_number is not None and section_lines:
-            write_section_to_index(ds_number, section_name, section_lines, root_dir)
+from generateMarkdown import generate_index_pages, load_diqs
 
 
-def write_section_to_index(ds_number, section_name, section_lines, root_dir):
-    ds_dir = os.path.join(root_dir, ds_number)
-    if os.path.isdir(ds_dir):  # Ensure the directory exists
-        index_file = os.path.join(ds_dir, 'index.md')
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument("--data", default="diq_data.json")
+    parser.add_argument("--out", default="generated")
+    parser.add_argument("--reuse-from", action="append", default=[], metavar="DIR")
+    args = parser.parse_args(argv)
+    with open(args.data, encoding="utf-8") as f:
+        diqs = [diq for _name, _entry, diq in load_diqs(json.load(f))]
+    count = generate_index_pages(diqs, args.out, args.reuse_from)
+    print(f"Wrote {count} index and severity pages under {args.out}/diqs")
+    return 0
 
-        with open(index_file, 'a') as f:  # Open the file in append mode
-            f.write(f'## {section_name}\n')
-            f.writelines(section_lines)  # Write the section lines
 
-
-md_files = ['Error.md', 'Warning.md', 'Alert.md']
-root_directory = 'wikijs'
-
-write_sections_to_index(md_files, root_directory)
+if __name__ == "__main__":
+    sys.exit(main())
